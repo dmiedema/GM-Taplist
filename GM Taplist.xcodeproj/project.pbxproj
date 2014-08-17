@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04AD67DFA2A546049E06EB31 /* libPods-GM TaplistTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */; };
+		8133CDC92DBD4702BAB6A5BF /* libPods-GM Taplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */; };
 		C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987119A16AA700EB4270 /* AppDelegate.swift */; };
 		C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */; };
-		C3DB987719A16AA700EB4270 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987619A16AA700EB4270 /* ViewController.swift */; };
 		C3DB987A19A16AA700EB4270 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DB987819A16AA700EB4270 /* Main.storyboard */; };
 		C3DB987C19A16AA700EB4270 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3DB987B19A16AA700EB4270 /* Images.xcassets */; };
-		C3DB988819A16AA700EB4270 /* GM_TaplistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB988719A16AA700EB4270 /* GM_TaplistTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +26,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM TaplistTests.xcconfig"; path = "Pods/Pods-GM TaplistTests.xcconfig"; sourceTree = "<group>"; };
+		0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM Taplist.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM TaplistTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.xcconfig"; path = "Pods/Pods-GM Taplist.xcconfig"; sourceTree = "<group>"; };
 		C3DB986C19A16AA700EB4270 /* GM Taplist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Taplist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DB987019A16AA700EB4270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3DB987119A16AA700EB4270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DB987419A16AA700EB4270 /* GM_Taplist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GM_Taplist.xcdatamodel; sourceTree = "<group>"; };
-		C3DB987619A16AA700EB4270 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3DB987919A16AA700EB4270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3DB987B19A16AA700EB4270 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C3DB988119A16AA700EB4270 /* GM TaplistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GM TaplistTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DB988619A16AA700EB4270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3DB988719A16AA700EB4270 /* GM_TaplistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GM_TaplistTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8133CDC92DBD4702BAB6A5BF /* libPods-GM Taplist.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +53,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AD67DFA2A546049E06EB31 /* libPods-GM TaplistTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A69452808001459BB0B203AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */,
+				10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C3DB986319A16AA600EB4270 = {
 			isa = PBXGroup;
 			children = (
 				C3DB986E19A16AA700EB4270 /* GM Taplist */,
 				C3DB988419A16AA700EB4270 /* GM TaplistTests */,
 				C3DB986D19A16AA700EB4270 /* Products */,
+				2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */,
+				A69452808001459BB0B203AD /* Frameworks */,
+				0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,11 +93,11 @@
 		C3DB986E19A16AA700EB4270 /* GM Taplist */ = {
 			isa = PBXGroup;
 			children = (
-				C3DB987119A16AA700EB4270 /* AppDelegate.swift */,
-				C3DB987619A16AA700EB4270 /* ViewController.swift */,
-				C3DB987819A16AA700EB4270 /* Main.storyboard */,
-				C3DB987B19A16AA700EB4270 /* Images.xcassets */,
-				C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */,
+				C3DB989819A16B7F00EB4270 /* Classes */,
+				C3DB989519A16B5000EB4270 /* Core Data */,
+				C3DB989E19A16BD600EB4270 /* Constants */,
+				C3DB989119A16B0700EB4270 /* Extensions */,
+				C3DB989419A16B4400EB4270 /* Resources */,
 				C3DB986F19A16AA700EB4270 /* Supporting Files */,
 			);
 			path = "GM Taplist";
@@ -98,7 +114,7 @@
 		C3DB988419A16AA700EB4270 /* GM TaplistTests */ = {
 			isa = PBXGroup;
 			children = (
-				C3DB988719A16AA700EB4270 /* GM_TaplistTests.swift */,
+				C3DB989219A16B2F00EB4270 /* Tests */,
 				C3DB988519A16AA700EB4270 /* Supporting Files */,
 			);
 			path = "GM TaplistTests";
@@ -112,6 +128,116 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C3DB989119A16B0700EB4270 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C3DB989219A16B2F00EB4270 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		C3DB989319A16B3A00EB4270 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				C3DB987119A16AA700EB4270 /* AppDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		C3DB989419A16B4400EB4270 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3DB989719A16B6C00EB4270 /* Storyboards */,
+				C3DB989619A16B6400EB4270 /* Nibs */,
+				C3DB987B19A16AA700EB4270 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C3DB989519A16B5000EB4270 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		C3DB989619A16B6400EB4270 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		C3DB989719A16B6C00EB4270 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C3DB987819A16AA700EB4270 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C3DB989819A16B7F00EB4270 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3DB989919A16B8500EB4270 /* Controllers */,
+				C3DB989A19A16B8900EB4270 /* DataSources */,
+				C3DB989319A16B3A00EB4270 /* Delegates */,
+				C3DB989B19A16BA100EB4270 /* Models */,
+				C3DB989C19A16BA600EB4270 /* View Controllers */,
+				C3DB989D19A16BAE00EB4270 /* Views */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		C3DB989919A16B8500EB4270 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C3DB989A19A16B8900EB4270 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		C3DB989B19A16BA100EB4270 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C3DB989C19A16BA600EB4270 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C3DB989D19A16BAE00EB4270 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C3DB989E19A16BD600EB4270 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3DB988B19A16AA700EB4270 /* Build configuration list for PBXNativeTarget "GM Taplist" */;
 			buildPhases = (
+				B0058189ACE54186B0DF096E /* Check Pods Manifest.lock */,
 				C3DB986819A16AA700EB4270 /* Sources */,
 				C3DB986919A16AA700EB4270 /* Frameworks */,
 				C3DB986A19A16AA700EB4270 /* Resources */,
+				A02E7EAA7A594CAB9F651CC3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,9 +264,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3DB988E19A16AA700EB4270 /* Build configuration list for PBXNativeTarget "GM TaplistTests" */;
 			buildPhases = (
+				C847858FD8944FBAB65FFDE8 /* Check Pods Manifest.lock */,
 				C3DB987D19A16AA700EB4270 /* Sources */,
 				C3DB987E19A16AA700EB4270 /* Frameworks */,
 				C3DB987F19A16AA700EB4270 /* Resources */,
+				EC744A2077DB4EA3A4767C9F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,12 +336,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A02E7EAA7A594CAB9F651CC3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GM Taplist-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0058189ACE54186B0DF096E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C847858FD8944FBAB65FFDE8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EC744A2077DB4EA3A4767C9F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GM TaplistTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C3DB986819A16AA700EB4270 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3DB987719A16AA700EB4270 /* ViewController.swift in Sources */,
 				C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */,
 				C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */,
 			);
@@ -221,7 +413,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3DB988819A16AA700EB4270 /* GM_TaplistTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +519,7 @@
 		};
 		C3DB988C19A16AA700EB4270 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -339,6 +531,7 @@
 		};
 		C3DB988D19A16AA700EB4270 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -350,6 +543,7 @@
 		};
 		C3DB988F19A16AA700EB4270 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -369,6 +563,7 @@
 		};
 		C3DB989019A16AA700EB4270 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -401,6 +596,7 @@
 				C3DB988D19A16AA700EB4270 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3DB988E19A16AA700EB4270 /* Build configuration list for PBXNativeTarget "GM TaplistTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +605,7 @@
 				C3DB989019A16AA700EB4270 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
