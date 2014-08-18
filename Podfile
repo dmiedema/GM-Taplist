@@ -16,8 +16,9 @@ end
 
 target :"GM TaplistTests" do
 
-pod 'Specta'
-pod 'Expecta'
+  pod 'Sleipnir'
+# pod 'Specta'
+# pod 'Expecta'
 pod 'OCMock'
 pod 'OHHTTPStubs'
 
