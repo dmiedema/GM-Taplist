@@ -22,6 +22,8 @@
 		C3DB98AF19A17EDB00EB4270 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98AE19A17EDB00EB4270 /* Store.swift */; };
 		C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */; };
 		C3DB98B319A18B2E00EB4270 /* Store+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98B219A18B2E00EB4270 /* Store+Accessors.swift */; };
+		C3DB98B519A1AD4700EB4270 /* Beer+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98B419A1AD4700EB4270 /* Beer+Accessors.swift */; };
+		C3DB98B719A2F9CA00EB4270 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98B619A2F9CA00EB4270 /* Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		C3DB98AE19A17EDB00EB4270 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTapDataSource.swift; sourceTree = "<group>"; };
 		C3DB98B219A18B2E00EB4270 /* Store+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+Accessors.swift"; sourceTree = "<group>"; };
+		C3DB98B419A1AD4700EB4270 /* Beer+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beer+Accessors.swift"; sourceTree = "<group>"; };
+		C3DB98B619A2F9CA00EB4270 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,12 +188,14 @@
 			isa = PBXGroup;
 			children = (
 				C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */,
+				C3DB98B619A2F9CA00EB4270 /* Style.swift */,
 				C3DB98AE19A17EDB00EB4270 /* Store.swift */,
 				C3DB98A619A1760E00EB4270 /* Beer.swift */,
 				C3DB98A419A1760E00EB4270 /* Review.swift */,
 				C3DB98A219A1760E00EB4270 /* User.swift */,
 				C3DB98A019A1760D00EB4270 /* Brewery.swift */,
 				C3DB98B219A18B2E00EB4270 /* Store+Accessors.swift */,
+				C3DB98B419A1AD4700EB4270 /* Beer+Accessors.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -438,11 +444,13 @@
 				C3DB98A319A1760E00EB4270 /* User.swift in Sources */,
 				C3DB98AF19A17EDB00EB4270 /* Store.swift in Sources */,
 				C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */,
+				C3DB98B719A2F9CA00EB4270 /* Style.swift in Sources */,
 				C3DB98A119A1760D00EB4270 /* Brewery.swift in Sources */,
 				C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */,
 				C3DB98A919A1768500EB4270 /* API.swift in Sources */,
 				C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */,
 				C3DB98B319A18B2E00EB4270 /* Store+Accessors.swift in Sources */,
+				C3DB98B519A1AD4700EB4270 /* Beer+Accessors.swift in Sources */,
 				C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

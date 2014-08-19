@@ -3,6 +3,7 @@
     <entity name="Beer" representedClassName="Beer" syncable="YES">
         <attribute name="abv" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="beer_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="growler_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="growlette_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -47,6 +48,10 @@
         <attribute name="postal_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Style" representedClassName="Style" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="style" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -56,10 +61,11 @@
         <relationship name="review" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="user" inverseEntity="Review" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beer" positionX="54" positionY="99" width="128" height="270"/>
+        <element name="Beer" positionX="54" positionY="99" width="128" height="283"/>
         <element name="Brewery" positionX="18" positionY="63" width="128" height="133"/>
         <element name="Review" positionX="-27" positionY="18" width="128" height="105"/>
         <element name="User" positionX="18" positionY="63" width="128" height="133"/>
         <element name="Store" positionX="18" positionY="171" width="128" height="253"/>
+        <element name="Style" positionX="27" positionY="180" width="128" height="73"/>
     </elements>
 </model>
