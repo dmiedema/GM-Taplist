@@ -13,13 +13,6 @@ protocol GMTaplistCollectionViewDataSource: UICollectionViewDataSource {
     func itemAtIndexPath(indexPath: NSIndexPath) -> Beer
 }
 
-func ObjectOrNull<T>(obj: T) -> T? {
-    if obj == nil || obj as NSObject == NSNull() {
-        return nil
-    }
-    return obj
-}
-
 struct GrowlMovement {
     struct GMTaplist {
         struct UserDefaults {
@@ -28,36 +21,37 @@ struct GrowlMovement {
         }
         struct Errors {
             struct Network {
-                static let Generic = "com.GrowlMovement.GMTaplist.Error.Network.Generic"
-                static let Favorite = "com.GrowlMovement.GMTaplist.Error.Network.Favorite"
+                static let Generic    = "com.GrowlMovement.GMTaplist.Error.Network.Generic"
+                static let Favorite   = "com.GrowlMovement.GMTaplist.Error.Network.Favorite"
                 static let Unfavorite = "com.GrowlMovement.GMTaplist.Error.Network.Unfavorite"
             }
             struct CoreData {
-                static let Generic = "com.GrowlMovement.GMTaplist.Error.CoreData.Generic"
-                static let Favorite = "com.GrowlMovement.GMTaplist.Error.CoreData.Favorite"
+                static let Generic    = "com.GrowlMovement.GMTaplist.Error.CoreData.Generic"
+                static let Favorite   = "com.GrowlMovement.GMTaplist.Error.CoreData.Favorite"
                 static let Unfavorite = "com.GrowlMovement.GMTaplist.Error.CoreData.Unfavorite"
             }
-            static let Generic = "com.GrowlMovement.GMTaplist.Error.Generic"
-            static let Favorite = "com.GrowlMovement.GMTaplist.Error.Favorite"
+            static let Generic    = "com.GrowlMovement.GMTaplist.Error.Generic"
+            static let Favorite   = "com.GrowlMovement.GMTaplist.Error.Favorite"
             static let Unfavorite = "com.GrowlMovement.GMTaplist.Error.Unfavorite"
         }
         struct CoreData {
             struct ObjectEntityNames {
-                static let Beer = "Beer"
+                static let Beer    = "Beer"
                 static let Brewery = "Brewery"
-                static let Review = "Review"
-                static let Store = "Store"
-                static let User = "User"
+                static let Review  = "Review"
+                static let Store   = "Store"
+                static let Style   = "Style"
+                static let User    = "User"
             }
         }
         struct Success {
-            static let Generic = "com.GrowlMovement.GMTaplist.Success.Generic"
-            static let Favorite = "com.GrowlMovement.GMTaplist.Success.Favorite"
+            static let Generic    = "com.GrowlMovement.GMTaplist.Success.Generic"
+            static let Favorite   = "com.GrowlMovement.GMTaplist.Success.Favorite"
             static let Unfavorite = "com.GrowlMovement.GMTaplist.Success.Unfavorite"
         }
         struct Data {
-            static let Generic = "com.GrowlMovement.GMTaplist.Data.Generic"
-            static let Favorite = "com.GrowlMovement.GMTaplist.Data.Favorite"
+            static let Generic    = "com.GrowlMovement.GMTaplist.Data.Generic"
+            static let Favorite   = "com.GrowlMovement.GMTaplist.Data.Favorite"
             static let Unfavorite = "com.GrowlMovement.GMTaplist.Data.Unfavorite"
         }
         struct URLs {
@@ -66,9 +60,9 @@ struct GrowlMovement {
         }
         struct APIKeys {
             static let ResetBadgeNotification = "reset-notification-count"
-            static let PreferredStores = "preferred-stores"
-            static let APIKey = "4ad31c634bd46b50bb7a1c97b970952f"
-            static let APIKeyHeader = "X-GrowlMovement-API-Key"
+            static let PreferredStores        = "preferred-stores"
+            static let APIKey                 = "4ad31c634bd46b50bb7a1c97b970952f"
+            static let APIKeyHeader           = "X-GrowlMovement-API-Key"
         }
         struct Colors {
             static let NewBeerMarker  = UIColor(red: 5, green: 5, blue: 5, alpha: 1.0)

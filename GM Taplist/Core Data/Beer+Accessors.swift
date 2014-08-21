@@ -11,77 +11,67 @@ import Foundation
 extension Beer {
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Beer {
         
-        var beer = Beer.loadBeerByID(data["brewsID"] as Int, inContext: managedObjectContext)
+        var beer = Beer.loadBeerByID(data["id"] as Int, inContext: managedObjectContext)
         
         if beer == nil {
             beer = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Beer, inManagedObjectContext: managedObjectContext) as? Beer
-            beer?.id = data["brewsID"] as NSNumber
+            beer?.id = data["id"] as NSNumber
         }
         
-        if let abv: AnyObject! = ObjectOrNull(data["BrewABV"]) {
+        if let abv: AnyObject! = data["abv"] {
             beer?.abv = abv as NSNumber
         } else {
             beer?.abv = 0
         }
-        
-        beer?.favorite = false
-        
-        if let growler: AnyObject! = ObjectOrNull(data["BrewABV"]) {
-            beer?.growler_price =
+                
+        if let growler: AnyObject! = data["growler_price"] {
+//            beer?.growler_price =
         } else {
             
         }
         
-        if let growlette: AnyObject! = ObjectOrNull(data["BrewABV"]) {
-            
-        } else {
-            
-        }
-        
-        if let halfPint: AnyObject! = ObjectOrNull(data["BrewABV"]) {
+        if let growlette: AnyObject! = data["growlette_price"] {
             
         } else {
             
         }
         
-        if let ibu: AnyObject! = ObjectOrNull(data["BrewIBU"]) {
+        if let halfPint: AnyObject! = data["halfpint_price"] {
             
         } else {
             
         }
         
-        if let name: AnyObject! = ObjectOrNull(data["BrewName"]) {
+        if let ibu: AnyObject! = data["ibu"] {
+            beer?.ibu = ibu as NSNumber
+        } else {
+            beer?.ibu = 0
+        }
+        
+        if let name: AnyObject! = data["name"] {
+            beer?.name = name as String;
+        } else {
+            beer?.name = "";
+        }
+        
+        if let pint: AnyObject! = data["pint_price"] {
             
         } else {
             
         }
-        
-        if let pint: AnyObject! = ObjectOrNull(data["BrewABV"]) {
-            
+
+        if let beerDescription: AnyObject! = data["description"] {
+            beer?.beer_description = beerDescription as String
         } else {
-            
+            beer?.beer_description = ""
         }
         
-        beer?.purchased = false
-        
-        if let style: AnyObject! = ObjectOrNull(data["BrewABV"]) {
-            
-        } else {
-            
+        if let brewery: AnyObject! = data["brewery"] {
+            beer?.brewery = Brewery.createOrUpdate(data["brewery"] as NSDictionary, inManagedObjectContext: managedObjectContext)
         }
         
-        if let tapID: AnyObject! = ObjectOrNull(data["BrewABV"]) {
-            
-        } else {
-            
-        }
-        
-        if let brewery: AnyObject! = ObjectOrNull(data["brewery"]) {
-            
-        }
-        
-        if let style: AnyObject! = ObjectOrNull(data["style"]) {
-            
+        if let style: AnyObject! = data["style"] {
+            beer?.style = Style.createOrUpdate(data["style"] as NSDictionary, inManagedObjectContext: managedObjectContext)
         }
         
         return beer!

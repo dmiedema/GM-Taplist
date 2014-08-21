@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.8" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.14" systemVersion="14A329f" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Beer" representedClassName="Beer" syncable="YES">
         <attribute name="abv" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -19,9 +19,9 @@
         <relationship name="review" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Review" inverseName="beer" inverseEntity="Review" syncable="YES"/>
     </entity>
     <entity name="Brewery" representedClassName="Brewery" syncable="YES">
-        <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="logo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="beers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Beer" inverseName="brewery" inverseEntity="Beer" syncable="YES"/>
@@ -50,7 +50,7 @@
     </entity>
     <entity name="Style" representedClassName="Style" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="style" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -62,10 +62,10 @@
     </entity>
     <elements>
         <element name="Beer" positionX="54" positionY="99" width="128" height="283"/>
-        <element name="Brewery" positionX="18" positionY="63" width="128" height="133"/>
+        <element name="Brewery" positionX="18" positionY="63" width="128" height="135"/>
         <element name="Review" positionX="-27" positionY="18" width="128" height="105"/>
-        <element name="User" positionX="18" positionY="63" width="128" height="133"/>
         <element name="Store" positionX="18" positionY="171" width="128" height="253"/>
-        <element name="Style" positionX="27" positionY="180" width="128" height="73"/>
+        <element name="Style" positionX="27" positionY="180" width="128" height="75"/>
+        <element name="User" positionX="18" positionY="63" width="128" height="133"/>
     </elements>
 </model>

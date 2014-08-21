@@ -2,7 +2,7 @@
 //  Review.swift
 //  GM Taplist
 //
-//  Created by Daniel Miedema on 8/17/14.
+//  Created by Daniel on 8/20/14.
 //  Copyright (c) 2014 Growl Movement. All rights reserved.
 //
 
