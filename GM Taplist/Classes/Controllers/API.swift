@@ -25,7 +25,7 @@ class API: AFHTTPSessionManager {
     }
     
     // MARK: Required
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -48,14 +48,14 @@ class API: AFHTTPSessionManager {
             for beer in beers {
                 onTapBeers.append(
                     OnTapBeer(beerID: beer["beer_id"] as Int,
-                        tapNumber: beer["tapNumber"] as Int,
+                        tapNumber: beer["tap_number"] as Int,
                         tapLevel: beer["keg_level"] as Int))
             }
             
             completionBlock(onTapBeers)
             
         }, failure: { (dataTasK, error) -> Void in
-        
+            
         })
     }
     
@@ -82,7 +82,7 @@ class API: AFHTTPSessionManager {
         
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
-            
+    
         })
     }
     
@@ -100,21 +100,60 @@ class API: AFHTTPSessionManager {
     }
     
     // MARK: Beers
-    func beerDetails(beerID: Int, completionBlock:(Beer, Brewery) -> ()) {
+    func beerDetails(beerID: Int, completionBlock:(Beer) -> ()) {
+        let url = NSString(format: "beers/%@", beerID);
         
+        self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
+            let beerData = response["data"] as NSDictionary
+            let beer = Beer.createOrUpdate(beerData, inManagedObjectContext: self.managedObjectContext!)
+            
+            completionBlock(beer)
+        }, failure: { (dataTask, error) -> Void in
+            
+        })
     }
-    
-    func beerDetails(beerName: String, completionBlock:([Beer]) -> ()) {
-        
-    }
-    
+
     func beers(sinceDate: NSDate?, completionBlock:([Beer]) -> ()) {
+        var url = "beers/updated"
+        if let date = sinceDate {
+            let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+                    .components(.DayCalendarUnit | .MonthCalendarUnit | .YearCalendarUnit, fromDate: date)
+            url = NSString(format: "beers/updated/%@/%@/%@", components.year, components.month, components.day)
+        }
         
+        self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
+            let beerData = response["data"] as NSArray
+            var beers = [Beer]()
+            for beer in beerData {
+                beers.append(Beer.createOrUpdate(beer as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
+            }
+            
+            completionBlock(beers)
+        }, failure: { (dataTask, error) -> Void in
+            
+        })
     }
     
     // MARK: Breweries
     func breweries(sinceDate: NSDate?, completionBlock:([Brewery]) -> ()) {
+        var url = "breweries/updated"
+        if let date = sinceDate {
+            let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+                .components(.DayCalendarUnit | .MonthCalendarUnit | .YearCalendarUnit, fromDate: date)
+            url = NSString(format: "breweries/updated/%@/%@/%@", components.year, components.month, components.day)
+        }
         
+        self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
+            let breweryData = response["data"] as NSArray
+            var breweries = [Brewery]()
+            for brewery in breweryData {
+                breweries.append(Brewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
+            }
+            
+            completionBlock(breweries)
+        }, failure: { (dataTask, error) -> Void in
+            
+        })
     }
     
     func breweryDetails(breweryID: Int, completionBlock:(Brewery) -> ()) {
