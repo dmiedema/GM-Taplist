@@ -11,74 +11,80 @@ import Foundation
 extension Store {
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Store {
         
-        var store = Store.loadStoreByID(data["id"] as Int, inContext: managedObjectContext)
+        var store = Store.loadStoreByID(data["storesID"] as Int, inContext: managedObjectContext)
         
         if store == nil {
             store = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Store, inManagedObjectContext: managedObjectContext) as? Store
-            store?.id = data["id"] as NSNumber
+            store?.id = data["storesID"] as NSNumber
+        }
+
+        if let address: AnyObject! = data["StoreAddress"] {
+            store?.address = address as String
+        } else {
+            store?.address = ""
         }
         
-        if let postCode: AnyObject! = data["postal_code"] {
+        if let postCode: AnyObject! = data["StoreZip"] {
             store?.postal_code = postCode as String
         } else {
             store?.postal_code = ""
         }
         
-        if let numberOfTaps: AnyObject! = data["taps"] {
+        if let numberOfTaps: AnyObject! = data["StoreTaps"] {
             store?.number_of_taps = numberOfTaps as NSNumber
         } else {
             store?.number_of_taps = 0
         }
         
-        if let phoneNumber: AnyObject! = data["phone"] {
+        if let phoneNumber: AnyObject! = data["StorePhone"] {
             store?.phone = phoneNumber as String
         } else {
             store?.phone = ""
         }
         
-        if let near: AnyObject! = data["nearby"] {
+        if let near: AnyObject! = data["StoreNearby"] {
             store?.nearby = near as String
         } else {
             store?.nearby = ""
         }
         
-        if let lat: AnyObject! = data["latitude"] {
+        if let lat: AnyObject! = data["StoreLat"] {
             store?.latitude = lat as Double
         } else {
             store?.latitude = 0
         }
         
-        if let long: AnyObject! = data["longitude"] {
+        if let long: AnyObject! = data["StoreLong"] {
             store?.longitude = long as Double
         } else {
             store?.longitude = 0
         }
         
-        if let ip: AnyObject! = data["ip"] {
+        if let ip: AnyObject! = data["StoreIP"] {
             store?.ip_address = ip as String
         } else {
             store?.ip_address = ""
         }
         
-        if let active: AnyObject! = data["active"] {
+        if let active: AnyObject! = data["StoreActive"] {
             store?.active = active as Bool
         } else {
             store?.active = false
         }
         
-        if let city: AnyObject! = data["city"] {
+        if let city: AnyObject! = data["StoreCity"] {
             store?.city = city as String
         } else {
             store?.city = ""
         }
 
-        if let state: AnyObject! = data["state"] {
+        if let state: AnyObject! = data["StoreState"] {
             store?.state = state as String
         } else {
             store?.state = ""
         }
         
-        if let hours: AnyObject! = data["hours"] {
+        if let hours: AnyObject! = data["StoreHours"] {
             store?.hours = hours as String
         } else {
             store?.hours = ""

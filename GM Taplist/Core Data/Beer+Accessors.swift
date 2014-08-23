@@ -11,14 +11,14 @@ import Foundation
 extension Beer {
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Beer {
         
-        var beer = Beer.loadBeerByID(data["id"] as Int, inContext: managedObjectContext)
+        var beer = Beer.loadBeerByID(data["brewsID"] as Int, inContext: managedObjectContext)
         
         if beer == nil {
             beer = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Beer, inManagedObjectContext: managedObjectContext) as? Beer
-            beer?.id = data["id"] as NSNumber
+            beer?.id = data["brewsID"] as NSNumber
         }
         
-        if let abv: AnyObject! = data["abv"] {
+        if let abv: AnyObject! = data["BrewABV"] {
             beer?.abv = abv as NSNumber
         } else {
             beer?.abv = 0
@@ -42,13 +42,13 @@ extension Beer {
             
         }
         
-        if let ibu: AnyObject! = data["ibu"] {
+        if let ibu: AnyObject! = data["BrewIBU"] {
             beer?.ibu = ibu as NSNumber
         } else {
             beer?.ibu = 0
         }
         
-        if let name: AnyObject! = data["name"] {
+        if let name: AnyObject! = data["BrewName"] {
             beer?.name = name as String;
         } else {
             beer?.name = "";
@@ -60,7 +60,7 @@ extension Beer {
             
         }
 
-        if let beerDescription: AnyObject! = data["description"] {
+        if let beerDescription: AnyObject! = data["BrewDescription"] {
             beer?.beer_description = beerDescription as String
         } else {
             beer?.beer_description = ""
