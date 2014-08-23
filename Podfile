@@ -5,6 +5,8 @@ pod 'AFNetworking'
 # pod 'Alamofire'
 pod 'GroundControl'
 
+pod 'VENVersionTracker'
+
 pod 'SDWebImage'
 pod 'BNRDynamicTypeManager'
 pod 'CocoaLumberjack'
@@ -16,7 +18,7 @@ end
 
 target :"GM TaplistTests" do
 
-  pod 'Sleipnir'
+pod 'Sleipnir'
 # pod 'Specta'
 # pod 'Expecta'
 pod 'OCMock'

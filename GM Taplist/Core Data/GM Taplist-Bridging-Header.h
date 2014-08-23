@@ -7,3 +7,5 @@
 #import "NSUserDefaults+GroundControl.h"
 
 #import <CoreData/CoreData.h>
+
+#import <CocoaLumberjack/CocoaLumberjack.h>

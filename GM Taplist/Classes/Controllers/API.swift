@@ -38,6 +38,7 @@ class API: AFHTTPSessionManager {
         self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
     }
     
+/*
     // MARK: Stores/Ontap
     func beersOnTapForStore(storeID: Int, completionBlock:([OnTapBeer]) -> ()) {
         let url = NSString(format: "stores/%@/ontap", storeID)
@@ -171,4 +172,5 @@ class API: AFHTTPSessionManager {
     func beersForBrewery(breweryName: String, completionBlock:(Brewery, [Beer]) -> ()) {
     
     }
+*/
 }
