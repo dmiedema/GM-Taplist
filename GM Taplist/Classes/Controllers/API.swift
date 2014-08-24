@@ -38,13 +38,14 @@ class API: AFHTTPSessionManager {
         self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
     }
     
-/*
+
     // MARK: Stores/Ontap
     func beersOnTapForStore(storeID: Int, completionBlock:([OnTapBeer]) -> ()) {
         let url = NSString(format: "stores/%@/ontap", storeID)
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let beers = response["data"] as NSArray
+            let rawData = response as NSDictionary
+            let beers = rawData["data"] as NSArray
             var onTapBeers = [OnTapBeer]()
             for beer in beers {
                 onTapBeers.append(
@@ -62,7 +63,8 @@ class API: AFHTTPSessionManager {
     
     func stores(completionBlock:([Store]) -> ()) {
         self.GET("stores", parameters: nil, success: { (dataTask, response) -> Void in
-            let storesData = response["data"] as NSArray
+            let rawData = response as NSDictionary
+            let storesData = rawData["data"] as NSArray
             var stores = [Store]()
             for store in storesData {
                 stores.append(Store.createOrUpdate(store as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
@@ -78,7 +80,8 @@ class API: AFHTTPSessionManager {
         let url = NSString(format: "stores/%@", storeID)
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let storeData = response["data"] as NSDictionary
+            let rawData = response as NSDictionary
+            let storeData = rawData["data"] as NSDictionary
             let store = Store.createOrUpdate(storeData, inManagedObjectContext: self.managedObjectContext!)
         
             completionBlock(store)
@@ -91,7 +94,8 @@ class API: AFHTTPSessionManager {
         let url = NSString(format: "stores/%@", storeName)
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let storeData = response["data"] as NSArray
+            let rawData = response as NSDictionary
+            let storeData = rawData["data"] as NSArray
             let store = Store.createOrUpdate(storeData.firstObject as NSDictionary, inManagedObjectContext: self.managedObjectContext!)
         
             completionBlock(store)
@@ -105,7 +109,8 @@ class API: AFHTTPSessionManager {
         let url = NSString(format: "beers/%@", beerID);
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let beerData = response["data"] as NSDictionary
+            let rawData = response as NSDictionary
+            let beerData = rawData["data"] as NSDictionary
             let beer = Beer.createOrUpdate(beerData, inManagedObjectContext: self.managedObjectContext!)
             
             completionBlock(beer)
@@ -121,9 +126,10 @@ class API: AFHTTPSessionManager {
                     .components(.DayCalendarUnit | .MonthCalendarUnit | .YearCalendarUnit, fromDate: date)
             url = NSString(format: "beers/updated/%@/%@/%@", components.year, components.month, components.day)
         }
-        
+
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let beerData = response["data"] as NSArray
+            let rawData = response as NSDictionary
+            let beerData = rawData["data"] as NSArray
             var beers = [Beer]()
             for beer in beerData {
                 beers.append(Beer.createOrUpdate(beer as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
@@ -145,7 +151,8 @@ class API: AFHTTPSessionManager {
         }
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let breweryData = response["data"] as NSArray
+            let rawData = response as NSDictionary
+            let breweryData = rawData["data"] as NSArray
             var breweries = [Brewery]()
             for brewery in breweryData {
                 breweries.append(Brewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
@@ -172,5 +179,5 @@ class API: AFHTTPSessionManager {
     func beersForBrewery(breweryName: String, completionBlock:(Brewery, [Beer]) -> ()) {
     
     }
-*/
+
 }

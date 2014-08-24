@@ -23,25 +23,26 @@
         <!--Collection View Controller-->
         <scene sceneID="ZSV-7e-GCJ">
             <objects>
-                <collectionViewController id="Tco-hC-UMA" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="GRMCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tco-hC-UMA" customClass="GRMCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7gp-au-mZF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W4M-Wu-qA3">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="320" height="84"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yKv-Ad-SmO">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GMTaplist.CellReuseIdentifier" id="yKv-Ad-SmO" customClass="GRMCollectionViewCell" customModule="GM_Taplist" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <size key="customSize" width="320" height="84"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -50,6 +51,8 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="L87-za-GAq"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7L-qf-DM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
