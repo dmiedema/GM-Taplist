@@ -14,9 +14,16 @@ struct OnTapBeer {
     var tapLevel: Int
 }
 
-class OnTapDataSource: NSObject, UICollectionViewDataSource {
+class OnTapDataSource: GRMCollectionViewDataSourceProtocol, NSObject, UICollectionViewDataSource {
     let cellIdentifier: String
     let cellConfigurationBlock: (cell: UICollectionViewCell, data: OnTapBeer) -> ()
+    
+    public lazy var managedObjectContext: NSManagedObjectContext? = {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        return appDelegate.managedObjectContext!
+    }()
+
+    var delegate: GRMCollectionViewDataSourceDelegate?
     
     private var beers = [OnTapBeer]()
     
@@ -27,6 +34,26 @@ class OnTapDataSource: NSObject, UICollectionViewDataSource {
         super.init()
     }
     
+    // MARK: Implementation
+    func itemForIndexPath(indexPath: NSIndexPath) -> OnTapBeer {
+        return beers[indexPath.row]
+    }
+
+    func loadBeersForStore(storeID: Int) {
+        delegate.dataLoading()
+
+        API.sharedInstance.beersOnTapForStore(storeID) { (onTapBeers) -> Void in
+            self.beers = onTapBeers
+            delegate.dataLoaded()
+        }
+    }
+
+    func loadBeersForStoreName(storeName: String) {
+        let storeID = Store.storeIDForName(storeName, managedObjectContext!)
+        
+        self.loadBeersForStore(storeID)
+    }
+
     // MARK: UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
