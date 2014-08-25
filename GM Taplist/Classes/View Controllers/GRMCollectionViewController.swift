@@ -10,7 +10,11 @@ import Foundation
 
 class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate {
 
-//    lazy var dataSource: OnTapDataSource? = {
+//    lazy var onTapDataSource: OnTapDataSource? = {
+//    }()
+//    lazy var favoritesDataSource: FavoritesDataSource? = {
+//    }()
+//    lazy var allBeersDataSource: AllBeersDataSource? = {
 //    }()
 
     // MARK: View Life Cycle
@@ -47,7 +51,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
 
     }
     func dataLoaded() {
-
+        collectionView.reloadData()
     }
     func dataFailedToLoad(error: NSError) {
 
