@@ -14,6 +14,7 @@
 		5421B98219A5A75C00A8501B /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5421B98119A5A75C00A8501B /* Brewery.swift */; };
 		5421B98419A5A75C00A8501B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5421B98319A5A75C00A8501B /* Review.swift */; };
 		5421B98619A5A75C00A8501B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5421B98519A5A75C00A8501B /* Store.swift */; };
+		54EEE82219A9A19A005E4AAD /* GRMCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */; };
 		8133CDC92DBD4702BAB6A5BF /* libPods-GM Taplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */; };
 		C34488EF19A9378100DFA647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488EE19A9378100DFA647 /* CoreGraphics.framework */; };
 		C34488F119A9378D00DFA647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488F019A9378D00DFA647 /* CoreData.framework */; };
@@ -21,7 +22,6 @@
 		C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AB19A930CF003F92A5 /* GRMCollectionViewController.swift */; };
 		C38403AE19A93102003F92A5 /* GRMSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */; };
 		C38403B019A93173003F92A5 /* GRMCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */; };
-		C38403B219A93186003F92A5 /* GRMCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38403B119A93186003F92A5 /* GRMCollectionViewCell.xib */; };
 		C38403B419A93237003F92A5 /* GRMFirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */; };
 		C38403B919A932A8003F92A5 /* Beer+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B519A932A8003F92A5 /* Beer+Accessors.swift */; };
 		C38403BA19A932A8003F92A5 /* Brewery+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B619A932A8003F92A5 /* Brewery+Accessors.swift */; };
@@ -57,13 +57,13 @@
 		5421B98119A5A75C00A8501B /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		5421B98319A5A75C00A8501B /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		5421B98519A5A75C00A8501B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRMCollectionViewCell.xib; sourceTree = "<group>"; };
 		C34488EE19A9378100DFA647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C34488F019A9378D00DFA647 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C34488F219A9379300DFA647 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C38403AB19A930CF003F92A5 /* GRMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMCollectionViewController.swift; sourceTree = "<group>"; };
 		C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMSettingsTableViewController.swift; sourceTree = "<group>"; };
 		C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMCollectionViewCell.swift; sourceTree = "<group>"; };
-		C38403B119A93186003F92A5 /* GRMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRMCollectionViewCell.xib; sourceTree = "<group>"; };
 		C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMFirstLaunchViewController.swift; sourceTree = "<group>"; };
 		C38403B519A932A8003F92A5 /* Beer+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beer+Accessors.swift"; sourceTree = "<group>"; };
 		C38403B619A932A8003F92A5 /* Brewery+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Brewery+Accessors.swift"; sourceTree = "<group>"; };
@@ -227,6 +227,7 @@
 		C3DB989619A16B6400EB4270 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -293,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */,
-				C38403B119A93186003F92A5 /* GRMCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,8 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DB987A19A16AA700EB4270 /* Main.storyboard in Resources */,
-				C38403B219A93186003F92A5 /* GRMCollectionViewCell.xib in Resources */,
 				C3DB987C19A16AA700EB4270 /* Images.xcassets in Resources */,
+				54EEE82219A9A19A005E4AAD /* GRMCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
