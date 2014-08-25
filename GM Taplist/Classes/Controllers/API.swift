@@ -165,11 +165,34 @@ class API: AFHTTPSessionManager {
     }
     
     func breweryDetails(breweryID: Int, completionBlock:(Brewery) -> ()) {
-        
+        var url = NSString(format: "breweries/%@", breweryID)
+
+        self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
+            let rawData = response as NSDictionary
+            let breweryData = rawData["data"] as NSDictionary
+
+            let brewery = Brewery.createOrUpdate(breweryData, inManagedObjectContext: self.managedObjectContext!)
+
+            completionBlock(brewery)
+        }, failure: { (dataTask, error) -> Void in
+        })
     }
     
     func breweryDetails(breweryName: String, completionBlock:([Brewery]) -> ()) {
-        
+        var url = NSString(format: "breweries/%@", breweryName)
+
+        self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
+            let rawData = response as NSDictionary
+            var breweries = [Brewery]()
+            let breweryData = rawData["data"] as NSArray
+            
+            for brewery in breweryData {
+                breweries.append(Brewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext!)
+            }
+
+            completionBlock(breweries)
+        }, failure: { (dataTask, error) -> Void in
+        })
     }
     
     func beersForBrewery(breweryID: Int, completionBlock:(Brewery, [Beer]) -> ()) {

@@ -8,16 +8,14 @@
 
 import Foundation
 
-struct OnTapBeer {
-    var beerID: Int
+struct OnTapBeer: BeerData {
     var tapNumber: Int
     var tapLevel: Int
 }
 
-class OnTapDataSource: NSObject, UICollectionViewDataSource {
-    let cellIdentifier: String
-    let cellConfigurationBlock: (cell: UICollectionViewCell, data: OnTapBeer) -> ()
-    
+class OnTapDataSource: GRMCollectionViewDataSource {
+    override let cellConfigurationBlock: (cell: GRMCollectionViewCell, data: OnTapBeer) -> ()
+
     private var beers = [OnTapBeer]()
     
     // MARK: Init
@@ -27,6 +25,26 @@ class OnTapDataSource: NSObject, UICollectionViewDataSource {
         super.init()
     }
     
+    // MARK: Implementation
+    override func itemForIndexPath(indexPath: NSIndexPath) -> OnTapBeer {
+        return beers[indexPath.row]
+    }
+
+    func loadBeersForStore(storeID: Int) {
+        delegate?.dataLoading()
+
+        API.sharedInstance.beersOnTapForStore(storeID) { (onTapBeers) -> Void in
+            self.beers = onTapBeers
+            delegate?.dataLoaded()
+        }
+    }
+
+    func loadBeersForStoreName(storeName: String) {
+        let storeID = Store.storeIDForName(storeName, managedObjectContext!)
+        
+        self.loadBeersForStore(storeID)
+    }
+
     // MARK: UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {

@@ -106,4 +106,9 @@ extension Store {
         
         return results.lastObject as? Store
     }
+
+    class func storeIDForName(name: String, inContext context: NSManagedObjectContext) -> Int {
+        let store = Store.queryset(context).filter(Store.name == name)
+        return store.id
+    }
 }

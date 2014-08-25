@@ -42,6 +42,7 @@ PODS:
   - OHHTTPStubs (3.1.5):
     - OHHTTPStubs/Core
   - OHHTTPStubs/Core (3.1.5)
+  - QueryKit (0.8.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.7.1)
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - NewRelicAgent
   - OCMock
   - OHHTTPStubs
+  - QueryKit
   - SDWebImage
   - Sleipnir
   - VENVersionTracker
@@ -68,6 +70,7 @@ SPEC CHECKSUMS:
   NewRelicAgent: a0352d12175fc9c4dfaf806f01892ad2ab5e8133
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
   OHHTTPStubs: c1e362552b71b81e1deb7a80f44c51585b946c43
+  QueryKit: 1ff50e5cf895aaf37c4c8f958d0e7a00f69a7377
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   Sleipnir: 73ad23d536e5ed879d1bb372e4a10dc632509b59
   VENVersionTracker: d78c3407733a1a1ef4aaa11b6e2182996fbbac30

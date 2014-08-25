@@ -8,6 +8,52 @@
 
 import Foundation
 
-class GRMCollectionViewController: UICollectionViewController {
+class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate {
 
+//    lazy var onTapDataSource: OnTapDataSource? = {
+//    }()
+//    lazy var favoritesDataSource: FavoritesDataSource? = {
+//    }()
+//    lazy var allBeersDataSource: AllBeersDataSource? = {
+//    }()
+
+    // MARK: View Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataSource.delegate = self
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    override func viewWillDisappear(animated: Bool) {
+
+        super.viewWillDisappear(animated)
+    }
+    override func viewDidDisappear(animated: Bool) {
+        
+        super.viewDidDisappear(animated)
+    }
+
+    // MARK: Implementation
+    override func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+
+    }
+    
+    override func collectionView(collectionView: UICollectionView!, willDisplayCell cell: UICollectionViewCell!, forItemAtIndexPath indexPath: NSIndexPath!) {
+
+    }
+
+    // MARK: GRMCollectionViewDataSourceDelegate
+    func dataLoading() {
+
+    }
+    func dataLoaded() {
+        collectionView.reloadData()
+    }
+    func dataFailedToLoad(error: NSError) {
+
+    }
 }
