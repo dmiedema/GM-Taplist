@@ -40,22 +40,23 @@ class API: AFHTTPSessionManager {
     
 
     // MARK: Stores/Ontap
-    func beersOnTapForStore(storeID: Int, completionBlock:([OnTapBeer]) -> ()) {
+    func beersOnTapForStore(storeID: Int, completionBlock:([BeerData]) -> ()) {
         let url = NSString(format: "stores/%@/ontap", storeID)
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let beers = rawData["data"] as NSArray
-            var onTapBeers = [OnTapBeer]()
-            for beer in beers {
+            var onTapBeers = [BeerData]()
+            for beerDict in beers {
+                let beer = Beer.createOrUpdate(beerDict as NSDictionary, inManagedObjectContext: self.managedObjectContext!)
+
                 onTapBeers.append(
-                    OnTapBeer(beerID: beer["beer_id"] as Int,
-                        tapNumber: beer["tap_number"] as Int,
-                        tapLevel: beer["keg_level"] as Int))
+                    BeerData(beer: beer,
+                        tapNumber: beerDict["tap_number"] as? Int,
+                        tapLevel: beerDict["keg_level"] as? Int))
             }
             
             completionBlock(onTapBeers)
-            
         }, failure: { (dataTasK, error) -> Void in
             
         })
@@ -187,7 +188,7 @@ class API: AFHTTPSessionManager {
             let breweryData = rawData["data"] as NSArray
             
             for brewery in breweryData {
-                breweries.append(Brewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext!)
+                breweries.append(Brewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
             }
 
             completionBlock(breweries)

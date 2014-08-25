@@ -8,6 +8,37 @@
 
 import Foundation
 
-class FavoritesDataSource: UICollectionViewDataSource, GRMCollectionViewDataSourceProtocol {
-    // MARK: GRMCollectionViewDataSourceProtocol
+class FavoritesDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
+
+    private var favorites = [BeerData]()
+
+    required init(cellIdentifier: String, configurationBlock: (UICollectionViewCell, BeerData) ->()) {
+        super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
+    }
+    
+    // MARK: Implementation
+    func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
+        return favorites[indexPath.row]
+    }
+
+    func loadBeersForStore(storeID: Int) {
+        delegate?.dataLoading()
+    }
+
+    // MARK: UICollectionViewDataSource
+    func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+        cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: favorites[indexPath.row])
+
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+        return favorites.count
+    }
+    
+    func collectionView(collectionView: UICollectionView!, viewForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: NSIndexPath!) -> UICollectionReusableView! {
+        return nil
+    }
+    
 }

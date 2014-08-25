@@ -9,6 +9,7 @@
 import Foundation
 
 extension Store {
+    
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Store {
         
         var store = Store.loadStoreByID(data["storesID"] as Int, inContext: managedObjectContext)
@@ -107,8 +108,14 @@ extension Store {
         return results.lastObject as? Store
     }
 
-    class func storeIDForName(name: String, inContext context: NSManagedObjectContext) -> Int {
-        let store = Store.queryset(context).filter(Store.name == name)
-        return store.id
+    class func storeIDForName(name: String, inContext context: NSManagedObjectContext) -> (Int, NSError?) {
+        let fetchRequest = NSFetchRequest(entityName: GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Store)
+        fetchRequest.predicate = NSPredicate(format: "name[cd] = %@", name)
+    
+        var err: NSError?
+        
+        let stores = context.executeFetchRequest(fetchRequest, error: &err) as NSArray
+        let store = stores.lastObject as Store
+        return (store.id as Int, err)
     }
 }

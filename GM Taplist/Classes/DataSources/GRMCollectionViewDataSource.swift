@@ -8,9 +8,16 @@
 
 import Foundation
 
-protocol BeerData {
-    var beerID: Int
-    var data: Beer
+class BeerData {
+    var beer: Beer
+    var tapNumber: Int?
+    var tapLevel: Int?
+
+    required init(beer: Beer, tapNumber: Int?, tapLevel: Int?) {
+        self.beer = beer
+        self.tapNumber = tapNumber
+        self.tapLevel = tapLevel
+    }
 }
 
 protocol GRMCollectionViewDataSourceDelegate {
@@ -23,26 +30,20 @@ protocol GRMCollectionViewDataSourceProtocol {
     func itemForIndexPath(indexPath: NSIndexPath) -> BeerData
 }
 
-class GRMCollectionViewDataSource: NSObject, UICollectionViewDataSource, GRMCollectionViewDataSourceProtocol {
+class GRMCollectionViewDataSource: NSObject {
 
     let cellIdentifier: String
     let cellConfigurationBlock: (cell: GRMCollectionViewCell, data: BeerData) -> ()
+    var delegate: GRMCollectionViewDataSourceDelegate?
 
-    public lazy var managedObjectContext: NSManagedObjectContext? = {
+    internal lazy var managedObjectContext: NSManagedObjectContext? = {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         return appDelegate.managedObjectContext!
     }()
-
-    var delegate: GRMCollectionViewDataSourceDelegate?
 
     required init(cellIdentifier: String, configurationBlock: (UICollectionViewCell, BeerData) ->()) {
         self.cellIdentifier = cellIdentifier
         self.cellConfigurationBlock = configurationBlock
         super.init()
-    }
-    
-    // MARK: GRMCollectionViewDataSourceProtocol
-    func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
-        return BeerData()
     }
 }

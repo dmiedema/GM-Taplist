@@ -10,17 +10,22 @@ import Foundation
 
 class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate {
 
-//    lazy var onTapDataSource: OnTapDataSource? = {
-//    }()
-//    lazy var favoritesDataSource: FavoritesDataSource? = {
-//    }()
-//    lazy var allBeersDataSource: AllBeersDataSource? = {
-//    }()
+    lazy var onTapDataSource: OnTapDataSource? = {
+        return nil
+    }()
+    lazy var favoritesDataSource: FavoritesDataSource? = {
+        return nil
+    }()
+    lazy var allBeersDataSource: AllBeersDataSource? = {
+        return nil
+    }()
 
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource.delegate = self
+        onTapDataSource?.delegate = self
+        favoritesDataSource?.delegate = self
+        allBeersDataSource?.delegate  = self
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

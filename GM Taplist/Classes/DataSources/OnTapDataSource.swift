@@ -8,25 +8,16 @@
 
 import Foundation
 
-struct OnTapBeer: BeerData {
-    var tapNumber: Int
-    var tapLevel: Int
-}
-
-class OnTapDataSource: GRMCollectionViewDataSource {
-    override let cellConfigurationBlock: (cell: GRMCollectionViewCell, data: OnTapBeer) -> ()
-
-    private var beers = [OnTapBeer]()
+class OnTapDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
+    private var beers = [BeerData]()
     
     // MARK: Init
-    required init(cellIdentifier: String, configurationBlock: (UICollectionViewCell, OnTapBeer) ->()) {
-        self.cellIdentifier = cellIdentifier
-        self.cellConfigurationBlock = configurationBlock
-        super.init()
+    required init(cellIdentifier: String, configurationBlock: (UICollectionViewCell, BeerData) ->()) {
+        super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
     }
     
     // MARK: Implementation
-    override func itemForIndexPath(indexPath: NSIndexPath) -> OnTapBeer {
+    func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
         return beers[indexPath.row]
     }
 
@@ -35,21 +26,24 @@ class OnTapDataSource: GRMCollectionViewDataSource {
 
         API.sharedInstance.beersOnTapForStore(storeID) { (onTapBeers) -> Void in
             self.beers = onTapBeers
-            delegate?.dataLoaded()
+            self.delegate?.dataLoaded()
         }
     }
 
     func loadBeersForStoreName(storeName: String) {
-        let storeID = Store.storeIDForName(storeName, managedObjectContext!)
+        let (storeID: Int, error: NSError?) = Store.storeIDForName(storeName, inContext: managedObjectContext!)
         
-        self.loadBeersForStore(storeID)
+        if error == nil && storeID > 0 {
+            self.loadBeersForStore(storeID)
+        } else {
+            // error
+        }
     }
 
     // MARK: UICollectionViewDataSource
-    
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-        cellConfigurationBlock(cell: cell, data: beers[indexPath.row])
+        cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: beers[indexPath.row])
 
         return cell
     }
