@@ -10,11 +10,11 @@ import Foundation
 
 extension Style {
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Style {
-        var style = Style.loadStyleByID(data["stylesID"] as Int, inContext: managedObjectContext)
+        var style = Style.loadStyleByID(data["id"] as Int, inContext: managedObjectContext)
 
         if style == nil {
             style = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Style, inManagedObjectContext: managedObjectContext) as? Style
-            style?.id = data["stylesID"] as NSNumber
+            style?.id = data["id"] as NSNumber
         }
 
         if let name: AnyObject! = data["Style"] {

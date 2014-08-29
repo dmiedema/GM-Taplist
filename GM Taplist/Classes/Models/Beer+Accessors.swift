@@ -11,11 +11,11 @@ import Foundation
 extension Beer {
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Beer {
         
-        var beer = Beer.loadBeerByID(data["brewsID"] as Int, inContext: managedObjectContext)
+        var beer = Beer.loadBeerByID(data["id"] as Int, inContext: managedObjectContext)
         
         if beer == nil {
             beer = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Beer, inManagedObjectContext: managedObjectContext) as? Beer
-            beer?.id = data["brewsID"] as NSNumber
+            beer?.id = data["id"] as NSNumber
         }
         
         if let abv: AnyObject! = data["BrewABV"] {

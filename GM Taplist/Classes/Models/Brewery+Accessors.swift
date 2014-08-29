@@ -10,11 +10,11 @@ import Foundation
 
 extension Brewery {
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Brewery {
-        var brewery = Brewery.loadBreweryByID(data["breweriesID"] as Int, inContext: managedObjectContext);
+        var brewery = Brewery.loadBreweryByID(data["id"] as Int, inContext: managedObjectContext);
 
         if brewery == nil {
             brewery = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Brewery, inManagedObjectContext: managedObjectContext) as? Brewery
-            brewery?.id = data["breweriesID"] as NSNumber
+            brewery?.id = data["id"] as NSNumber
         }
 
         if let logo_url: AnyObject! = data["logo_url"] {

@@ -12,11 +12,11 @@ extension Store {
     
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Store {
         
-        var store = Store.loadStoreByID(data["storesID"] as Int, inContext: managedObjectContext)
+        var store = Store.loadStoreByID(data["id"] as Int, inContext: managedObjectContext)
         
         if store == nil {
             store = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Store, inManagedObjectContext: managedObjectContext) as? Store
-            store?.id = data["storesID"] as NSNumber
+            store?.id = data["id"] as NSNumber
         }
 
         if let address: AnyObject! = data["StoreAddress"] {
