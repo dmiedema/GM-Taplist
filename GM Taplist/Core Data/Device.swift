@@ -1,5 +1,5 @@
 //
-//  Style.swift
+//  Device.swift
 //  GM Taplist
 //
 //  Created by Daniel Miedema on 8/29/14.
@@ -9,9 +9,10 @@
 import Foundation
 import CoreData
 
-class Style: BaseObject {
+class Device: BaseObject {
 
-    @NSManaged var id: NSNumber
-    @NSManaged var style: String
+    @NSManaged var name: String
+    @NSManaged var push_token: String
+    @NSManaged var user: User
 
 }

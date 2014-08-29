@@ -2,14 +2,14 @@
 //  Beer.swift
 //  GM Taplist
 //
-//  Created by Daniel on 8/20/14.
+//  Created by Daniel Miedema on 8/29/14.
 //  Copyright (c) 2014 Growl Movement. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-class Beer: NSManagedObject {
+class Beer: BaseObject {
 
     @NSManaged var abv: NSNumber
     @NSManaged var amount: NSNumber
@@ -23,8 +23,9 @@ class Beer: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var pint_price: NSDecimalNumber
     @NSManaged var purchased: NSNumber
+    @NSManaged var style: Style
     @NSManaged var tap_id: NSNumber
     @NSManaged var brewery: Brewery
     @NSManaged var review: Review
-    @NSManaged var style: Style
+
 }

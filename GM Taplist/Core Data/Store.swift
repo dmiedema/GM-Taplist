@@ -2,14 +2,14 @@
 //  Store.swift
 //  GM Taplist
 //
-//  Created by Daniel on 8/20/14.
+//  Created by Daniel Miedema on 8/29/14.
 //  Copyright (c) 2014 Growl Movement. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-class Store: NSManagedObject {
+class Store: BaseObject {
 
     @NSManaged var active: NSNumber
     @NSManaged var address: String

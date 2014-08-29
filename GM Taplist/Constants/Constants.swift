@@ -38,6 +38,7 @@ struct GrowlMovement {
             struct ObjectEntityNames {
                 static let Beer    = "Beer"
                 static let Brewery = "Brewery"
+                static let Device  = "Device"
                 static let Review  = "Review"
                 static let Store   = "Store"
                 static let Style   = "Style"
