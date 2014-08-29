@@ -12,7 +12,14 @@ extension Device {
     class func createOrUpdate(data: NSDictionary, inManagedObjectContext context: NSManagedObjectContext) -> Device {
 
         var device = Device.loadDeviceByToken(data["apns_push_token"] as String, inContext: context)
+        
+        if device == nil {
+            DeviceRegister.registerNewDevice()
+            device = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Device, inManagedObjectContext: context) as? Device
+            device?.push_token = ""
+        }
 
+        device?.name = UIDevice.currentDevice().name
         return device!
     }
     

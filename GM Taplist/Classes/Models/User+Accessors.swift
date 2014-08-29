@@ -11,7 +11,10 @@ import Foundation
 extension User {
     // MARK: Querying
     class func devicesForUser(userID: Int, inManagedObjectContext context: NSManagedObjectContext) -> [Device] {
-        return [Device]()
+        let currentUser = User.loadUserByID(userID, inContext: context)
+
+        let devices = currentUser?.devices.allObjects
+        return devices as [Device]
     }
 
     // MARK: Loading
