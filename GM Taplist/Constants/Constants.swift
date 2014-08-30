@@ -18,6 +18,7 @@ struct GrowlMovement {
         struct UserDefaults {
             static let LoggedInUserID  = "com.GrowlMovement.GMTaplist.LoggedInUserID"
             static let PreferredStores = "com.GrowlMovement.GMTaplist.PreferredStores"
+            static let PushTokenKey = "com.GrowlMovement.GMTaplist.PushTokenKey"
         }
         struct Errors {
             struct Network {

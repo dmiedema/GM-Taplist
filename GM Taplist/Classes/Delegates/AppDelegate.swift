@@ -45,8 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Notifications
-    func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken: String) {
-
+    func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>")).stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)
+        
+        NSUserDefaults.standardUserDefaults().setObject(token, forKey: GrowlMovement.GMTaplist.UserDefaults.PushTokenKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {

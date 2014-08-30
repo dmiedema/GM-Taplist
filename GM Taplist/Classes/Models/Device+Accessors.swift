@@ -16,7 +16,7 @@ extension Device {
         if device == nil {
             DeviceRegister.registerNewDevice()
             device = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Device, inManagedObjectContext: context) as? Device
-            device?.push_token = ""
+            device?.push_token = NSUserDefaults.standardUserDefaults().stringForKey(GrowlMovement.GMTaplist.UserDefaults.PushTokenKey)!
         }
 
         device?.name = UIDevice.currentDevice().name
