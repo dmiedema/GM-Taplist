@@ -38,9 +38,14 @@ class API: AFHTTPSessionManager {
         self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
     }
     
+    // MARK: Favoriting
+    func favoriteBeer(beerID: Int, completionBlock:(Bool) -> (), failureBlock:(NSError) -> ()) {
+    }
+
+    // MARK: User & Settings
 
     // MARK: Stores/Ontap
-    func beersOnTapForStore(storeID: Int, completionBlock:([BeerData]) -> ()) {
+    func beersOnTapForStore(storeID: Int, completionBlock:([BeerData]) -> (), failureBlock:(NSError) -> ()) {
         let url = NSString(format: "stores/%@/ontap", storeID)
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
@@ -58,11 +63,11 @@ class API: AFHTTPSessionManager {
             
             completionBlock(onTapBeers)
         }, failure: { (dataTasK, error) -> Void in
-            
+            failureBlock(error)
         })
     }
     
-    func stores(completionBlock:([Store]) -> ()) {
+    func stores(completionBlock:([Store]) -> (), failureBlock:(NSError) -> ()) {
         self.GET("stores", parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let storesData = rawData["data"] as NSArray
@@ -73,11 +78,11 @@ class API: AFHTTPSessionManager {
             
             completionBlock(stores)
         }, failure: { (dataTask, error) -> Void in
-            
+            failureBlock(error)
         })
     }
     
-    func storeDetails(storeID: Int, completionBlock:(Store) -> ()) {
+    func storeDetails(storeID: Int, completionBlock:(Store) -> (), failureBlock:(NSError) -> ()) {
         let url = NSString(format: "stores/%@", storeID)
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
@@ -87,11 +92,11 @@ class API: AFHTTPSessionManager {
         
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
-    
+            failureBlock(error)
         })
     }
     
-    func storeDetails(storeName: String, completionBlock:(Store) -> ()) {
+    func storeDetailsName(storeName: String, completionBlock:(Store) -> (), failureBlock:(NSError) -> ()) {
         let url = NSString(format: "stores/%@", storeName)
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
@@ -101,12 +106,12 @@ class API: AFHTTPSessionManager {
         
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
-            
+            failureBlock(error)
         })
     }
     
     // MARK: Beers
-    func beerDetails(beerID: Int, completionBlock:(Beer) -> ()) {
+    func beerDetails(beerID: Int, completionBlock:(Beer) -> (), failureBlock:(NSError) -> ()) {
         let url = NSString(format: "beers/%@", beerID);
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
@@ -116,11 +121,11 @@ class API: AFHTTPSessionManager {
             
             completionBlock(beer)
         }, failure: { (dataTask, error) -> Void in
-            
+            failureBlock(error)
         })
     }
 
-    func beers(sinceDate: NSDate?, completionBlock:([Beer]) -> ()) {
+    func beers(sinceDate: NSDate?, completionBlock:([Beer]) -> (), failureBlock:(NSError) -> ()) {
         var url = "beers/updated"
         if let date = sinceDate {
             let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -138,12 +143,12 @@ class API: AFHTTPSessionManager {
             
             completionBlock(beers)
         }, failure: { (dataTask, error) -> Void in
-            
+            failureBlock(error)
         })
     }
     
     // MARK: Breweries
-    func breweries(sinceDate: NSDate?, completionBlock:([Brewery]) -> ()) {
+    func breweries(sinceDate: NSDate?, completionBlock:([Brewery]) -> (), failureBlock:(NSError) -> ()) {
         var url = "breweries/updated"
         if let date = sinceDate {
             let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -161,11 +166,11 @@ class API: AFHTTPSessionManager {
             
             completionBlock(breweries)
         }, failure: { (dataTask, error) -> Void in
-            
+            failureBlock(error)
         })
     }
     
-    func breweryDetails(breweryID: Int, completionBlock:(Brewery) -> ()) {
+    func breweryDetails(breweryID: Int, completionBlock:(Brewery) -> (), failureBlock:(NSError) -> ()) {
         var url = NSString(format: "breweries/%@", breweryID)
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
@@ -176,10 +181,11 @@ class API: AFHTTPSessionManager {
 
             completionBlock(brewery)
         }, failure: { (dataTask, error) -> Void in
+            failureBlock(error)
         })
     }
     
-    func breweryDetails(breweryName: String, completionBlock:([Brewery]) -> ()) {
+    func breweryDetailsName(breweryName: String, completionBlock:([Brewery]) -> (), failureBlock:(NSError) -> ()) {
         var url = NSString(format: "breweries/%@", breweryName)
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
@@ -193,14 +199,15 @@ class API: AFHTTPSessionManager {
 
             completionBlock(breweries)
         }, failure: { (dataTask, error) -> Void in
+            failureBlock(error)
         })
     }
     
-    func beersForBrewery(breweryID: Int, completionBlock:(Brewery, [Beer]) -> ()) {
+    func beersForBrewery(breweryID: Int, completionBlock:(Brewery, [Beer]) -> (), failureBlock:(NSError) -> ()) {
         
     }
     
-    func beersForBrewery(breweryName: String, completionBlock:(Brewery, [Beer]) -> ()) {
+    func beersForBreweryName(breweryName: String, completionBlock:(Brewery, [Beer]) -> (), failureBlock:(NSError) -> ()) {
     
     }
 
