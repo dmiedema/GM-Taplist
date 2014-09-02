@@ -14,7 +14,9 @@ extension Device {
         var device = Device.loadDeviceByToken(data["apns_push_token"] as String, inContext: context)
         
         if device == nil {
-            DeviceRegister.registerNewDevice()
+            dispatch_sync(dispatch_get_main_queue()) { () -> Void in
+                DeviceRegister.registerNewDevice()
+            }
             device = NSEntityDescription.insertNewObjectForEntityForName(GrowlMovement.GMTaplist.CoreData.ObjectEntityNames.Device, inManagedObjectContext: context) as? Device
             device?.push_token = NSUserDefaults.standardUserDefaults().stringForKey(GrowlMovement.GMTaplist.UserDefaults.PushTokenKey)!
         }

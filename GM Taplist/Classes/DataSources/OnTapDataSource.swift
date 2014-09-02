@@ -24,10 +24,12 @@ class OnTapDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
     func loadBeersForStore(storeID: Int) {
         delegate?.dataLoading()
 
-        API.sharedInstance.beersOnTapForStore(storeID) { (onTapBeers) -> Void in
+        API.sharedInstance.beersOnTapForStore(storeID, completionBlock: { (onTapBeers) -> Void in
             self.beers = onTapBeers
             self.delegate?.dataLoaded()
-        }
+        }, failureBlock: { (error) -> Void in
+//            self.delegate?.dataFailedToLoad()
+        })
     }
 
     func loadBeersForStoreName(storeName: String) {
