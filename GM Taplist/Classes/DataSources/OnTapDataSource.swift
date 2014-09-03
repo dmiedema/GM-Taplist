@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OnTapDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
+class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceProtocol,  UICollectionViewDataSource {
     private var beers = [BeerData]()
     
     // MARK: - Init
@@ -21,6 +21,10 @@ class OnTapDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
         return beers[indexPath.row]
     }
 
+    func lastViewedStoreID() -> Int {
+        return NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LastViewedStore)
+    }
+    
     func loadBeersForStore(storeID: Int) {
         delegate?.dataLoading()
 
@@ -38,7 +42,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
         if error == nil && storeID > 0 {
             self.loadBeersForStore(storeID)
         } else {
-            // error
+
         }
     }
 

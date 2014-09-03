@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavoritesDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
+class FavoritesDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceProtocol, UICollectionViewDataSource {
 
     private var favorites = [BeerData]()
 

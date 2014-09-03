@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AllBeersDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
+class AllBeersDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceProtocol, UICollectionViewDataSource {
     
     private var beers = [BeerData]()
 
