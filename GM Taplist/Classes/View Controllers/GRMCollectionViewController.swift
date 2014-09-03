@@ -54,9 +54,13 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         onTapDataSource?.delegate = self
         favoritesDataSource?.delegate = self
         allBeersDataSource?.delegate  = self
+        
+        self.collectionView?.dataSource = onTapDataSource
+        onTapDataSource?.loadBeersForStore(onTapDataSource!.lastViewedStoreID())
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
