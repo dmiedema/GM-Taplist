@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04AD67DFA2A546049E06EB31 /* libPods-GM TaplistTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */; };
+		54D4A36119B7562F0036002B /* GRMBeerDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */; };
 		54EEE82219A9A19A005E4AAD /* GRMCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */; };
 		54EEE82419AAF13F005E4AAD /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEE82319AAF13F005E4AAD /* Async.swift */; };
 		8133CDC92DBD4702BAB6A5BF /* libPods-GM Taplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */; };
@@ -61,6 +62,7 @@
 		0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM Taplist.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM TaplistTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.xcconfig"; path = "Pods/Pods-GM Taplist.xcconfig"; sourceTree = "<group>"; };
+		54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMBeerDetailsTableViewController.swift; sourceTree = "<group>"; };
 		54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRMCollectionViewCell.xib; sourceTree = "<group>"; };
 		54EEE82319AAF13F005E4AAD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				C38403AB19A930CF003F92A5 /* GRMCollectionViewController.swift */,
 				C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */,
 				C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */,
+				54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				C38403BB19A932A8003F92A5 /* Store+Accessors.swift in Sources */,
 				C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */,
 				C313C19719AAC8B000E42784 /* AllBeersDataSource.swift in Sources */,
+				54D4A36119B7562F0036002B /* GRMBeerDetailsTableViewController.swift in Sources */,
 				C3979E0519B12A9800486172 /* Device.swift in Sources */,
 				C3979E0B19B12AAC00486172 /* User+Accessors.swift in Sources */,
 			);
