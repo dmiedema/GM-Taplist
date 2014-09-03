@@ -10,13 +10,13 @@ import Foundation
 import CoreData
 
 class API: AFHTTPSessionManager {
-    // MARK: Properties
+    // MARK: - Properties
     private lazy var managedObjectContext: NSManagedObjectContext? = {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         return appDelegate.managedObjectContext!
     }()
     
-    // MARK: Singleton
+    // MARK: - Singleton
     class var sharedInstance: API {
     struct Singleton {
         static let instance = API.init(baseURL: NSURL(string: GrowlMovement.GMTaplist.URLs.BaseURL))
@@ -24,12 +24,12 @@ class API: AFHTTPSessionManager {
         return Singleton.instance
     }
     
-    // MARK: Required
+    // MARK: - Required
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    // MARK: initialize
+    // MARK: - initialize
     override init(baseURL url: NSURL!) {
         super.init(baseURL: url)
         
@@ -38,14 +38,16 @@ class API: AFHTTPSessionManager {
         self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
     }
     
-    // MARK: Favoriting
-    func favoriteBeer(beerID: Int, completionBlock:(Bool) -> (), failureBlock:(NSError) -> ()) {
+    // MARK: - Favoriting
+    func favoriteBeer(beerID: Int, completionBlock:((Bool) -> ()), failureBlock:((NSError) -> ())) {
+    }
+    func unFavoriteBeer(beerID: Int, completionBlock:((Bool) -> ()), failureBlock:((NSError) -> ())) {
     }
 
-    // MARK: User & Settings
+    // MARK: - User & Settings
 
-    // MARK: Stores/Ontap
-    func beersOnTapForStore(storeID: Int, completionBlock:([BeerData]) -> (), failureBlock:(NSError) -> ()) {
+    // MARK: - Stores/Ontap
+    func beersOnTapForStore(storeID: Int, completionBlock:([BeerData]) -> (), failureBlock:((NSError)) -> ()) {
         let url = NSString(format: "stores/%@/ontap", storeID)
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
@@ -110,7 +112,7 @@ class API: AFHTTPSessionManager {
         })
     }
     
-    // MARK: Beers
+    // MARK: - Beers
     func beerDetails(beerID: Int, completionBlock:(Beer) -> (), failureBlock:(NSError) -> ()) {
         let url = NSString(format: "beers/%@", beerID);
         
@@ -147,7 +149,7 @@ class API: AFHTTPSessionManager {
         })
     }
     
-    // MARK: Breweries
+    // MARK: - Breweries
     func breweries(sinceDate: NSDate?, completionBlock:([Brewery]) -> (), failureBlock:(NSError) -> ()) {
         var url = "breweries/updated"
         if let date = sinceDate {

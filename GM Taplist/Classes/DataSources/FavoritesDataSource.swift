@@ -16,7 +16,7 @@ class FavoritesDataSource: GRMCollectionViewDataSource, UICollectionViewDataSour
         super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
     }
     
-    // MARK: Implementation
+    // MARK: - Implementation
     func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
         return favorites[indexPath.row]
     }
@@ -25,7 +25,7 @@ class FavoritesDataSource: GRMCollectionViewDataSource, UICollectionViewDataSour
         delegate?.dataLoading()
     }
 
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: favorites[indexPath.row])

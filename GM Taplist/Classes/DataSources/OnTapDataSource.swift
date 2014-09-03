@@ -11,12 +11,12 @@ import Foundation
 class OnTapDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
     private var beers = [BeerData]()
     
-    // MARK: Init
+    // MARK: - Init
     required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
         super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
     }
     
-    // MARK: Implementation
+    // MARK: - Implementation
     func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
         return beers[indexPath.row]
     }
@@ -42,7 +42,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, UICollectionViewDataSource {
         }
     }
 
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: beers[indexPath.row])

@@ -16,7 +16,7 @@ class AllBeersDataSource: GRMCollectionViewDataSource, UICollectionViewDataSourc
         super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
     }
     
-    // MARK: Implementation
+    // MARK: - Implementation
     func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
         return beers[indexPath.row]
     }
@@ -25,7 +25,7 @@ class AllBeersDataSource: GRMCollectionViewDataSource, UICollectionViewDataSourc
         delegate?.dataLoading()
     }
 
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: beers[indexPath.row])

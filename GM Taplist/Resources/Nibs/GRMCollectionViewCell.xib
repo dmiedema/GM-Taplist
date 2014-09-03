@@ -62,6 +62,9 @@
                         <state key="normal" title="Details">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="detailsButtonPressed:" destination="5aR-Nc-nY3" eventType="touchUpInside" id="iNP-9b-Ryg"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgq-gH-IN0">
                         <rect key="frame" x="45" y="86" width="70" height="30"/>
@@ -71,6 +74,9 @@
                         <state key="normal" title="Favorite">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="favoriteButtonPressed:" destination="5aR-Nc-nY3" eventType="touchUpInside" id="EpR-dO-Mno"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -104,6 +110,15 @@
                     <exclude reference="Udf-np-bV4"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="bottomLineLabel" destination="IBi-2V-raR" id="jzn-NY-mLq"/>
+                <outlet property="detailsButton" destination="9uH-mb-Faz" id="aRf-IO-5RD"/>
+                <outlet property="favoriteButton" destination="Pgq-gH-IN0" id="DjN-Ie-tHY"/>
+                <outlet property="favoriteImageView" destination="vuD-0f-0xE" id="Ud0-XS-WLK"/>
+                <outlet property="kegLevelView" destination="Okw-kz-IGj" id="8PR-vr-a1t"/>
+                <outlet property="middleLineLabel" destination="BgJ-5c-9iq" id="urf-bH-fTK"/>
+                <outlet property="topLineLabel" destination="fKK-RI-u5c" id="Q6r-jF-Eme"/>
+            </connections>
             <point key="canvasLocation" x="153" y="21"/>
         </collectionViewCell>
     </objects>
