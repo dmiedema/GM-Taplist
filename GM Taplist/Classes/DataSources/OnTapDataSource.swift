@@ -42,7 +42,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceP
         if error == nil && storeID > 0 {
             self.loadBeersForStore(storeID)
         } else {
-
+            self.delegate?.dataFailedToLoad(NSError.errorWithDomain(GrowlMovement.GMTaplist.Errors.Generic, code: 15, userInfo: nil))
         }
     }
 
