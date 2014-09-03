@@ -74,12 +74,18 @@ struct GrowlMovement {
             static let FavoriteMarker = UIColor(red: 5, green: 5, blue: 0, alpha: 1.0)
         }
         struct CollectionView {
-            static let CellReuseIdentifier          = "GMTaplist.CellReuseIdentifier"
-            static let OnTapCellReuseIdentifier     = "GMTaplist.OnTapCellReuseIdentifier"
-            static let AllBeersCellReuseIdentifier  = "GMTaplist.AllBeersCellReuseIdentifier"
-            static let FavoritesCellReuseIdentifier = "GMTaplist.FavoritesCellReuseIdentifier"
-            static let HeaderReuseIdentifier        = "GMTaplist.HeaderReuseIdentifier"
-            static let FooterReuseIdentifier        = "GMTaplist.FooterReuseIdentifier"
+            static let CellReuseIdentifier          = "GMTaplist.CollectionView.CellReuseIdentifier"
+            static let OnTapCellReuseIdentifier     = "GMTaplist.CollectionView.OnTapCellReuseIdentifier"
+            static let AllBeersCellReuseIdentifier  = "GMTaplist.CollectionView.AllBeersCellReuseIdentifier"
+            static let FavoritesCellReuseIdentifier = "GMTaplist.CollectionView.FavoritesCellReuseIdentifier"
+            static let HeaderReuseIdentifier        = "GMTaplist.CollectionView.HeaderReuseIdentifier"
+            static let FooterReuseIdentifier        = "GMTaplist.CollectionView.FooterReuseIdentifier"
+        }
+        struct TableView {
+            static let CellReuseIdentifier                = "GMTaplist.TableView.CellReuseIdentifier"
+            static let HeaderReuseIdentifier              = "GMTaplist.TableView.HeaderReuseIdentifier"
+            static let DetailsCellIdentifier              = "GMTaplist.TableView.DetailsCellIdentifier"
+            static let PurchasedAndFavoriteCellIdentifier = "GMTaplist.TableView.PurchasedAndFavoriteCellIdentifier"
         }
     }
 }
