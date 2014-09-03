@@ -9,6 +9,7 @@
 import Foundation
 
 class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceProtocol,  UICollectionViewDataSource {
+    
     private var beers = [BeerData]()
     
     // MARK: - Init

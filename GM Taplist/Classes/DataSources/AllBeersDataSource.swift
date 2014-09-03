@@ -12,6 +12,7 @@ class AllBeersDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSour
     
     private var beers = [BeerData]()
 
+    // MARK: - Init
     required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
         super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
     }

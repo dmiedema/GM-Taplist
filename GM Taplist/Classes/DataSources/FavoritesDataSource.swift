@@ -12,6 +12,7 @@ class FavoritesDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSou
 
     private var favorites = [BeerData]()
 
+    // MARK: - Init
     required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
         super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
     }
