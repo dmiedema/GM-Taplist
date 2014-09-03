@@ -56,14 +56,16 @@ class GRMCollectionViewCell: UICollectionViewCell {
         })
     }
     
-    func setKegLevel(level: CGFloat, animated: Bool) {
+    func setKegLevel(level: Int, animated: Bool) {
         var duration: NSTimeInterval = 0.0
         if animated { duration = 0.3 }
-        
         kegLevelView.superview?.layoutIfNeeded()
         
+        let floatLevel = CGFloat(level)
+        let newLevel: CGFloat = 320.0 * (floatLevel / 100.0)
+        
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { () -> Void in
-                self.kegLevelWidthConstraint.constant = 320.0 * level
+                self.kegLevelWidthConstraint.constant = newLevel
                 self.kegLevelView.superview?.layoutIfNeeded()
             }, completion: { (complete) -> Void in })
     }
