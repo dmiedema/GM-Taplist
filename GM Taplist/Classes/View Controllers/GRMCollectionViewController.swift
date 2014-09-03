@@ -20,9 +20,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             cell.delegate = self
             cell.beerData = beerData
             
-            cell.topLineLabel.text = "\(beerData.tapNumber). \(beerData.beer.name)"
-            cell.bottomLineLabel.text = "IBU: \(beerData.beer.ibu)  ABV: \(beerData.beer.abv)  Growler: \(beerData.beer.growler_price)  Growlette: \(beerData.beer.growlette_price)"
-            
+            cell.topLineLabel.text = beerData.onTapDisplayString()
+            cell.middleLineLabel.attributedText = beerData.attributedStringForBreweryInformation()
+            cell.bottomLineLabel.text = beerData.onTapBottomLineString()
         })
         return dataSource
     }()
@@ -31,8 +31,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             cell.delegate = self
             cell.beerData = beerData
             
-            cell.topLineLabel.text = "\(beerData.beer.name)"
-            cell.bottomLineLabel.text = "IBU: \(beerData.beer.ibu)  ABV: \(beerData.beer.abv)  Style: \(beerData.beer.style.style)"
+            cell.topLineLabel.text = beerData.allBeersDisplayString()
+            cell.middleLineLabel.attributedText = beerData.attributedStringForBreweryInformation()
+            cell.bottomLineLabel.text = beerData.allBeersBottomLineString()
         })
         return dataSource
     }()
@@ -41,8 +42,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             cell.delegate = self
             cell.beerData = beerData
             
-            cell.topLineLabel.text = "\(beerData.beer.name)"
-            cell.bottomLineLabel.text = "IBU: \(beerData.beer.ibu)  ABV: \(beerData.beer.abv)  Style: \(beerData.beer.style.style)"
+            cell.topLineLabel.text = beerData.allBeersDisplayString()
+            cell.middleLineLabel.attributedText = beerData.attributedStringForBreweryInformation()
+            cell.bottomLineLabel.text = beerData.allBeersBottomLineString()
         })
         return dataSource
     }()
@@ -77,16 +79,23 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-
+        let customCell = cell as GRMCollectionViewCell
+        if ((collectionView.dataSource!.isEqual(onTapDataSource))) {
+            let beerData = customCell.beerData
+            customCell.setKegLevel(beerData.tapLevel!, animated: true)
+        }
     }
 
     // MARK: - GRMCollectionViewDataSourceDelegate
     func dataLoading() {
+        // Show loading HUD
     }
     func dataLoaded() {
+        // Hide HUD
         collectionView?.reloadData()
     }
     func dataFailedToLoad(error: NSError) {
+        // Show Error HUD
     }
     
     // MARK: - GRMCollectionViewCellProtocol
