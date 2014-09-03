@@ -41,7 +41,7 @@ class GRMCollectionViewDataSource: NSObject {
         return appDelegate.managedObjectContext!
     }()
 
-    required init(cellIdentifier: String, configurationBlock: (UICollectionViewCell, BeerData) ->()) {
+    required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
         self.cellIdentifier = cellIdentifier
         self.cellConfigurationBlock = configurationBlock
         super.init()

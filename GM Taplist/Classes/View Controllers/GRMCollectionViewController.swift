@@ -10,14 +10,24 @@ import Foundation
 
 class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate {
 
+    // MARK: DataSource's creation
     lazy var onTapDataSource: OnTapDataSource? = {
-        return nil
+        let dataSource = OnTapDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.OnTapCellReuseIdentifier, configurationBlock: { (cell, beer) -> () in
+            
+        })
+        return dataSource
     }()
     lazy var favoritesDataSource: FavoritesDataSource? = {
-        return nil
+        let dataSource = FavoritesDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.FavoritesCellReuseIdentifier, configurationBlock: { (cell, beer) -> () in
+            
+        })
+        return dataSource
     }()
     lazy var allBeersDataSource: AllBeersDataSource? = {
-        return nil
+        let dataSource = AllBeersDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.AllBeersCellReuseIdentifier, configurationBlock: { (cell, beer) -> () in
+            
+        })
+        return dataSource
     }()
 
     // MARK: View Life Cycle
