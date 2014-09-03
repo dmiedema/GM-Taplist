@@ -50,7 +50,8 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }()
     // MARK: - Properties
     private var selectedIndexPath: NSIndexPath
-
+    var managedObjectContext: NSManagedObjectContext
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,6 +120,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     
     func detailsPressed(beerData: BeerData) {
-        storyboard?.instantiateViewControllerWithIdentifier(GrowlMovement.GMTaplist.TableView.StoryboardIdentifier)
+        let detailsViewController = storyboard?.instantiateViewControllerWithIdentifier(GrowlMovement.GMTaplist.TableView.StoryboardIdentifier) as GRMBeerDetailsTableViewController
+        detailsViewController.beerData = beerData
+        detailsViewController.managedObjectContext = managedObjectContext
+        navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
