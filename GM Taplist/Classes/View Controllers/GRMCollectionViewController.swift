@@ -119,5 +119,6 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     
     func detailsPressed(beerData: BeerData) {
+        storyboard?.instantiateViewControllerWithIdentifier(GrowlMovement.GMTaplist.TableView.StoryboardIdentifier)
     }
 }

@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="-666" y="398"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Beer Details Table View Controller-->
         <scene sceneID="DnT-3h-GT9">
             <objects>
-                <tableViewController id="7RS-jg-fGJ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GRMBeerDetailsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7RS-jg-fGJ" customClass="GRMBeerDetailsTableViewController" customModule="GM_Taplist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DU1-em-XQI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

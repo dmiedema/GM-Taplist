@@ -75,6 +75,7 @@ struct GrowlMovement {
             static let FavoriteMarker = UIColor(red: 5, green: 5, blue: 0, alpha: 1.0)
         }
         struct CollectionView {
+            static let StorybardIdentifier          = "GRMCollectionViewController"
             static let CellReuseIdentifier          = "GMTaplist.CollectionView.CellReuseIdentifier"
             static let OnTapCellReuseIdentifier     = "GMTaplist.CollectionView.OnTapCellReuseIdentifier"
             static let AllBeersCellReuseIdentifier  = "GMTaplist.CollectionView.AllBeersCellReuseIdentifier"
@@ -83,6 +84,7 @@ struct GrowlMovement {
             static let FooterReuseIdentifier        = "GMTaplist.CollectionView.FooterReuseIdentifier"
         }
         struct TableView {
+            static let StoryboardIdentifier               = "GRMBeerDetailsTableViewController"
             static let CellReuseIdentifier                = "GMTaplist.TableView.CellReuseIdentifier"
             static let HeaderReuseIdentifier              = "GMTaplist.TableView.HeaderReuseIdentifier"
             static let DetailsCellIdentifier              = "GMTaplist.TableView.DetailsCellIdentifier"
