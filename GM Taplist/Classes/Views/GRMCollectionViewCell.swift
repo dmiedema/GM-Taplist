@@ -24,6 +24,7 @@ class GRMCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var kegLevelView: UIView!
+    @IBOutlet weak var kegLevelWidthConstraint: NSLayoutConstraint!
     // MARK: Data/Delegate
     var beerData: BeerData!
     var delegate: GRMCollectionViewCellProtocol?
@@ -41,22 +42,6 @@ class GRMCollectionViewCell: UICollectionViewCell {
         self.beerData = beerData
         let favorite = self.beerData.beer.favorite.boolValue
         self.setFavorite(favorite, animated: false)
-        
-        if self.beerData.beer.brewery.city.isEmpty || self.beerData.beer.brewery.state.isEmpty {
-            middleLineLabel.text = self.beerData.beer.brewery.name
-        } else {
-            let brewery = self.beerData.beer.brewery
-            var attributedString = NSMutableAttributedString(string: NSString(format: "%@ - ", brewery.name))
-            
-            var fontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
-            fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(.TraitItalic)
-            
-            let attributedCityState = NSAttributedString(string: "\(brewery.city) \(brewery.state)", attributes: [NSFontAttributeName: UIFont(descriptor: fontDescriptor, size: 0.0)])
-            
-            attributedString.appendAttributedString(attributedCityState)
-            middleLineLabel.attributedText = attributedString
-        }
-        
     }
     
     func setFavorite(favorite: Bool, animated: Bool) {
@@ -69,5 +54,17 @@ class GRMCollectionViewCell: UICollectionViewCell {
         UIView.animateWithDuration(duration, animations: { () -> Void in
             self.favoriteImageView.alpha = alpha
         })
+    }
+    
+    func setKegLevel(level: CGFloat, animated: Bool) {
+        var duration: NSTimeInterval = 0.0
+        if animated { duration = 0.3 }
+        
+        kegLevelView.superview?.layoutIfNeeded()
+        
+        UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { () -> Void in
+                self.kegLevelWidthConstraint.constant = 320.0 * level
+                self.kegLevelView.superview?.layoutIfNeeded()
+            }, completion: { (complete) -> Void in })
     }
 }
