@@ -18,12 +18,49 @@ class BeerData {
         self.tapNumber = tapNumber
         self.tapLevel = tapLevel
     }
+    
+    func onTapDisplayString() -> String {
+        return "\(tapNumber). \(beer.name)"
+    }
+    
+    func allBeersDisplayString() -> String {
+        return "\(beer.name)"
+    }
+    
+    func attributedStringForBreweryInformation() -> NSAttributedString {
+        var attributedString: NSMutableAttributedString
+        let brewery = beer.brewery
+        
+        if brewery.city.isEmpty || brewery.state.isEmpty {
+            attributedString = NSMutableAttributedString(string: brewery.name)
+        } else {
+            
+            attributedString = NSMutableAttributedString(string: NSString(format: "%@ - ", brewery.name))
+            
+            var fontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+            fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(.TraitItalic)
+            
+            let attributedCityState = NSAttributedString(string: "\(brewery.city) \(brewery.state)", attributes: [NSFontAttributeName: UIFont(descriptor: fontDescriptor, size: 0.0)])
+            
+            attributedString.appendAttributedString(attributedCityState)
+        }
+        
+        return attributedString
+    }
+    
+    func onTapBottomLineString() -> String {
+        return "IBU: \(beer.ibu)  ABV: \(beer.abv)  Growler: \(beer.growler_price)  Growlette: \(beer.growlette_price)"
+    }
+    
+    func allBeersBottomLineString() -> String {
+        return "IBU: \(beer.ibu)  ABV: \(beer.abv)  Style: \(beer.style.style)"
+    }
 }
 
 protocol GRMCollectionViewDataSourceDelegate {
-    func dataLoading()
-    func dataLoaded()
-    func dataFailedToLoad(NSError)
+    func dataLoading() -> ()
+    func dataLoaded() -> ()
+    func dataFailedToLoad(error: NSError) -> ()
 }
 
 protocol GRMCollectionViewDataSourceProtocol {
