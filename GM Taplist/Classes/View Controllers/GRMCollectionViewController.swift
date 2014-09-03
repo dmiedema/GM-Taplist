@@ -43,11 +43,11 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
 
     // MARK: Implementation
-    override func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
     }
     
-    override func collectionView(collectionView: UICollectionView!, willDisplayCell cell: UICollectionViewCell!, forItemAtIndexPath indexPath: NSIndexPath!) {
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 
     }
 
@@ -56,7 +56,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
 
     }
     func dataLoaded() {
-        collectionView.reloadData()
+        collectionView?.reloadData()
     }
     func dataFailedToLoad(error: NSError) {
 

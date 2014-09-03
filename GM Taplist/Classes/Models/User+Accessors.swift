@@ -34,12 +34,12 @@ extension User {
         fetchRequest.predicate = NSPredicate(format: "id = %@", id)
 
         var err: NSError?
-        let results = context.executeFetchRequest(fetchRequest, error: &err) as NSArray
+        let results = context.executeFetchRequest(fetchRequest, error: &err)
     
         if let error = err {
             return nil
         }
 
-        return results.lastObject as? User
+        return results?.last as? User
     }
 }

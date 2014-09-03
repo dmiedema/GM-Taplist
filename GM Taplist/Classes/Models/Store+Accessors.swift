@@ -99,13 +99,13 @@ extension Store {
         fetchRequest.predicate = NSPredicate(format: "id = %@", id)
         
         var err: NSError?
-        let results = context.executeFetchRequest(fetchRequest, error: &err) as NSArray
+        let results = context.executeFetchRequest(fetchRequest, error: &err)
         
         if let error = err {
             return nil
         }
         
-        return results.lastObject as? Store
+        return results?.last as? Store
     }
 
     class func storeIDForName(name: String, inContext context: NSManagedObjectContext) -> (Int, NSError?) {
@@ -114,8 +114,11 @@ extension Store {
     
         var err: NSError?
         
-        let stores = context.executeFetchRequest(fetchRequest, error: &err) as NSArray
-        let store = stores.lastObject as Store
-        return (store.id as Int, err)
+        let stores = context.executeFetchRequest(fetchRequest, error: &err)
+        let store = stores?.last as? Store
+        if let error = err {
+            return (0, error)
+        }
+        return (store!.id as Int, err)
     }
 }

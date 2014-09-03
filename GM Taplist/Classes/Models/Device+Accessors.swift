@@ -30,12 +30,12 @@ extension Device {
         fetchRequest.predicate = NSPredicate(format: "push_token = %@", token)
 
         var err: NSError?
-        let results = context.executeFetchRequest(fetchRequest, error: &err) as NSArray
+        let results = context.executeFetchRequest(fetchRequest, error: &err)
         
         if let error = err {
             return nil
         }
         
-        return results.lastObject as? Device
+        return results?.last as? Device
     }
 }
