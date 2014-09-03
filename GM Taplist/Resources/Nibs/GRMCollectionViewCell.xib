@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5aR-Nc-nY3" customClass="GRMCollectionViewCell" customModule="GM_Taplist" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GMTaplist.CollectionView.CellReuseIdentifier" id="5aR-Nc-nY3" customClass="GRMCollectionViewCell" customModule="GM_Taplist" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -18,6 +18,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="84" id="8MY-rg-xKP"/>
+                            <constraint firstAttribute="width" constant="320" id="bqL-fo-0ja"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vuD-0f-0xE">
@@ -93,7 +94,6 @@
                 <constraint firstItem="fKK-RI-u5c" firstAttribute="leading" secondItem="BgJ-5c-9iq" secondAttribute="leading" id="DlM-jG-Kqw"/>
                 <constraint firstItem="Pgq-gH-IN0" firstAttribute="leading" secondItem="5aR-Nc-nY3" secondAttribute="leading" constant="45" id="EPT-h2-OWJ"/>
                 <constraint firstAttribute="trailing" secondItem="Okw-kz-IGj" secondAttribute="trailing" id="IXk-Yu-y8r"/>
-                <constraint firstItem="Okw-kz-IGj" firstAttribute="leading" secondItem="5aR-Nc-nY3" secondAttribute="leading" id="Rmj-IN-MbU"/>
                 <constraint firstItem="IBi-2V-raR" firstAttribute="top" secondItem="BgJ-5c-9iq" secondAttribute="bottom" constant="3" id="Sc3-ZD-kE1"/>
                 <constraint firstAttribute="bottom" secondItem="Okw-kz-IGj" secondAttribute="bottom" id="Udf-np-bV4"/>
                 <constraint firstItem="vuD-0f-0xE" firstAttribute="leading" secondItem="5aR-Nc-nY3" secondAttribute="leading" id="YU1-af-4IO"/>
@@ -116,6 +116,7 @@
                 <outlet property="favoriteButton" destination="Pgq-gH-IN0" id="DjN-Ie-tHY"/>
                 <outlet property="favoriteImageView" destination="vuD-0f-0xE" id="Ud0-XS-WLK"/>
                 <outlet property="kegLevelView" destination="Okw-kz-IGj" id="8PR-vr-a1t"/>
+                <outlet property="kegLevelWidthConstraint" destination="bqL-fo-0ja" id="Y1J-j7-sVQ"/>
                 <outlet property="middleLineLabel" destination="BgJ-5c-9iq" id="urf-bH-fTK"/>
                 <outlet property="topLineLabel" destination="fKK-RI-u5c" id="Q6r-jF-Eme"/>
             </connections>
