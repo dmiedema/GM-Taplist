@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.14" systemVersion="14A329f" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="BaseObject" representedClassName="BaseObject" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.17" systemVersion="14A343f" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BaseObject" representedClassName="GRMBaseObject" syncable="YES">
         <attribute name="last_updated" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
-    <entity name="Beer" representedClassName="Beer" parentEntity="BaseObject" syncable="YES">
+    <entity name="Beer" representedClassName="GRMBeer" parentEntity="BaseObject" syncable="YES">
         <attribute name="abv" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="beer_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beer_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="growler_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="growlette_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="halfpint_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="ibu" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pint_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="purchased" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -21,31 +21,30 @@
         <relationship name="review" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Review" inverseName="beer" inverseEntity="Review" syncable="YES"/>
         <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Style" inverseName="beer" inverseEntity="Style" syncable="YES"/>
     </entity>
-    <entity name="Brewery" representedClassName="Brewery" parentEntity="BaseObject" syncable="YES">
+    <entity name="Brewery" representedClassName="GRMBrewery" parentEntity="BaseObject" syncable="YES">
+        <attribute name="brewery_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="logo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="beers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Beer" inverseName="brewery" inverseEntity="Beer" syncable="YES"/>
     </entity>
-    <entity name="Device" representedClassName="Device" parentEntity="BaseObject" syncable="YES">
+    <entity name="Device" representedClassName="GRMDevice" parentEntity="BaseObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="push_token" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="User" inverseName="devices" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Review" representedClassName="Review" parentEntity="BaseObject" syncable="YES">
+    <entity name="Review" representedClassName="GRMReview" parentEntity="BaseObject" syncable="YES">
         <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="beer" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Beer" inverseName="review" inverseEntity="Beer" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="User" inverseName="review" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Store" representedClassName="Store" parentEntity="BaseObject" syncable="YES">
+    <entity name="Store" representedClassName="GRMStore" parentEntity="BaseObject" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="ip_address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -55,29 +54,30 @@
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postal_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="store_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Style" representedClassName="Style" parentEntity="BaseObject" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    <entity name="Style" representedClassName="GRMStyle" parentEntity="BaseObject" syncable="YES">
         <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="style_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="beer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Beer" inverseName="style" inverseEntity="Beer" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName="User" parentEntity="BaseObject" syncable="YES">
+    <entity name="User" representedClassName="GRMUser" parentEntity="BaseObject" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="udid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="devices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Device" inverseName="user" inverseEntity="Device" syncable="YES"/>
         <relationship name="review" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="user" inverseEntity="Review" syncable="YES"/>
     </entity>
     <elements>
+        <element name="BaseObject" positionX="-108" positionY="171" width="128" height="58"/>
         <element name="Beer" positionX="54" positionY="99" width="128" height="283"/>
-        <element name="Brewery" positionX="18" positionY="63" width="128" height="133"/>
-        <element name="Review" positionX="-27" positionY="18" width="128" height="103"/>
-        <element name="Store" positionX="18" positionY="171" width="128" height="253"/>
-        <element name="Style" positionX="27" positionY="180" width="128" height="88"/>
-        <element name="User" positionX="18" positionY="63" width="128" height="148"/>
-        <element name="Device" positionX="18" positionY="171" width="128" height="88"/>
-        <element name="BaseObject" positionX="27" positionY="180" width="128" height="58"/>
+        <element name="Brewery" positionX="187" positionY="-34" width="128" height="133"/>
+        <element name="Device" positionX="-200" positionY="-63" width="128" height="88"/>
+        <element name="Review" positionX="9" positionY="-63" width="128" height="103"/>
+        <element name="Store" positionX="250" positionY="116" width="128" height="253"/>
+        <element name="Style" positionX="-155" positionY="290" width="128" height="88"/>
+        <element name="User" positionX="-306" positionY="122" width="128" height="148"/>
     </elements>
 </model>
