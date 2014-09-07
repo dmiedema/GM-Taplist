@@ -22,22 +22,9 @@
 		C38403AE19A93102003F92A5 /* GRMSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */; };
 		C38403B019A93173003F92A5 /* GRMCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */; };
 		C38403B419A93237003F92A5 /* GRMFirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */; };
-		C38403B919A932A8003F92A5 /* Beer+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B519A932A8003F92A5 /* Beer+Accessors.swift */; };
-		C38403BA19A932A8003F92A5 /* Brewery+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B619A932A8003F92A5 /* Brewery+Accessors.swift */; };
-		C38403BB19A932A8003F92A5 /* Store+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B719A932A8003F92A5 /* Store+Accessors.swift */; };
-		C38403BC19A932A8003F92A5 /* Style+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B819A932A8003F92A5 /* Style+Accessors.swift */; };
 		C38B3DA219AA8B5000E2C533 /* AlamoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B3DA119AA8B5000E2C533 /* AlamoAPI.swift */; };
-		C3979DFB19B12A9800486172 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979DFA19B12A9800486172 /* User.swift */; };
-		C3979DFD19B12A9800486172 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979DFC19B12A9800486172 /* BaseObject.swift */; };
-		C3979DFF19B12A9800486172 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979DFE19B12A9800486172 /* Store.swift */; };
-		C3979E0119B12A9800486172 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0019B12A9800486172 /* Brewery.swift */; };
-		C3979E0319B12A9800486172 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0219B12A9800486172 /* Style.swift */; };
-		C3979E0519B12A9800486172 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0419B12A9800486172 /* Device.swift */; };
-		C3979E0719B12A9900486172 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0619B12A9900486172 /* Beer.swift */; };
-		C3979E0919B12A9900486172 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0819B12A9900486172 /* Review.swift */; };
-		C3979E0B19B12AAC00486172 /* User+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0A19B12AAC00486172 /* User+Accessors.swift */; };
-		C3979E0D19B12B9900486172 /* Device+Accessors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0C19B12B9900486172 /* Device+Accessors.swift */; };
 		C3979E0F19B130AA00486172 /* DeviceRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0E19B130AA00486172 /* DeviceRegister.swift */; };
+		C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */; };
 		C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987119A16AA700EB4270 /* AppDelegate.swift */; };
 		C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */; };
 		C3DB987A19A16AA700EB4270 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DB987819A16AA700EB4270 /* Main.storyboard */; };
@@ -45,6 +32,21 @@
 		C3DB98A919A1768500EB4270 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98A819A1768500EB4270 /* API.swift */; };
 		C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98AA19A1777C00EB4270 /* Constants.swift */; };
 		C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */; };
+		C3F2E91719BCC5240083D4BB /* GRMBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91619BCC5240083D4BB /* GRMBeer.m */; };
+		C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91919BCC5250083D4BB /* GRMStore.m */; };
+		C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91C19BCC5250083D4BB /* GRMBaseObject.m */; };
+		C3F2E92019BCC5250083D4BB /* GRMBrewery.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91F19BCC5250083D4BB /* GRMBrewery.m */; };
+		C3F2E92319BCC5250083D4BB /* GRMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E92219BCC5250083D4BB /* GRMUser.m */; };
+		C3F2E92619BCC5250083D4BB /* GRMReview.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E92519BCC5250083D4BB /* GRMReview.m */; };
+		C3F2E92919BCC5250083D4BB /* GRMStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E92819BCC5250083D4BB /* GRMStyle.m */; };
+		C3F2E92C19BCC5260083D4BB /* GRMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E92B19BCC5260083D4BB /* GRMDevice.m */; };
+		C3F2E92F19BCC9FB0083D4BB /* GRMBeer+Accessors.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E92E19BCC9FB0083D4BB /* GRMBeer+Accessors.m */; };
+		C3F2E93319BCCA200083D4BB /* GRMDevice+Accessors.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E93219BCCA200083D4BB /* GRMDevice+Accessors.m */; };
+		C3F2E93619BCCA670083D4BB /* GRMStyle+Accessors.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E93519BCCA670083D4BB /* GRMStyle+Accessors.m */; };
+		C3F2E93919BCCA7B0083D4BB /* GRMBrewery+Accessors.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E93819BCCA7B0083D4BB /* GRMBrewery+Accessors.m */; };
+		C3F2E93C19BCCA960083D4BB /* GRMUser+Accessors.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E93B19BCCA960083D4BB /* GRMUser+Accessors.m */; };
+		C3F2E93F19BCCAA60083D4BB /* GRMStore+Accessors.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E93E19BCCAA60083D4BB /* GRMStore+Accessors.m */; };
+		C3F2E94819BCFA440083D4BB /* NSObject+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E94719BCFA440083D4BB /* NSObject+Helpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,22 +77,10 @@
 		C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMSettingsTableViewController.swift; sourceTree = "<group>"; };
 		C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMCollectionViewCell.swift; sourceTree = "<group>"; };
 		C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMFirstLaunchViewController.swift; sourceTree = "<group>"; };
-		C38403B519A932A8003F92A5 /* Beer+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beer+Accessors.swift"; sourceTree = "<group>"; };
-		C38403B619A932A8003F92A5 /* Brewery+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Brewery+Accessors.swift"; sourceTree = "<group>"; };
-		C38403B719A932A8003F92A5 /* Store+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+Accessors.swift"; sourceTree = "<group>"; };
-		C38403B819A932A8003F92A5 /* Style+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Style+Accessors.swift"; sourceTree = "<group>"; };
 		C38B3DA119AA8B5000E2C533 /* AlamoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoAPI.swift; sourceTree = "<group>"; };
-		C3979DFA19B12A9800486172 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C3979DFC19B12A9800486172 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
-		C3979DFE19B12A9800486172 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		C3979E0019B12A9800486172 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
-		C3979E0219B12A9800486172 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		C3979E0419B12A9800486172 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		C3979E0619B12A9900486172 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
-		C3979E0819B12A9900486172 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
-		C3979E0A19B12AAC00486172 /* User+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Accessors.swift"; sourceTree = "<group>"; };
-		C3979E0C19B12B9900486172 /* Device+Accessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Device+Accessors.swift"; sourceTree = "<group>"; };
 		C3979E0E19B130AA00486172 /* DeviceRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceRegister.swift; sourceTree = "<group>"; };
+		C3A9980F19BBACEE00BCB171 /* GM Taplist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GM Taplist-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMLoadingViewController.swift; sourceTree = "<group>"; };
 		C3DB986C19A16AA700EB4270 /* GM Taplist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Taplist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DB987019A16AA700EB4270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3DB987119A16AA700EB4270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,10 +89,40 @@
 		C3DB987B19A16AA700EB4270 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C3DB988119A16AA700EB4270 /* GM TaplistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GM TaplistTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DB988619A16AA700EB4270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3DB989F19A1760D00EB4270 /* GM Taplist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GM Taplist-Bridging-Header.h"; path = "../Core Data/GM Taplist-Bridging-Header.h"; sourceTree = "<group>"; };
 		C3DB98A819A1768500EB4270 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3DB98AA19A1777C00EB4270 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTapDataSource.swift; sourceTree = "<group>"; };
+		C3F2E91519BCC5240083D4BB /* GRMBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBeer.h; sourceTree = "<group>"; };
+		C3F2E91619BCC5240083D4BB /* GRMBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMBeer.m; sourceTree = "<group>"; };
+		C3F2E91819BCC5250083D4BB /* GRMStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMStore.h; sourceTree = "<group>"; };
+		C3F2E91919BCC5250083D4BB /* GRMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMStore.m; sourceTree = "<group>"; };
+		C3F2E91B19BCC5250083D4BB /* GRMBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBaseObject.h; sourceTree = "<group>"; };
+		C3F2E91C19BCC5250083D4BB /* GRMBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMBaseObject.m; sourceTree = "<group>"; };
+		C3F2E91E19BCC5250083D4BB /* GRMBrewery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBrewery.h; sourceTree = "<group>"; };
+		C3F2E91F19BCC5250083D4BB /* GRMBrewery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMBrewery.m; sourceTree = "<group>"; };
+		C3F2E92119BCC5250083D4BB /* GRMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMUser.h; sourceTree = "<group>"; };
+		C3F2E92219BCC5250083D4BB /* GRMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMUser.m; sourceTree = "<group>"; };
+		C3F2E92419BCC5250083D4BB /* GRMReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMReview.h; sourceTree = "<group>"; };
+		C3F2E92519BCC5250083D4BB /* GRMReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMReview.m; sourceTree = "<group>"; };
+		C3F2E92719BCC5250083D4BB /* GRMStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMStyle.h; sourceTree = "<group>"; };
+		C3F2E92819BCC5250083D4BB /* GRMStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMStyle.m; sourceTree = "<group>"; };
+		C3F2E92A19BCC5260083D4BB /* GRMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMDevice.h; sourceTree = "<group>"; };
+		C3F2E92B19BCC5260083D4BB /* GRMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMDevice.m; sourceTree = "<group>"; };
+		C3F2E92D19BCC9FB0083D4BB /* GRMBeer+Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GRMBeer+Accessors.h"; sourceTree = "<group>"; };
+		C3F2E92E19BCC9FB0083D4BB /* GRMBeer+Accessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GRMBeer+Accessors.m"; sourceTree = "<group>"; };
+		C3F2E93119BCCA200083D4BB /* GRMDevice+Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GRMDevice+Accessors.h"; sourceTree = "<group>"; };
+		C3F2E93219BCCA200083D4BB /* GRMDevice+Accessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GRMDevice+Accessors.m"; sourceTree = "<group>"; };
+		C3F2E93419BCCA670083D4BB /* GRMStyle+Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GRMStyle+Accessors.h"; sourceTree = "<group>"; };
+		C3F2E93519BCCA670083D4BB /* GRMStyle+Accessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GRMStyle+Accessors.m"; sourceTree = "<group>"; };
+		C3F2E93719BCCA7B0083D4BB /* GRMBrewery+Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GRMBrewery+Accessors.h"; sourceTree = "<group>"; };
+		C3F2E93819BCCA7B0083D4BB /* GRMBrewery+Accessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GRMBrewery+Accessors.m"; sourceTree = "<group>"; };
+		C3F2E93A19BCCA960083D4BB /* GRMUser+Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GRMUser+Accessors.h"; sourceTree = "<group>"; };
+		C3F2E93B19BCCA960083D4BB /* GRMUser+Accessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GRMUser+Accessors.m"; sourceTree = "<group>"; };
+		C3F2E93D19BCCAA60083D4BB /* GRMStore+Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GRMStore+Accessors.h"; sourceTree = "<group>"; };
+		C3F2E93E19BCCAA60083D4BB /* GRMStore+Accessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GRMStore+Accessors.m"; sourceTree = "<group>"; };
+		C3F2E94319BCCB7D0083D4BB /* GRMCoreDataModelAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMCoreDataModelAccessors.h; sourceTree = "<group>"; };
+		C3F2E94619BCFA440083D4BB /* NSObject+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helpers.h"; sourceTree = "<group>"; };
+		C3F2E94719BCFA440083D4BB /* NSObject+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helpers.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +206,7 @@
 		C3DB986F19A16AA700EB4270 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C3DB989F19A1760D00EB4270 /* GM Taplist-Bridging-Header.h */,
+				C3A9980F19BBACEE00BCB171 /* GM Taplist-Bridging-Header.h */,
 				C3DB987019A16AA700EB4270 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -212,6 +232,8 @@
 		C3DB989119A16B0700EB4270 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C3F2E94619BCFA440083D4BB /* NSObject+Helpers.h */,
+				C3F2E94719BCFA440083D4BB /* NSObject+Helpers.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,15 +266,23 @@
 		C3DB989519A16B5000EB4270 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				C3979E0819B12A9900486172 /* Review.swift */,
-				C3979E0619B12A9900486172 /* Beer.swift */,
-				C3979E0419B12A9800486172 /* Device.swift */,
-				C3979E0219B12A9800486172 /* Style.swift */,
-				C3979E0019B12A9800486172 /* Brewery.swift */,
-				C3979DFE19B12A9800486172 /* Store.swift */,
-				C3979DFC19B12A9800486172 /* BaseObject.swift */,
-				C3979DFA19B12A9800486172 /* User.swift */,
 				C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */,
+				C3F2E92A19BCC5260083D4BB /* GRMDevice.h */,
+				C3F2E92B19BCC5260083D4BB /* GRMDevice.m */,
+				C3F2E92719BCC5250083D4BB /* GRMStyle.h */,
+				C3F2E92819BCC5250083D4BB /* GRMStyle.m */,
+				C3F2E92419BCC5250083D4BB /* GRMReview.h */,
+				C3F2E92519BCC5250083D4BB /* GRMReview.m */,
+				C3F2E92119BCC5250083D4BB /* GRMUser.h */,
+				C3F2E92219BCC5250083D4BB /* GRMUser.m */,
+				C3F2E91E19BCC5250083D4BB /* GRMBrewery.h */,
+				C3F2E91F19BCC5250083D4BB /* GRMBrewery.m */,
+				C3F2E91B19BCC5250083D4BB /* GRMBaseObject.h */,
+				C3F2E91C19BCC5250083D4BB /* GRMBaseObject.m */,
+				C3F2E91819BCC5250083D4BB /* GRMStore.h */,
+				C3F2E91919BCC5250083D4BB /* GRMStore.m */,
+				C3F2E91519BCC5240083D4BB /* GRMBeer.h */,
+				C3F2E91619BCC5240083D4BB /* GRMBeer.m */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -310,12 +340,19 @@
 		C3DB989B19A16BA100EB4270 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C38403B519A932A8003F92A5 /* Beer+Accessors.swift */,
-				C38403B619A932A8003F92A5 /* Brewery+Accessors.swift */,
-				C38403B719A932A8003F92A5 /* Store+Accessors.swift */,
-				C38403B819A932A8003F92A5 /* Style+Accessors.swift */,
-				C3979E0A19B12AAC00486172 /* User+Accessors.swift */,
-				C3979E0C19B12B9900486172 /* Device+Accessors.swift */,
+				C3F2E92D19BCC9FB0083D4BB /* GRMBeer+Accessors.h */,
+				C3F2E92E19BCC9FB0083D4BB /* GRMBeer+Accessors.m */,
+				C3F2E93119BCCA200083D4BB /* GRMDevice+Accessors.h */,
+				C3F2E93219BCCA200083D4BB /* GRMDevice+Accessors.m */,
+				C3F2E93419BCCA670083D4BB /* GRMStyle+Accessors.h */,
+				C3F2E93519BCCA670083D4BB /* GRMStyle+Accessors.m */,
+				C3F2E93719BCCA7B0083D4BB /* GRMBrewery+Accessors.h */,
+				C3F2E93819BCCA7B0083D4BB /* GRMBrewery+Accessors.m */,
+				C3F2E93A19BCCA960083D4BB /* GRMUser+Accessors.h */,
+				C3F2E93B19BCCA960083D4BB /* GRMUser+Accessors.m */,
+				C3F2E93D19BCCAA60083D4BB /* GRMStore+Accessors.h */,
+				C3F2E93E19BCCAA60083D4BB /* GRMStore+Accessors.m */,
+				C3F2E94319BCCB7D0083D4BB /* GRMCoreDataModelAccessors.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +364,7 @@
 				C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */,
 				C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */,
 				54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */,
+				C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -514,36 +552,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C38403BA19A932A8003F92A5 /* Brewery+Accessors.swift in Sources */,
+				C3F2E92019BCC5250083D4BB /* GRMBrewery.m in Sources */,
 				C38403AE19A93102003F92A5 /* GRMSettingsTableViewController.swift in Sources */,
+				C3F2E92F19BCC9FB0083D4BB /* GRMBeer+Accessors.m in Sources */,
 				C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */,
+				C3F2E94819BCFA440083D4BB /* NSObject+Helpers.m in Sources */,
 				C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */,
-				C3979E0D19B12B9900486172 /* Device+Accessors.swift in Sources */,
+				C3F2E92319BCC5250083D4BB /* GRMUser.m in Sources */,
+				C3F2E93919BCCA7B0083D4BB /* GRMBrewery+Accessors.m in Sources */,
+				C3F2E93C19BCCA960083D4BB /* GRMUser+Accessors.m in Sources */,
 				C38403B419A93237003F92A5 /* GRMFirstLaunchViewController.swift in Sources */,
-				C3979E0719B12A9900486172 /* Beer.swift in Sources */,
-				C38403BC19A932A8003F92A5 /* Style+Accessors.swift in Sources */,
+				C3F2E92C19BCC5260083D4BB /* GRMDevice.m in Sources */,
+				C3F2E93F19BCCAA60083D4BB /* GRMStore+Accessors.m in Sources */,
 				C3979E0F19B130AA00486172 /* DeviceRegister.swift in Sources */,
-				C3979E0119B12A9800486172 /* Brewery.swift in Sources */,
-				C3979E0319B12A9800486172 /* Style.swift in Sources */,
+				C3F2E91719BCC5240083D4BB /* GRMBeer.m in Sources */,
 				C3DB98A919A1768500EB4270 /* API.swift in Sources */,
 				C38403B019A93173003F92A5 /* GRMCollectionViewCell.swift in Sources */,
-				C3979DFB19B12A9800486172 /* User.swift in Sources */,
 				C313C19519AAC8A400E42784 /* FavoritesDataSource.swift in Sources */,
 				54EEE82419AAF13F005E4AAD /* Async.swift in Sources */,
-				C3979DFD19B12A9800486172 /* BaseObject.swift in Sources */,
+				C3F2E92619BCC5250083D4BB /* GRMReview.m in Sources */,
 				C338E14B19AA9783008A1D18 /* GRMCollectionViewDataSource.swift in Sources */,
+				C3F2E93619BCCA670083D4BB /* GRMStyle+Accessors.m in Sources */,
 				C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */,
 				C38B3DA219AA8B5000E2C533 /* AlamoAPI.swift in Sources */,
 				C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */,
-				C3979E0919B12A9900486172 /* Review.swift in Sources */,
-				C3979DFF19B12A9800486172 /* Store.swift in Sources */,
-				C38403B919A932A8003F92A5 /* Beer+Accessors.swift in Sources */,
-				C38403BB19A932A8003F92A5 /* Store+Accessors.swift in Sources */,
+				C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */,
+				C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */,
+				C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */,
 				C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */,
+				C3F2E93319BCCA200083D4BB /* GRMDevice+Accessors.m in Sources */,
 				C313C19719AAC8B000E42784 /* AllBeersDataSource.swift in Sources */,
 				54D4A36119B7562F0036002B /* GRMBeerDetailsTableViewController.swift in Sources */,
-				C3979E0519B12A9800486172 /* Device.swift in Sources */,
-				C3979E0B19B12AAC00486172 /* User+Accessors.swift in Sources */,
+				C3F2E92919BCC5250083D4BB /* GRMStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,11 +701,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = "GM Taplist/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Core Data/GM Taplist-Bridging-Header.h";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Supporting Files/GM Taplist-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -677,11 +729,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = "GM Taplist/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Core Data/GM Taplist-Bridging-Header.h";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Supporting Files/GM Taplist-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

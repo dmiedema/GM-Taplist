@@ -11,23 +11,23 @@ import Foundation
 class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol {
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 
     // MARK: - DataSource's creation
-    lazy var onTapDataSource: OnTapDataSource? = {
-        let dataSource = OnTapDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.OnTapCellReuseIdentifier, configurationBlock: { (cell, beerData) -> () in
+    lazy var onTapDataSource: OnTapDataSource = {
+        let dataSource = OnTapDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier, configurationBlock: { (cell, beerData) -> () in
             cell.delegate = self
             cell.beerData = beerData
             
-            cell.topLineLabel.text = beerData.onTapDisplayString()
-            cell.middleLineLabel.attributedText = beerData.attributedStringForBreweryInformation()
-            cell.bottomLineLabel.text = beerData.onTapBottomLineString()
+            cell.topLineLabel?.text = beerData.onTapDisplayString()
+            cell.middleLineLabel?.attributedText = beerData.attributedStringForBreweryInformation()
+            cell.bottomLineLabel?.text = beerData.onTapBottomLineString()
         })
         return dataSource
     }()
-    lazy var favoritesDataSource: FavoritesDataSource? = {
-        let dataSource = FavoritesDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.FavoritesCellReuseIdentifier, configurationBlock: { (cell, beerData) -> () in
+    lazy var favoritesDataSource: FavoritesDataSource = {
+        let dataSource = FavoritesDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier, configurationBlock: { (cell, beerData) -> () in
             cell.delegate = self
             cell.beerData = beerData
             
@@ -37,8 +37,8 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         })
         return dataSource
     }()
-    lazy var allBeersDataSource: AllBeersDataSource? = {
-        let dataSource = AllBeersDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.AllBeersCellReuseIdentifier, configurationBlock: { (cell, beerData) -> () in
+    lazy var allBeersDataSource: AllBeersDataSource = {
+        let dataSource = AllBeersDataSource(cellIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier, configurationBlock: { (cell, beerData) -> () in
             cell.delegate = self
             cell.beerData = beerData
             
@@ -49,19 +49,25 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         return dataSource
     }()
     // MARK: - Properties
-    private var selectedIndexPath: NSIndexPath
-    var managedObjectContext: NSManagedObjectContext
+    private var selectedIndexPath: NSIndexPath?
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = delegate.managedObjectContext
+
+        return context!
+    }()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView?.backgroundColor = UIColor.purpleColor()
         
-        onTapDataSource?.delegate = self
-        favoritesDataSource?.delegate = self
-        allBeersDataSource?.delegate  = self
+        onTapDataSource.delegate = self
+        favoritesDataSource.delegate = self
+        allBeersDataSource.delegate  = self
         
         self.collectionView?.dataSource = onTapDataSource
-        onTapDataSource?.loadBeersForStore(onTapDataSource!.lastViewedStoreID())
+        onTapDataSource.loadBeersForStore(1)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -105,14 +111,15 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     
     // MARK: - GRMCollectionViewCellProtocol
     func favoritePressed(beerData: BeerData) {
-        let cell = collectionView?.cellForItemAtIndexPath(selectedIndexPath) as GRMCollectionViewCell
+        let indexPath = selectedIndexPath!
+        let cell = collectionView?.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
         if !beerData.beer.favorite.boolValue {
-            API.sharedInstance.favoriteBeer(beerData.beer.id, completionBlock: { (success) -> () in
+            API.sharedInstance.favoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
                 cell.setFavorite(true, animated: true)
             }, failureBlock: { (error) -> () in
             })
         } else {
-            API.sharedInstance.unFavoriteBeer(beerData.beer.id, completionBlock: { (success) -> () in
+            API.sharedInstance.unFavoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
                 cell.setFavorite(false, animated: true)
             }, failureBlock: { (error) -> () in
             })

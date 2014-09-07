@@ -13,17 +13,36 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Tco-hC-UMA" kind="relationship" relationship="rootViewController" id="M7A-uT-ulp"/>
+                        <segue destination="OT3-CQ-R5W" kind="relationship" relationship="rootViewController" id="3Je-Pt-whX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAa-5i-Bbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1431" y="398"/>
+            <point key="canvasLocation" x="-2027" y="398"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="uUO-En-OZK">
+            <objects>
+                <viewController storyboardIdentifier="GRMLoadingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OT3-CQ-R5W" customClass="GRMLoadingViewController" customModule="GM_Taplist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rdp-ja-EQA"/>
+                        <viewControllerLayoutGuide type="bottom" id="sOM-Yr-2xZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2ic-wA-RGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f3m-bA-RWb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xad-cA-GZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1355" y="420"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="ZSV-7e-GCJ">
             <objects>
-                <collectionViewController storyboardIdentifier="GRMCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tco-hC-UMA" customClass="GRMCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="GRMCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tco-hC-UMA" customClass="GRMCollectionViewController" customModule="GM_Taplist" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7gp-au-mZF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gCf-pW-VBy">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="gCf-pW-VBy">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gCf-pW-VBy" id="6B0-18-itu">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -85,4 +104,5 @@
             <point key="canvasLocation" x="10" y="398"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.92156862750000001" green="0.85882352939999995" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

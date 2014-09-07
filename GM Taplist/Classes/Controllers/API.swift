@@ -11,7 +11,7 @@ import CoreData
 
 class API: AFHTTPSessionManager {
     // MARK: - Properties
-    private lazy var managedObjectContext: NSManagedObjectContext? = {
+    private lazy var managedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         return appDelegate.managedObjectContext!
     }()
@@ -29,13 +29,35 @@ class API: AFHTTPSessionManager {
         super.init(coder: aDecoder)
     }
     
-    // MARK: - initialize
+    // MARK: - 
+    private func getPrivateContext() -> NSManagedObjectContext {
+        var context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        context.persistentStoreCoordinator = self.managedObjectContext.persistentStoreCoordinator
+
+        return context
+    }
+    
+    private func mergeContext(context: NSManagedObjectContext, withContext: NSManagedObjectContext) -> Bool {
+        return true
+    }
+    
+    // MARK: - Initialize
     override init(baseURL url: NSURL!) {
         super.init(baseURL: url)
         
         self.responseSerializer = AFJSONResponseSerializer()
         self.requestSerializer = AFJSONRequestSerializer()
         self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
+        self.requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")
+    }
+    
+    override init(baseURL url: NSURL!, sessionConfiguration configuration: NSURLSessionConfiguration!) {
+        super.init(baseURL: url, sessionConfiguration: configuration)
+        
+        self.responseSerializer = AFJSONResponseSerializer()
+        self.requestSerializer = AFJSONRequestSerializer()
+        self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
+        self.requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")
     }
     
     // MARK: - Favoriting
@@ -48,15 +70,18 @@ class API: AFHTTPSessionManager {
 
     // MARK: - Stores/Ontap
     func beersOnTapForStore(storeID: Int, completionBlock:([BeerData]) -> (), failureBlock:((NSError)) -> ()) {
-        let url = NSString(format: "stores/%@/ontap", storeID)
+        let url = "stores/\(storeID)/ontap"
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
+            NSLog("Got beers")
             let rawData = response as NSDictionary
             let beers = rawData["data"] as NSArray
             var onTapBeers = [BeerData]()
             for beerDict in beers {
-                let beer = Beer.createOrUpdate(beerDict as NSDictionary, inManagedObjectContext: self.managedObjectContext!)
-
+                let beer = GRMBeer.loadObjectID(beerDict["id"] as Int, inManagedObjectContext: self.managedObjectContext)
+                if beer == nil {
+                    continue
+                }
                 onTapBeers.append(
                     BeerData(beer: beer,
                         tapNumber: beerDict["tap_number"] as? Int,
@@ -65,17 +90,18 @@ class API: AFHTTPSessionManager {
             
             completionBlock(onTapBeers)
         }, failure: { (dataTasK, error) -> Void in
+            NSLog("Failed to get beers\n\(error)")
             failureBlock(error)
         })
     }
     
-    func stores(completionBlock:([Store]) -> (), failureBlock:(NSError) -> ()) {
+    func stores(completionBlock:([GRMStore]) -> (), failureBlock:(NSError) -> ()) {
         self.GET("stores", parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let storesData = rawData["data"] as NSArray
-            var stores = [Store]()
+            var stores = [GRMStore]()
             for store in storesData {
-                stores.append(Store.createOrUpdate(store as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
+                stores.append(GRMStore.createOrUpdate(store as NSDictionary, inManagedObjectContext: self.managedObjectContext))
             }
             
             completionBlock(stores)
@@ -84,13 +110,13 @@ class API: AFHTTPSessionManager {
         })
     }
     
-    func storeDetails(storeID: Int, completionBlock:(Store) -> (), failureBlock:(NSError) -> ()) {
-        let url = NSString(format: "stores/%@", storeID)
+    func storeDetails(storeID: Int, completionBlock:(GRMStore) -> (), failureBlock:(NSError) -> ()) {
+        let url = "stores/\(storeID)"
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let storeData = rawData["data"] as NSDictionary
-            let store = Store.createOrUpdate(storeData, inManagedObjectContext: self.managedObjectContext!)
+            let store = GRMStore.createOrUpdate(storeData, inManagedObjectContext: self.managedObjectContext)
         
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
@@ -98,13 +124,13 @@ class API: AFHTTPSessionManager {
         })
     }
     
-    func storeDetailsName(storeName: String, completionBlock:(Store) -> (), failureBlock:(NSError) -> ()) {
-        let url = NSString(format: "stores/%@", storeName)
+    func storeDetailsName(storeName: String, completionBlock:(GRMStore) -> (), failureBlock:(NSError) -> ()) {
+        let url = "stores/\(storeName)"
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let storeData = rawData["data"] as NSArray
-            let store = Store.createOrUpdate(storeData.firstObject as NSDictionary, inManagedObjectContext: self.managedObjectContext!)
+            let store = GRMStore.createOrUpdate(storeData.firstObject as NSDictionary, inManagedObjectContext: self.managedObjectContext)
         
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
@@ -113,13 +139,13 @@ class API: AFHTTPSessionManager {
     }
     
     // MARK: - Beers
-    func beerDetails(beerID: Int, completionBlock:(Beer) -> (), failureBlock:(NSError) -> ()) {
-        let url = NSString(format: "beers/%@", beerID);
+    func beerDetails(beerID: Int, completionBlock:(GRMBeer) -> (), failureBlock:(NSError) -> ()) {
+        let url = "beers/\(beerID)"
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let beerData = rawData["data"] as NSDictionary
-            let beer = Beer.createOrUpdate(beerData, inManagedObjectContext: self.managedObjectContext!)
+            let beer = GRMBeer.createOrUpdate(beerData, inManagedObjectContext: self.managedObjectContext)
             
             completionBlock(beer)
         }, failure: { (dataTask, error) -> Void in
@@ -127,7 +153,7 @@ class API: AFHTTPSessionManager {
         })
     }
 
-    func beers(sinceDate: NSDate?, completionBlock:([Beer]) -> (), failureBlock:(NSError) -> ()) {
+    func beers(sinceDate: NSDate?, completionBlock:([GRMBeer]) -> (), failureBlock:(NSError) -> ()) {
         var url = "beers/updated"
         if let date = sinceDate {
             let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -138,9 +164,9 @@ class API: AFHTTPSessionManager {
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let beerData = rawData["data"] as NSArray
-            var beers = [Beer]()
+            var beers = [GRMBeer]()
             for beer in beerData {
-                beers.append(Beer.createOrUpdate(beer as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
+                beers.append(GRMBeer.createOrUpdate(beer as NSDictionary, inManagedObjectContext: self.managedObjectContext))
             }
             
             completionBlock(beers)
@@ -150,7 +176,7 @@ class API: AFHTTPSessionManager {
     }
     
     // MARK: - Breweries
-    func breweries(sinceDate: NSDate?, completionBlock:([Brewery]) -> (), failureBlock:(NSError) -> ()) {
+    func breweries(sinceDate: NSDate?, completionBlock:([GRMBrewery]) -> (), failureBlock:(NSError) -> ()) {
         var url = "breweries/updated"
         if let date = sinceDate {
             let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -161,9 +187,9 @@ class API: AFHTTPSessionManager {
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let breweryData = rawData["data"] as NSArray
-            var breweries = [Brewery]()
+            var breweries = [GRMBrewery]()
             for brewery in breweryData {
-                breweries.append(Brewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
+                breweries.append(GRMBrewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext))
             }
             
             completionBlock(breweries)
@@ -172,14 +198,14 @@ class API: AFHTTPSessionManager {
         })
     }
     
-    func breweryDetails(breweryID: Int, completionBlock:(Brewery) -> (), failureBlock:(NSError) -> ()) {
-        var url = NSString(format: "breweries/%@", breweryID)
+    func breweryDetails(breweryID: Int, completionBlock:(GRMBrewery) -> (), failureBlock:(NSError) -> ()) {
+        var url = "breweries/\(breweryID)"
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
             let breweryData = rawData["data"] as NSDictionary
 
-            let brewery = Brewery.createOrUpdate(breweryData, inManagedObjectContext: self.managedObjectContext!)
+            let brewery = GRMBrewery.createOrUpdate(breweryData, inManagedObjectContext: self.managedObjectContext)
 
             completionBlock(brewery)
         }, failure: { (dataTask, error) -> Void in
@@ -187,16 +213,16 @@ class API: AFHTTPSessionManager {
         })
     }
     
-    func breweryDetailsName(breweryName: String, completionBlock:([Brewery]) -> (), failureBlock:(NSError) -> ()) {
-        var url = NSString(format: "breweries/%@", breweryName)
+    func breweryDetailsName(breweryName: String, completionBlock:([GRMBrewery]) -> (), failureBlock:(NSError) -> ()) {
+        var url = "breweries/\(breweryName)"
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             let rawData = response as NSDictionary
-            var breweries = [Brewery]()
+            var breweries = [GRMBrewery]()
             let breweryData = rawData["data"] as NSArray
             
             for brewery in breweryData {
-                breweries.append(Brewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext!))
+                breweries.append(GRMBrewery.createOrUpdate(brewery as NSDictionary, inManagedObjectContext: self.managedObjectContext))
             }
 
             completionBlock(breweries)
@@ -205,11 +231,11 @@ class API: AFHTTPSessionManager {
         })
     }
     
-    func beersForBrewery(breweryID: Int, completionBlock:(Brewery, [Beer]) -> (), failureBlock:(NSError) -> ()) {
+    func beersForBrewery(breweryID: Int, completionBlock:(GRMBrewery, [GRMBeer]) -> (), failureBlock:(NSError) -> ()) {
         
     }
     
-    func beersForBreweryName(breweryName: String, completionBlock:(Brewery, [Beer]) -> (), failureBlock:(NSError) -> ()) {
+    func beersForBreweryName(breweryName: String, completionBlock:(GRMBrewery, [GRMBeer]) -> (), failureBlock:(NSError) -> ()) {
     
     }
 

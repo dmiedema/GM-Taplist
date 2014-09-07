@@ -10,16 +10,20 @@ import Foundation
 import UIKit
 
 protocol GMTaplistCollectionViewDataSource: UICollectionViewDataSource {
-    func itemAtIndexPath(indexPath: NSIndexPath) -> Beer
+    func itemAtIndexPath(indexPath: NSIndexPath) -> GRMBeer
 }
 
 struct GrowlMovement {
     struct GMTaplist {
         struct UserDefaults {
-            static let LoggedInUserID  = "com.GrowlMovement.GMTaplist.LoggedInUserID"
-            static let PreferredStores = "com.GrowlMovement.GMTaplist.PreferredStores"
-            static let PushTokenKey    = "com.GrowlMovement.GMTaplist.PushTokenKey"
-            static let LastViewedStore = "com.GrowlMovement.GMTaplist.LastViewedStore"
+            static let LoggedInUserID           = "com.GrowlMovement.GMTaplist.LoggedInUserID"
+            static let PreferredStores          = "com.GrowlMovement.GMTaplist.PreferredStores"
+            static let PushTokenKey             = "com.GrowlMovement.GMTaplist.PushTokenKey"
+            static let LastViewedStore          = "com.GrowlMovement.GMTaplist.LastViewedStore"
+            static let LastRetreivedBeerDate    = "com.GrowlMovement.GMTaplist.LastRetreivedBeerDate"
+            static let LastRetreivedBreweryDate = "com.GrowlMovement.GMTaplist.LastRetreivedBreweryDate"
+            static let LastRetreivedStyleDate   = "com.GrowlMovement.GMTaplist.LastRetreivedStyleDate"
+            static let LastRetreivedUserDate    = "com.GrowlMovement.GMTaplist.LastRetreivedUserDate"
         }
         struct Errors {
             struct Network {
@@ -59,7 +63,7 @@ struct GrowlMovement {
         }
         struct URLs {
             static let OldBaseURL = "http://www.growlmovement.com/_app/GrowlersAppPage.php"
-            static let BaseURL    = "http://api.growlmovement.com/v0"
+            static let BaseURL    = "http://api.growlmovement.com/v0/"
         }
         struct APIKeys {
             static let ResetBadgeNotification = "reset-notification-count"

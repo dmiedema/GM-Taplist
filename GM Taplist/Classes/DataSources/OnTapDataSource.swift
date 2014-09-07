@@ -38,9 +38,9 @@ class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceP
     }
 
     func loadBeersForStoreName(storeName: String) {
-        let (storeID: Int, error: NSError?) = Store.storeIDForName(storeName, inContext: managedObjectContext!)
+        let storeID = GRMStore.storeIDForName(storeName, inManagedObjectContext: managedObjectContext!)
         
-        if error == nil && storeID > 0 {
+        if storeID > 0 {
             self.loadBeersForStore(storeID)
         } else {
             self.delegate?.dataFailedToLoad(NSError.errorWithDomain(GrowlMovement.GMTaplist.Errors.Generic, code: 15, userInfo: nil))

@@ -5,7 +5,9 @@
 #import <AFNetworking/AFNetworking.h>
 // #import <Crashlytics/Crashlytics.h>
 #import "NSUserDefaults+GroundControl.h"
+@import CoreData;
+//#import <CoreData/CoreData.h>
+//#import <CocoaLumberjack/CocoaLumberjack.h>
 
-#import <CoreData/CoreData.h>
-
-#import <CocoaLumberjack/CocoaLumberjack.h>
+#import "GRMCoreDataModelAccessors.h"
+#import "NSObject+Helpers.h"

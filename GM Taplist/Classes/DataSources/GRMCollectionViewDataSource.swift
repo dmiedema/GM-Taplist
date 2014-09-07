@@ -9,11 +9,11 @@
 import Foundation
 
 class BeerData {
-    var beer: Beer
+    var beer: GRMBeer
     var tapNumber: Int?
     var tapLevel: Int?
 
-    required init(beer: Beer, tapNumber: Int?, tapLevel: Int?) {
+    required init(beer: GRMBeer, tapNumber: Int?, tapLevel: Int?) {
         self.beer = beer
         self.tapNumber = tapNumber
         self.tapLevel = tapLevel
