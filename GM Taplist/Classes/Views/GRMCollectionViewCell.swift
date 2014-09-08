@@ -61,12 +61,32 @@ class GRMCollectionViewCell: UICollectionViewCell {
         if animated { duration = 0.3 }
         kegLevelView?.superview?.layoutIfNeeded()
         
+        if level < 20 {
+            kegLevelView.backgroundColor = UIColor(red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 0.3)
+        } else if level < 40 {
+            kegLevelView.backgroundColor = UIColor(red: 236.0/255.0, green: 218.0/255.0, blue: 62.0/255.0, alpha: 0.3)
+        } else {
+            kegLevelView.backgroundColor = UIColor(red: 126.0/255.0, green: 211.0/255.0, blue: 33.0/255.0, alpha: 0.3)
+        }
+        
         let floatLevel = CGFloat(level)
         let newLevel: CGFloat = 320.0 * (floatLevel / 100.0)
         
-        UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { () -> Void in
+        UIView.animateWithDuration(duration, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { () -> Void in
                 self.kegLevelWidthConstraint?.constant = newLevel
                 self.kegLevelView?.superview?.layoutIfNeeded()
             }, completion: { (complete) -> Void in })
+    }
+    
+    func setCellSelected(selected: Bool) {
+        if selected {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.kegLevelView.alpha = 0.0
+            })
+        } else {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.kegLevelView.alpha = 1.0
+            })
+        }
     }
 }

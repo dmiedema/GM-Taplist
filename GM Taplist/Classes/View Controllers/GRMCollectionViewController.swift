@@ -94,6 +94,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: - Implementation
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
+        collectionView.bringSubviewToFront(cell)
         
         if selectedIndexPath == indexPath {
             animateCellDeselected(cell, indexPath: indexPath)
@@ -118,7 +119,10 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         let customCell = cell as GRMCollectionViewCell
         if ((collectionView.dataSource!.isEqual(onTapDataSource))) {
             let beerData = customCell.beerData
-            customCell.setKegLevel(beerData.tapLevel!, animated: true)
+            let level = Int(arc4random() % 100)
+//            customCell.setKegLevel(beerData.tapLevel!, animated: true)
+            customCell.setKegLevel(level, animated: true)
+            NSLog("Keg level \(level)")
         }
     }
     
@@ -133,6 +137,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
 
     // MARK: - Cell Animations
     func animateCellSelected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
+        cell.setCellSelected(true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
 //            cell.frame = self.flowLayout.layoutAttributesForSelectedItemAtIndexPath(indexPath).frame
             let newFrame = self.flowLayout.layoutAttributesForSelectedItemAtIndexPath(indexPath).frame
@@ -143,6 +148,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         collectionView?.collectionViewLayout.invalidateLayout()
     }
     func animateCellDeselected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
+        cell.setCellSelected(false)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             let newFrame = self.flowLayout.layoutAttributesForItemAtIndexPath(indexPath).frame
             let oldFrame = cell.frame
