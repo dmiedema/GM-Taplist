@@ -49,6 +49,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         return dataSource
     }()
     // MARK: - Properties
+    private var currentDataSource: GRMCollectionViewDataSourceProtocol!
     private var selectedIndexPath: NSIndexPath?
     lazy var managedObjectContext: NSManagedObjectContext = {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -58,14 +59,17 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }()
     
     private lazy var flowLayout: GRMCollectionViewFlowLayout  = {
-        return GRMCollectionViewFlowLayout()
+        let flowLayout = GRMCollectionViewFlowLayout()
+        flowLayout.delegate = self
+        return flowLayout
     }()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView?.backgroundColor = UIColor.whiteColor()
-        self.collectionView?.collectionViewLayout = self.flowLayout
+//        self.collectionView?.collectionViewLayout = self.flowLayout
+        self.collectionView?.setCollectionViewLayout(self.flowLayout, animated: false)
         
         collectionView?.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
         
@@ -74,6 +78,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         allBeersDataSource.delegate  = self
         
         self.collectionView?.dataSource = onTapDataSource
+        currentDataSource = onTapDataSource
         onTapDataSource.loadBeersForStore(1)
     }
     override func viewWillAppear(animated: Bool) {
@@ -104,6 +109,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             animateCellSelected(cell, indexPath: indexPath)
             selectedIndexPath = indexPath
         }
+
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.layoutIfNeeded()
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -111,16 +119,17 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         animateCellDeselected(cell, indexPath: indexPath)
         
         selectedIndexPath = nil
-    
+        
         collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.layoutIfNeeded()
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         let customCell = cell as GRMCollectionViewCell
         if ((collectionView.dataSource!.isEqual(onTapDataSource))) {
             let beerData = customCell.beerData
-            let level = Int(arc4random() % 100)
 //            customCell.setKegLevel(beerData.tapLevel!, animated: true)
+            let level = Int(arc4random() % 100)
             customCell.setKegLevel(level, animated: true)
             NSLog("Keg level \(level)")
         }
@@ -139,13 +148,12 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     func animateCellSelected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
         cell.setCellSelected(true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
-//            cell.frame = self.flowLayout.layoutAttributesForSelectedItemAtIndexPath(indexPath).frame
             let newFrame = self.flowLayout.layoutAttributesForSelectedItemAtIndexPath(indexPath).frame
             let oldFrame = cell.frame
             cell.frame = CGRect(origin: oldFrame.origin, size: newFrame.size)
+            
             cell.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         })
-        collectionView?.collectionViewLayout.invalidateLayout()
     }
     func animateCellDeselected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
         cell.setCellSelected(false)
@@ -156,7 +164,6 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             
             cell.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
         })
-        collectionView?.collectionViewLayout.invalidateLayout()
     }
     // MARK: - GRMCollectionViewDataSourceDelegate
     var selectedItemIndexPath: NSIndexPath? {

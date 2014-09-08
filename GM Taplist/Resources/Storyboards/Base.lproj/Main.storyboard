@@ -31,9 +31,24 @@
                     <view key="view" contentMode="scaleToFill" id="2ic-wA-RGJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="hVU-Jb-acB">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="w59-oh-o0n"/>
+                                    <constraint firstAttribute="height" constant="100" id="xI3-CK-hjb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="hVU-Jb-acB" secondAttribute="centerY" id="NZ6-ND-s1X"/>
+                            <constraint firstAttribute="centerX" secondItem="hVU-Jb-acB" secondAttribute="centerX" id="gKh-Tj-GYJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f3m-bA-RWb"/>
+                    <connections>
+                        <outlet property="imageView" destination="hVU-Jb-acB" id="ywr-Xu-PiV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xad-cA-GZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +61,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7gp-au-mZF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W4M-Wu-qA3">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="W4M-Wu-qA3">
                             <size key="itemSize" width="320" height="84"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -104,5 +119,8 @@
             <point key="canvasLocation" x="10" y="398"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Spinner" width="100" height="100"/>
+    </resources>
     <color key="tintColor" red="0.92156862750000001" green="0.85882352939999995" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

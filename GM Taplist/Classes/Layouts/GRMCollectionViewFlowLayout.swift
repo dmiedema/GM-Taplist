@@ -36,11 +36,23 @@ class GRMCollectionViewFlowLayout: UICollectionViewFlowLayout, UICollectionViewD
         return attributes
     }
     
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
+        return super.layoutAttributesForItemAtIndexPath(indexPath)
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if indexPath == delegate?.indexPathForSelectedCellForCollectionView(collectionView, layout: collectionViewLayout) {
             return selectedItemSize
         } else {
             return itemSize
         }
+    }
+    
+    // MARK: - UICollectionViewFlowLayout Delegate
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
     }
 }

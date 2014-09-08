@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GRMLoadingViewController: UIViewController {
     
@@ -15,10 +16,12 @@ class GRMLoadingViewController: UIViewController {
         return appDelegate.managedObjectContext!
     }()
 
+    @IBOutlet weak var imageView: UIImageView!
     let updateGroup: dispatch_group_t = dispatch_group_create()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         updateBeers()
 //        updateBreweries()
 //        updateStores()
@@ -28,16 +31,35 @@ class GRMLoadingViewController: UIViewController {
         }
     }
     override func viewWillAppear(animated: Bool) {
-        view.backgroundColor = UIColor.greenColor()
+        super.viewWillAppear(animated)
+        view.backgroundColor = UIColor.whiteColor()
     }
     override func viewDidAppear(animated: Bool) {
-        
+        super.viewDidAppear(animated)
+        UIView.animateKeyframesWithDuration(1.0, delay: 0.0, options: .Repeat, animations: { () -> Void in
+            UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.25, animations: { () -> Void in
+                let rotate = CGFloat(M_PI * 90 / 180.0)
+                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
+            })
+            UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.25, animations: { () -> Void in
+                let rotate = CGFloat(M_PI * 180.0 / 180.0)
+                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
+            })
+            UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.25, animations: { () -> Void in
+                let rotate = CGFloat(M_PI * 270.0 / 180.0)
+                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
+            })
+            UIView.addKeyframeWithRelativeStartTime(0.75, relativeDuration: 0.25, animations: { () -> Void in
+                let rotate = CGFloat(M_PI * 360.0 / 180.0)
+                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
+            })
+        }, completion: { (complete) -> Void in })
     }
     override func viewWillDisappear(animated: Bool) {
-        
+        super.viewWillDisappear(animated)
     }
     override func viewDidDisappear(animated: Bool) {
-        
+        super.viewDidDisappear(animated)
     }
     
     // MARK: -  Implementation
