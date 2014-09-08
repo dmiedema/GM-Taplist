@@ -10,11 +10,11 @@ import Foundation
 
 class GRMBeerDetailsTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var beerData: BeerData
-    var managedObjectContext: NSManagedObjectContext
+    var beerData: BeerData!
+    var managedObjectContext: NSManagedObjectContext!
     
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     // MARK: - View Life Cycle

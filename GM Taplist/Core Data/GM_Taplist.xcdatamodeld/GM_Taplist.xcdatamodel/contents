@@ -8,7 +8,7 @@
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="beer_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="beer_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="growler_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="growlette_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="halfpint_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -72,7 +72,7 @@
     </entity>
     <elements>
         <element name="BaseObject" positionX="-108" positionY="171" width="128" height="58"/>
-        <element name="Beer" positionX="54" positionY="99" width="128" height="283"/>
+        <element name="Beer" positionX="54" positionY="99" width="128" height="285"/>
         <element name="Brewery" positionX="187" positionY="-34" width="128" height="133"/>
         <element name="Device" positionX="-200" positionY="-63" width="128" height="88"/>
         <element name="Review" positionX="9" positionY="-63" width="128" height="103"/>

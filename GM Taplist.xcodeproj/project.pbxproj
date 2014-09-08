@@ -14,6 +14,8 @@
 		8133CDC92DBD4702BAB6A5BF /* libPods-GM Taplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */; };
 		C313C19519AAC8A400E42784 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */; };
 		C313C19719AAC8B000E42784 /* AllBeersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19619AAC8B000E42784 /* AllBeersDataSource.swift */; };
+		C318974119BD2C0900F406D1 /* GRMBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = C318974019BD2C0900F406D1 /* GRMBeer.m */; };
+		C326B94919BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326B94819BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift */; };
 		C338E14B19AA9783008A1D18 /* GRMCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C338E14A19AA9783008A1D18 /* GRMCollectionViewDataSource.swift */; };
 		C34488EF19A9378100DFA647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488EE19A9378100DFA647 /* CoreGraphics.framework */; };
 		C34488F119A9378D00DFA647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488F019A9378D00DFA647 /* CoreData.framework */; };
@@ -32,7 +34,6 @@
 		C3DB98A919A1768500EB4270 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98A819A1768500EB4270 /* API.swift */; };
 		C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98AA19A1777C00EB4270 /* Constants.swift */; };
 		C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */; };
-		C3F2E91719BCC5240083D4BB /* GRMBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91619BCC5240083D4BB /* GRMBeer.m */; };
 		C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91919BCC5250083D4BB /* GRMStore.m */; };
 		C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91C19BCC5250083D4BB /* GRMBaseObject.m */; };
 		C3F2E92019BCC5250083D4BB /* GRMBrewery.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91F19BCC5250083D4BB /* GRMBrewery.m */; };
@@ -69,6 +70,9 @@
 		54EEE82319AAF13F005E4AAD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
 		C313C19619AAC8B000E42784 /* AllBeersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllBeersDataSource.swift; sourceTree = "<group>"; };
+		C318973F19BD2C0900F406D1 /* GRMBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBeer.h; sourceTree = "<group>"; };
+		C318974019BD2C0900F406D1 /* GRMBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMBeer.m; sourceTree = "<group>"; };
+		C326B94819BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMCollectionViewFlowLayout.swift; path = Layouts/GRMCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		C338E14A19AA9783008A1D18 /* GRMCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		C34488EE19A9378100DFA647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C34488F019A9378D00DFA647 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -92,8 +96,6 @@
 		C3DB98A819A1768500EB4270 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3DB98AA19A1777C00EB4270 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTapDataSource.swift; sourceTree = "<group>"; };
-		C3F2E91519BCC5240083D4BB /* GRMBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBeer.h; sourceTree = "<group>"; };
-		C3F2E91619BCC5240083D4BB /* GRMBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMBeer.m; sourceTree = "<group>"; };
 		C3F2E91819BCC5250083D4BB /* GRMStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMStore.h; sourceTree = "<group>"; };
 		C3F2E91919BCC5250083D4BB /* GRMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMStore.m; sourceTree = "<group>"; };
 		C3F2E91B19BCC5250083D4BB /* GRMBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBaseObject.h; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 				10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C326B94719BD1B4500FCCAF0 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				C326B94819BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift */,
+			);
+			name = Layouts;
 			sourceTree = "<group>";
 		};
 		C344892219AA88D600DFA647 /* Submodules */ = {
@@ -266,6 +276,8 @@
 		C3DB989519A16B5000EB4270 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				C318973F19BD2C0900F406D1 /* GRMBeer.h */,
+				C318974019BD2C0900F406D1 /* GRMBeer.m */,
 				C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */,
 				C3F2E92A19BCC5260083D4BB /* GRMDevice.h */,
 				C3F2E92B19BCC5260083D4BB /* GRMDevice.m */,
@@ -281,8 +293,6 @@
 				C3F2E91C19BCC5250083D4BB /* GRMBaseObject.m */,
 				C3F2E91819BCC5250083D4BB /* GRMStore.h */,
 				C3F2E91919BCC5250083D4BB /* GRMStore.m */,
-				C3F2E91519BCC5240083D4BB /* GRMBeer.h */,
-				C3F2E91619BCC5240083D4BB /* GRMBeer.m */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -306,6 +316,7 @@
 		C3DB989819A16B7F00EB4270 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C326B94719BD1B4500FCCAF0 /* Layouts */,
 				C3DB989919A16B8500EB4270 /* Controllers */,
 				C3DB989A19A16B8900EB4270 /* DataSources */,
 				C3DB989319A16B3A00EB4270 /* Delegates */,
@@ -565,11 +576,11 @@
 				C3F2E92C19BCC5260083D4BB /* GRMDevice.m in Sources */,
 				C3F2E93F19BCCAA60083D4BB /* GRMStore+Accessors.m in Sources */,
 				C3979E0F19B130AA00486172 /* DeviceRegister.swift in Sources */,
-				C3F2E91719BCC5240083D4BB /* GRMBeer.m in Sources */,
 				C3DB98A919A1768500EB4270 /* API.swift in Sources */,
 				C38403B019A93173003F92A5 /* GRMCollectionViewCell.swift in Sources */,
 				C313C19519AAC8A400E42784 /* FavoritesDataSource.swift in Sources */,
 				54EEE82419AAF13F005E4AAD /* Async.swift in Sources */,
+				C318974119BD2C0900F406D1 /* GRMBeer.m in Sources */,
 				C3F2E92619BCC5250083D4BB /* GRMReview.m in Sources */,
 				C338E14B19AA9783008A1D18 /* GRMCollectionViewDataSource.swift in Sources */,
 				C3F2E93619BCCA670083D4BB /* GRMStyle+Accessors.m in Sources */,
@@ -578,6 +589,7 @@
 				C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */,
 				C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */,
 				C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */,
+				C326B94919BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift in Sources */,
 				C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */,
 				C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */,
 				C3F2E93319BCCA200083D4BB /* GRMDevice+Accessors.m in Sources */,

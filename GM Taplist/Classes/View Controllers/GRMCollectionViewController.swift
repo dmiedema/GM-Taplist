@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol {
+class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol, GRMCollectionViewFlowLayoutProtocol {
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -57,10 +57,17 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         return context!
     }()
     
+    private lazy var flowLayout: GRMCollectionViewFlowLayout  = {
+        return GRMCollectionViewFlowLayout()
+    }()
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView?.backgroundColor = UIColor.purpleColor()
+        self.collectionView?.backgroundColor = UIColor.whiteColor()
+        self.collectionView?.collectionViewLayout = self.flowLayout
+        
+        collectionView?.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
         
         onTapDataSource.delegate = self
         favoritesDataSource.delegate = self
@@ -86,7 +93,25 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
 
     // MARK: - Implementation
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        selectedIndexPath = indexPath
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
+        
+        if selectedIndexPath == indexPath {
+            animateCellDeselected(cell, indexPath: indexPath)
+            collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
+            selectedIndexPath = nil
+        } else {
+            animateCellSelected(cell, indexPath: indexPath)
+            selectedIndexPath = indexPath
+        }
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
+        animateCellDeselected(cell, indexPath: indexPath)
+        
+        selectedIndexPath = nil
+    
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
@@ -96,8 +121,41 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             customCell.setKegLevel(beerData.tapLevel!, animated: true)
         }
     }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if selectedIndexPath != nil {
+            let cell = collectionView?.cellForItemAtIndexPath(selectedIndexPath!) as GRMCollectionViewCell
+            collectionView?.deselectItemAtIndexPath(selectedIndexPath, animated: true)
+            animateCellDeselected(cell, indexPath: selectedIndexPath!)
+            selectedIndexPath = nil
+        }
+    }
 
+    // MARK: - Cell Animations
+    func animateCellSelected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+//            cell.frame = self.flowLayout.layoutAttributesForSelectedItemAtIndexPath(indexPath).frame
+            let newFrame = self.flowLayout.layoutAttributesForSelectedItemAtIndexPath(indexPath).frame
+            let oldFrame = cell.frame
+            cell.frame = CGRect(origin: oldFrame.origin, size: newFrame.size)
+            cell.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        })
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    func animateCellDeselected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            let newFrame = self.flowLayout.layoutAttributesForItemAtIndexPath(indexPath).frame
+            let oldFrame = cell.frame
+            cell.frame = CGRect(origin: oldFrame.origin, size: newFrame.size)
+            
+            cell.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+        })
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
     // MARK: - GRMCollectionViewDataSourceDelegate
+    var selectedItemIndexPath: NSIndexPath? {
+        return self.selectedIndexPath?
+    }
     func dataLoading() {
         // Show loading HUD
     }
@@ -113,7 +171,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     func favoritePressed(beerData: BeerData) {
         let indexPath = selectedIndexPath!
         let cell = collectionView?.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
-        if !beerData.beer.favorite.boolValue {
+        if beerData.beer.favorite.boolValue ==  false {
             API.sharedInstance.favoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
                 cell.setFavorite(true, animated: true)
             }, failureBlock: { (error) -> () in
@@ -131,5 +189,10 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         detailsViewController.beerData = beerData
         detailsViewController.managedObjectContext = managedObjectContext
         navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
+    // MARK: - GRMCollectionViewFlowLayoutProtocol
+    func indexPathForSelectedCellForCollectionView(collectionView: UICollectionView, layout: UICollectionViewLayout) -> NSIndexPath? {
+        return selectedIndexPath
     }
 }

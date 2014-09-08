@@ -20,7 +20,7 @@ class BeerData {
     }
     
     func onTapDisplayString() -> String {
-        return "\(tapNumber). \(beer.name)"
+        return "\(tapNumber!). \(beer.name)"
     }
     
     func allBeersDisplayString() -> String {
@@ -58,6 +58,7 @@ class BeerData {
 }
 
 protocol GRMCollectionViewDataSourceDelegate {
+    var selectedItemIndexPath: NSIndexPath? {get}
     func dataLoading() -> ()
     func dataLoaded() -> ()
     func dataFailedToLoad(error: NSError) -> ()
