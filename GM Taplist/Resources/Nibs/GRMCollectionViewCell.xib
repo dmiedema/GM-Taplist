@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,6 +13,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWe-mA-zVa" userLabel="Favorite VIew Container">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="84"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYM-PV-Olj">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="84"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="enm-mQ-Dur"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWh-hL-dBn" userLabel="Details View Container">
+                        <rect key="frame" x="220" y="0.0" width="100" height="84"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3d-gs-6hG">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="84"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="fNn-wc-gqg"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-3U-dZ5" userLabel="Cell Contents">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                         <subviews>
@@ -93,15 +117,23 @@
             </view>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="rWe-mA-zVa" secondAttribute="bottom" id="1cg-oT-r8x"/>
+                <constraint firstAttribute="bottom" secondItem="lWh-hL-dBn" secondAttribute="bottom" id="330-v8-k8l"/>
+                <constraint firstAttribute="trailing" secondItem="lWh-hL-dBn" secondAttribute="trailing" id="9Zo-Cx-fgr"/>
                 <constraint firstAttribute="bottom" secondItem="VbE-3U-dZ5" secondAttribute="bottom" id="9q0-3r-QGP"/>
                 <constraint firstItem="VbE-3U-dZ5" firstAttribute="top" secondItem="5aR-Nc-nY3" secondAttribute="top" id="JTv-cB-JnN"/>
                 <constraint firstAttribute="centerX" secondItem="VbE-3U-dZ5" secondAttribute="centerX" id="PhL-0V-Ee0"/>
+                <constraint firstItem="rWe-mA-zVa" firstAttribute="top" secondItem="5aR-Nc-nY3" secondAttribute="top" id="d6T-qP-DZV"/>
+                <constraint firstItem="rWe-mA-zVa" firstAttribute="leading" secondItem="5aR-Nc-nY3" secondAttribute="leading" id="pWl-f4-l0J"/>
+                <constraint firstItem="lWh-hL-dBn" firstAttribute="top" secondItem="5aR-Nc-nY3" secondAttribute="top" id="psK-ul-fls"/>
             </constraints>
             <connections>
                 <outlet property="bottomLineLabel" destination="IBi-2V-raR" id="jzn-NY-mLq"/>
                 <outlet property="cellContentsView" destination="VbE-3U-dZ5" id="v62-Bt-GmH"/>
                 <outlet property="contentsXAlignment" destination="PhL-0V-Ee0" id="uey-7x-2iW"/>
+                <outlet property="detailsViewContainer" destination="lWh-hL-dBn" id="agJ-ky-cGm"/>
                 <outlet property="favoriteImageView" destination="vuD-0f-0xE" id="Ud0-XS-WLK"/>
+                <outlet property="favoriteViewContainer" destination="rWe-mA-zVa" id="FF5-Q8-liR"/>
                 <outlet property="kegLevelView" destination="Okw-kz-IGj" id="8PR-vr-a1t"/>
                 <outlet property="kegLevelWidthConstraint" destination="bqL-fo-0ja" id="a6m-bH-K2D"/>
                 <outlet property="middleLineLabel" destination="BgJ-5c-9iq" id="urf-bH-fTK"/>

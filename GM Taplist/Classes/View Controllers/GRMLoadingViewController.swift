@@ -61,6 +61,7 @@ class GRMLoadingViewController: UIViewController {
     }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        navigationController?.navigationBarHidden = false
     }
     
     // MARK: -  Implementation

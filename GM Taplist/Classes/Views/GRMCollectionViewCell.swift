@@ -27,6 +27,8 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     @IBOutlet weak var kegLevelView: UIView!
     @IBOutlet weak var kegLevelWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var favoriteViewContainer: UIView!
+    @IBOutlet weak var detailsViewContainer: UIView!
     @IBOutlet weak var contentsXAlignment: NSLayoutConstraint!
     lazy var panGesture: UIPanGestureRecognizer = {
         var panGesture = UIPanGestureRecognizer(target: self, action: "cellPanned:")
@@ -42,6 +44,11 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.addGestureRecognizer(self.panGesture)
+        favoriteViewContainer.backgroundColor = GrowlMovement.GMTaplist.Colors.FavoriteMarker
+        detailsViewContainer.backgroundColor = GrowlMovement.GMTaplist.Colors.NewBeerMarker
+        
+        favoriteViewContainer.alpha = 0
+        detailsViewContainer.alpha = 0
     }
     // MARK: - Actions
     @IBAction func favoriteButtonPressed(sender: UIButton) {
@@ -53,27 +60,48 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     func cellPanned(panGesture: UIPanGestureRecognizer) {
         let translation = panGesture.translationInView(self)
-        NSLog("Translation = \(translation)")
         let velocity = panGesture.velocityInView(self)
-        NSLog("velocity = \(velocity)")
         
         switch panGesture.state {
         case .Began:
             NSLog("Pan Began")
-        case .Cancelled:
-            NSLog("Pan Cancelled")
         case .Changed:
-            NSLog("Pan Changed")
             if fabs(translation.x) > 50 {
-                NSLog("Show some pull")
+                handleValidPan(translation.x)
             }
-        case .Ended:
-            NSLog("Pan Ended")
-        case .Failed:
-            NSLog("Pan Failed")
+        case .Ended, .Cancelled, .Failed:
+            contentView.layoutIfNeeded()
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.contentsXAlignment.constant = 0
+                self.detailsViewContainer.alpha = 0
+                self.favoriteViewContainer.alpha = 0
+                self.contentView.layoutIfNeeded()
+            })
+            NSLog("Pan Ended, Cancelled or Failed")
         case .Possible:
             NSLog("Pan Possible")
         }
+    }
+    
+    func handleValidPan(translation: CGFloat) {
+        let alpha = (fabs(translation) - 75) / 100
+        
+        if translation > 0 { // favorite
+            favoriteViewContainer.alpha = alpha
+            self.contentsXAlignment.constant = max(-((translation - 50) / 2), -100)
+        } else { // details
+            detailsViewContainer.alpha = alpha
+            self.contentsXAlignment.constant = min(-((translation + 50) / 2), 100)
+        }
+        if fabs(translation) > 175 {
+            // trigger action
+            if translation > 0 {
+                NSLog("Favorite")
+            } else {
+                NSLog("Details")
+            }
+        }
+
     }
     
     // MARK: - Setters
@@ -101,11 +129,11 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         kegLevelView?.superview?.layoutIfNeeded()
         
         if level < 20 {
-            kegLevelView.backgroundColor = UIColor(red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 0.3)
+            kegLevelView.backgroundColor = GrowlMovement.GMTaplist.Colors.RedStatus
         } else if level < 40 {
-            kegLevelView.backgroundColor = UIColor(red: 236.0/255.0, green: 218.0/255.0, blue: 62.0/255.0, alpha: 0.3)
+            kegLevelView.backgroundColor = GrowlMovement.GMTaplist.Colors.YellowStatus
         } else {
-            kegLevelView.backgroundColor = UIColor(red: 126.0/255.0, green: 211.0/255.0, blue: 33.0/255.0, alpha: 0.3)
+            kegLevelView.backgroundColor = GrowlMovement.GMTaplist.Colors.GreenStatus
         }
         
         let floatLevel = CGFloat(level)

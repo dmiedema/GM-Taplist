@@ -72,11 +72,11 @@ struct GrowlMovement {
             static let APIKeyHeader           = "X-GrowlMovement-API-Key"
         }
         struct Colors {
-            static let NewBeerMarker  = UIColor(red: 5, green: 5, blue: 5, alpha: 1.0)
-            static let GreenStatus    = UIColor(red: 0, green: 5, blue: 5, alpha: 1.0)
-            static let YellowStatus   = UIColor(red: 5, green: 5, blue: 0, alpha: 1.0)
-            static let RedStatus      = UIColor(red: 5, green: 0, blue: 0, alpha: 1.0)
-            static let FavoriteMarker = UIColor(red: 5, green: 5, blue: 0, alpha: 1.0)
+            static let NewBeerMarker  = UIColor(red: 1, green: 0, blue: 1, alpha: 1.0)
+            static let GreenStatus    = UIColor(red: 126.0/255.0, green: 211.0/255.0, blue: 33.0/255.0, alpha: 0.3)
+            static let YellowStatus   = UIColor(red: 236.0/255.0, green: 218.0/255.0, blue: 62.0/255.0, alpha: 0.3)
+            static let RedStatus      = UIColor(red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 0.3)
+            static let FavoriteMarker = UIColor(red: 0.6, green: 1, blue: 0.2, alpha: 1.0)
         }
         struct CollectionView {
             static let StorybardIdentifier          = "GRMCollectionViewController"
