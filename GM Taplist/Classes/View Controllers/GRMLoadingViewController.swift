@@ -33,6 +33,7 @@ class GRMLoadingViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         view.backgroundColor = UIColor.whiteColor()
+        navigationController?.navigationBarHidden = true
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -70,6 +71,7 @@ class GRMLoadingViewController: UIViewController {
         API.sharedInstance.beers(date, completionBlock: { (beers: [GRMBeer]) -> () in
             dispatch_group_leave(self.updateGroup)
             }, failureBlock: { (error: NSError) -> () in
+                NSLog("Error: \(error)")
             dispatch_group_leave(self.updateGroup)
         })
     }

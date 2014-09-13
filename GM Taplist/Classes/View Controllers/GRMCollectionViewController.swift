@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol, GRMCollectionViewFlowLayoutProtocol {
+class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol {
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -58,18 +58,10 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         return context!
     }()
     
-    private lazy var flowLayout: GRMCollectionViewFlowLayout  = {
-        let flowLayout = GRMCollectionViewFlowLayout()
-        flowLayout.delegate = self
-        return flowLayout
-    }()
-    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView?.backgroundColor = UIColor.whiteColor()
-//        self.collectionView?.collectionViewLayout = self.flowLayout
-        self.collectionView?.setCollectionViewLayout(self.flowLayout, animated: false)
         
         collectionView?.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
         
@@ -102,11 +94,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         collectionView.bringSubviewToFront(cell)
         
         if selectedIndexPath == indexPath {
-            animateCellDeselected(cell, indexPath: indexPath)
             collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
             selectedIndexPath = nil
         } else {
-            animateCellSelected(cell, indexPath: indexPath)
             selectedIndexPath = indexPath
         }
 
@@ -116,7 +106,6 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
-        animateCellDeselected(cell, indexPath: indexPath)
         
         selectedIndexPath = nil
         
@@ -139,32 +128,10 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         if selectedIndexPath != nil {
             let cell = collectionView?.cellForItemAtIndexPath(selectedIndexPath!) as GRMCollectionViewCell
             collectionView?.deselectItemAtIndexPath(selectedIndexPath, animated: true)
-            animateCellDeselected(cell, indexPath: selectedIndexPath!)
             selectedIndexPath = nil
         }
     }
 
-    // MARK: - Cell Animations
-    func animateCellSelected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
-        cell.setCellSelected(true)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
-            let newFrame = self.flowLayout.layoutAttributesForSelectedItemAtIndexPath(indexPath).frame
-            let oldFrame = cell.frame
-            cell.frame = CGRect(origin: oldFrame.origin, size: newFrame.size)
-            
-            cell.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
-        })
-    }
-    func animateCellDeselected(cell: GRMCollectionViewCell, indexPath: NSIndexPath) {
-        cell.setCellSelected(false)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
-            let newFrame = self.flowLayout.layoutAttributesForItemAtIndexPath(indexPath).frame
-            let oldFrame = cell.frame
-            cell.frame = CGRect(origin: oldFrame.origin, size: newFrame.size)
-            
-            cell.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
-        })
-    }
     // MARK: - GRMCollectionViewDataSourceDelegate
     var selectedItemIndexPath: NSIndexPath? {
         return self.selectedIndexPath?

@@ -13,10 +13,11 @@ protocol GRMCollectionViewCellProtocol {
     func detailsPressed(beerData: BeerData)
 }
 
-class GRMCollectionViewCell: UICollectionViewCell {
+class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     // MARK: - Properties
     // MARK: IBOutlets
+    @IBOutlet weak var cellContentsView: UIView!
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var topLineLabel: UILabel!
     @IBOutlet weak var middleLineLabel: UILabel!
@@ -25,16 +26,54 @@ class GRMCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var kegLevelView: UIView!
     @IBOutlet weak var kegLevelWidthConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var contentsXAlignment: NSLayoutConstraint!
+    lazy var panGesture: UIPanGestureRecognizer = {
+        var panGesture = UIPanGestureRecognizer(target: self, action: "cellPanned:")
+        panGesture.delegate = self
+        panGesture.cancelsTouchesInView = false
+        return panGesture
+    }()
     // MARK: Data/Delegate
     var beerData: BeerData!
     var delegate: GRMCollectionViewCellProtocol?
     
+    // MARK: - Init
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.contentView.addGestureRecognizer(self.panGesture)
+    }
     // MARK: - Actions
     @IBAction func favoriteButtonPressed(sender: UIButton) {
         self.delegate?.favoritePressed(beerData)
     }
     @IBAction func detailsButtonPressed(sender: UIButton) {
         self.delegate?.detailsPressed(beerData)
+    }
+    
+    func cellPanned(panGesture: UIPanGestureRecognizer) {
+        let translation = panGesture.translationInView(self)
+        NSLog("Translation = \(translation)")
+        let velocity = panGesture.velocityInView(self)
+        NSLog("velocity = \(velocity)")
+        
+        switch panGesture.state {
+        case .Began:
+            NSLog("Pan Began")
+        case .Cancelled:
+            NSLog("Pan Cancelled")
+        case .Changed:
+            NSLog("Pan Changed")
+            if fabs(translation.x) > 50 {
+                NSLog("Show some pull")
+            }
+        case .Ended:
+            NSLog("Pan Ended")
+        case .Failed:
+            NSLog("Pan Failed")
+        case .Possible:
+            NSLog("Pan Possible")
+        }
     }
     
     // MARK: - Setters
@@ -78,15 +117,8 @@ class GRMCollectionViewCell: UICollectionViewCell {
             }, completion: { (complete) -> Void in })
     }
     
-    func setCellSelected(selected: Bool) {
-        if selected {
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                self.kegLevelView.alpha = 0.0
-            })
-        } else {
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                self.kegLevelView.alpha = 1.0
-            })
-        }
+    // MARK: - UIGestureRecognizer Delegate
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

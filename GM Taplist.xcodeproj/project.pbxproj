@@ -15,7 +15,6 @@
 		C313C19519AAC8A400E42784 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */; };
 		C313C19719AAC8B000E42784 /* AllBeersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19619AAC8B000E42784 /* AllBeersDataSource.swift */; };
 		C318974119BD2C0900F406D1 /* GRMBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = C318974019BD2C0900F406D1 /* GRMBeer.m */; };
-		C326B94919BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326B94819BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift */; };
 		C338E14B19AA9783008A1D18 /* GRMCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C338E14A19AA9783008A1D18 /* GRMCollectionViewDataSource.swift */; };
 		C34488EF19A9378100DFA647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488EE19A9378100DFA647 /* CoreGraphics.framework */; };
 		C34488F119A9378D00DFA647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488F019A9378D00DFA647 /* CoreData.framework */; };
@@ -72,7 +71,6 @@
 		C313C19619AAC8B000E42784 /* AllBeersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllBeersDataSource.swift; sourceTree = "<group>"; };
 		C318973F19BD2C0900F406D1 /* GRMBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBeer.h; sourceTree = "<group>"; };
 		C318974019BD2C0900F406D1 /* GRMBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMBeer.m; sourceTree = "<group>"; };
-		C326B94819BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMCollectionViewFlowLayout.swift; path = Layouts/GRMCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		C338E14A19AA9783008A1D18 /* GRMCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		C34488EE19A9378100DFA647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C34488F019A9378D00DFA647 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -165,7 +163,6 @@
 		C326B94719BD1B4500FCCAF0 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				C326B94819BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -589,7 +586,6 @@
 				C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */,
 				C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */,
 				C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */,
-				C326B94919BD1B7D00FCCAF0 /* GRMCollectionViewFlowLayout.swift in Sources */,
 				C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */,
 				C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */,
 				C3F2E93319BCCA200083D4BB /* GRMDevice+Accessors.m in Sources */,
