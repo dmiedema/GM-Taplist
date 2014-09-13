@@ -97,11 +97,12 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
             // trigger action
             if translation > 0 {
                 NSLog("Favorite")
+                delegate?.favoritePressed(beerData)
             } else {
                 NSLog("Details")
+                delegate?.detailsPressed(beerData)
             }
         }
-
     }
     
     // MARK: - Setters
