@@ -71,11 +71,15 @@ class API: AFHTTPSessionManager {
         if userID == 0 {
             failureBlock(NSError(domain: GrowlMovement.GMTaplist.Errors.Favorite, code: -2345, userInfo: nil))
         }
-        
+        NSLog("userID : \(userID)")
+        NSLog("Push token: \(pushToken)")
         let url = "favorite"
         self.POST(url, parameters: ["user_id": userID, "beer_id": beerID], success: { (dataTask, response) -> Void in
+            NSLog("\(response)")
             completionBlock(true)
+            
         }, failure: { (dataTask, error) -> Void in
+            NSLog("\(error)")
             failureBlock(error)
         })
         
@@ -98,11 +102,14 @@ class API: AFHTTPSessionManager {
 
     // MARK: - User & Settings
     func registerUserWithToken(token: String, completionBlock:((GRMUser) -> ()), failureBlock:((NSError) -> ())) {
+        NSLog("Register")
+        NSLog("token: \(token)")
         let url = "users"
         self.POST(url, parameters: ["user_token": token], success: { (dataTask, response) -> Void in
+            NSLog("Response: \(response)")
             let rawData = response as NSDictionary
             let user = GRMUser.createOrUpdate(response["data"] as NSDictionary, inManagedObjectContext: self.managedObjectContext) as GRMUser
-            
+            NSLog("user: \(user)")
             NSUserDefaults.standardUserDefaults().setInteger(user.user_id, forKey: GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
             
             NSNotificationCenter.defaultCenter().postNotificationName(GrowlMovement.GMTaplist.Notifications.UserCreated, object: nil)

@@ -13,6 +13,8 @@ class DeviceRegister {
         let types: UIUserNotificationType = .Badge | .Sound | .Alert
 
         let pushSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        
+        UIApplication.sharedApplication().registerForRemoteNotifications()
         UIApplication.sharedApplication().registerUserNotificationSettings(pushSettings)
     }
 }
