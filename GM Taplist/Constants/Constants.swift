@@ -25,6 +25,9 @@ struct GrowlMovement {
             static let LastRetreivedStyleDate   = "com.GrowlMovement.GMTaplist.LastRetreivedStyleDate"
             static let LastRetreivedUserDate    = "com.GrowlMovement.GMTaplist.LastRetreivedUserDate"
         }
+        struct Notifications {
+            static let UserCreated = "com.GrowlMovement.GMTaplist.Notifications.UserCreated"
+        }
         struct Errors {
             struct Network {
                 static let Generic    = "com.GrowlMovement.GMTaplist.Error.Network.Generic"

@@ -151,17 +151,37 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     func favoritePressed(beerData: BeerData) {
         let indexPath = selectedIndexPath!
         let cell = collectionView?.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
-        if beerData.beer.favorite.boolValue ==  false {
-            API.sharedInstance.favoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
-                cell.setFavorite(true, animated: true)
-            }, failureBlock: { (error) -> () in
-            })
+        let userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
+        let signupGroup = dispatch_group_create()
+        
+        if userID == 0 {
+            dispatch_group_enter(signupGroup)
+            DeviceRegister.registerNewDevice()
+            if let token = NSUserDefaults.standardUserDefaults().stringForKey(GrowlMovement.GMTaplist.UserDefaults.PushTokenKey) {
+                API.sharedInstance.registerUserWithToken(token, completionBlock: { (user) -> () in
+                    dispatch_group_leave(signupGroup)
+                }, failureBlock: { (error) -> () in
+                    dispatch_group_leave(signupGroup)
+                    return
+                })
+            }
         } else {
-            API.sharedInstance.unFavoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
-                cell.setFavorite(false, animated: true)
-            }, failureBlock: { (error) -> () in
-            })
+            dispatch_group_wait(signupGroup, DISPATCH_TIME_FOREVER)
+            if beerData.beer.favorite.boolValue == false {
+                NSLog("Favoriting beer")
+                API.sharedInstance.favoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
+                    cell.setFavorite(true, animated: true)
+                }, failureBlock: { (error) -> () in
+                })
+            } else {
+                NSLog("UnFavoriting beer")
+                API.sharedInstance.unFavoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
+                    cell.setFavorite(false, animated: true)
+                }, failureBlock: { (error) -> () in
+                })
+            }
         }
+        
     }
     
     func detailsPressed(beerData: BeerData) {

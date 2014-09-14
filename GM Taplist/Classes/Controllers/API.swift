@@ -62,11 +62,58 @@ class API: AFHTTPSessionManager {
     
     // MARK: - Favoriting
     func favoriteBeer(beerID: Int, completionBlock:((Bool) -> ()), failureBlock:((NSError) -> ())) {
+        var userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
+        let pushToken = NSUserDefaults.standardUserDefaults().stringForKey(GrowlMovement.GMTaplist.UserDefaults.PushTokenKey)
+
+        if pushToken == nil {
+            userID = 0
+        }
+        if userID == 0 {
+            failureBlock(NSError(domain: GrowlMovement.GMTaplist.Errors.Favorite, code: -2345, userInfo: nil))
+        }
+        
+        let url = "favorite"
+        self.POST(url, parameters: ["user_id": userID, "beer_id": beerID], success: { (dataTask, response) -> Void in
+            completionBlock(true)
+        }, failure: { (dataTask, error) -> Void in
+            failureBlock(error)
+        })
+        
+        NSLog("This is when a favorite call would happen")
     }
     func unFavoriteBeer(beerID: Int, completionBlock:((Bool) -> ()), failureBlock:((NSError) -> ())) {
+        NSLog("This is when an unfavorite call would ahppen")
+        var userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
+        if userID == 0 {
+            failureBlock(NSError(domain: GrowlMovement.GMTaplist.Errors.Unfavorite, code: -2346, userInfo: nil))
+        }
+        
+        let url = "favorite"
+        self.DELETE(url, parameters: ["user_id": userID, "beer_id": beerID], success: { (dataTask, response) -> Void in
+            completionBlock(true)
+        }, failure: { (dataTask, error) -> Void in
+            failureBlock(error)
+        })
     }
 
     // MARK: - User & Settings
+    func registerUserWithToken(token: String, completionBlock:((GRMUser) -> ()), failureBlock:((NSError) -> ())) {
+        let url = "users"
+        self.POST(url, parameters: ["user_token": token], success: { (dataTask, response) -> Void in
+            let rawData = response as NSDictionary
+            let user = GRMUser.createOrUpdate(response["data"] as NSDictionary, inManagedObjectContext: self.managedObjectContext) as GRMUser
+            
+            NSUserDefaults.standardUserDefaults().setInteger(user.user_id, forKey: GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(GrowlMovement.GMTaplist.Notifications.UserCreated, object: nil)
+            
+            completionBlock(user)
+        }, failure: { (dataTask, error) -> Void in
+            NSLog("Failure registering user")
+            failureBlock(error)
+        })
+    }
+    
 
     // MARK: - Stores/Ontap
     func beersOnTapForStore(storeID: Int, completionBlock:([BeerData]) -> (), failureBlock:((NSError)) -> ()) {

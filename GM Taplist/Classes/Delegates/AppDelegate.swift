@@ -50,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSUserDefaults.standardUserDefaults().setObject(token, forKey: GrowlMovement.GMTaplist.UserDefaults.PushTokenKey)
         NSUserDefaults.standardUserDefaults().synchronize()
+        
+        API.sharedInstance.registerUserWithToken(token, completionBlock: { (user) -> () in
+        }, failureBlock: { (error) -> () in
+        })
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
@@ -57,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-
+        // Show an error
     }
 
     // MARK: - Core Data stack
