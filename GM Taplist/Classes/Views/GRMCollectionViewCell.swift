@@ -9,6 +9,8 @@
 import Foundation
 
 protocol GRMCollectionViewCellProtocol {
+    func cellPannedAtPoint(point: CGPoint)
+    func cellPanEnded()
     func favoritePressed(beerData: BeerData)
     func detailsPressed(beerData: BeerData)
 }
@@ -67,6 +69,7 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
             NSLog("Pan Began")
         case .Changed:
             if fabs(translation.x) > 50 {
+                delegate?.cellPannedAtPoint(panGesture.locationInView(self.superview))
                 handleValidPan(translation.x)
             }
         case .Ended, .Cancelled, .Failed:
@@ -77,6 +80,7 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
                 self.favoriteViewContainer.alpha = 0
                 self.contentView.layoutIfNeeded()
             })
+            delegate?.cellPanEnded()
             NSLog("Pan Ended, Cancelled or Failed")
         case .Possible:
             NSLog("Pan Possible")

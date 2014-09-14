@@ -148,6 +148,13 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     
     // MARK: - GRMCollectionViewCellProtocol
+    func cellPanEnded() {
+        selectedIndexPath = nil
+    }
+    func cellPannedAtPoint(point: CGPoint) {
+        selectedIndexPath = collectionView?.indexPathForItemAtPoint(point)
+        NSLog("\(selectedIndexPath)")
+    }
     func favoritePressed(beerData: BeerData) {
         let indexPath = selectedIndexPath!
         let cell = collectionView?.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
