@@ -74,6 +74,7 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
             }
         case .Ended, .Cancelled, .Failed:
             contentView.layoutIfNeeded()
+            checkPanDistance(translation.x)
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.contentsXAlignment.constant = 0
                 self.detailsViewContainer.alpha = 0
@@ -97,6 +98,9 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
             detailsViewContainer.alpha = alpha
             self.contentsXAlignment.constant = min(-((translation + 50) / 2), 100)
         }
+    }
+    
+    func checkPanDistance(translation: CGFloat) {
         if fabs(translation) > 175 {
             // trigger action
             if translation > 0 {
