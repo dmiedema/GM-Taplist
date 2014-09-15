@@ -47,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Notifications
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         NSLog("Settings: \(notificationSettings)")
-        application.registerForRemoteNotifications()
     }
     func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         NSLog("registered for remote notifiations")
