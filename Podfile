@@ -13,8 +13,6 @@ pod 'CocoaLumberjack'
 
 pod 'NewRelicAgent'
 
-
-pod 'QueryKit'
 end
 
 

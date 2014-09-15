@@ -33,6 +33,7 @@
 		C3DB98A919A1768500EB4270 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98A819A1768500EB4270 /* API.swift */; };
 		C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98AA19A1777C00EB4270 /* Constants.swift */; };
 		C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */; };
+		C3DD07CC19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DD07CB19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift */; };
 		C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91919BCC5250083D4BB /* GRMStore.m */; };
 		C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91C19BCC5250083D4BB /* GRMBaseObject.m */; };
 		C3F2E92019BCC5250083D4BB /* GRMBrewery.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F2E91F19BCC5250083D4BB /* GRMBrewery.m */; };
@@ -94,6 +95,7 @@
 		C3DB98A819A1768500EB4270 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3DB98AA19A1777C00EB4270 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3DB98B019A17FC000EB4270 /* OnTapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTapDataSource.swift; sourceTree = "<group>"; };
+		C3DD07CB19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMCollectionViewFlowLayout.swift; path = Layouts/GRMCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		C3F2E91819BCC5250083D4BB /* GRMStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMStore.h; sourceTree = "<group>"; };
 		C3F2E91919BCC5250083D4BB /* GRMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMStore.m; sourceTree = "<group>"; };
 		C3F2E91B19BCC5250083D4BB /* GRMBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBaseObject.h; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		C326B94719BD1B4500FCCAF0 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				C3DD07CB19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				TargetAttributes = {
 					C3DB986B19A16AA700EB4270 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 7AM27DZVQU;
 					};
 					C3DB988019A16AA700EB4270 = {
 						CreatedOnToolsVersion = 6.0;
@@ -586,6 +590,7 @@
 				C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */,
 				C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */,
 				C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */,
+				C3DD07CC19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift in Sources */,
 				C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */,
 				C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */,
 				C3F2E93319BCCA200083D4BB /* GRMDevice+Accessors.m in Sources */,
@@ -717,6 +722,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
@@ -724,6 +730,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9AD0EE6E-FD37-4D10-B97A-8353CA274F57";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Supporting Files/GM Taplist-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -744,6 +751,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
@@ -751,6 +759,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9AD0EE6E-FD37-4D10-B97A-8353CA274F57";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Supporting Files/GM Taplist-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
