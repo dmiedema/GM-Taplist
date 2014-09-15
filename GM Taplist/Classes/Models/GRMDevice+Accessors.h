@@ -17,10 +17,5 @@
 /*!
  
  */
-+ (instancetype)loadObjectID:(NSInteger)obj_ID inManagedObjectContext:(NSManagedObjectContext *)context;
-
-/*!
- 
- */
 + (instancetype)loadObjectByToken:(NSString *)token inManagedObjectContext:(NSManagedObjectContext *)context;
 @end
