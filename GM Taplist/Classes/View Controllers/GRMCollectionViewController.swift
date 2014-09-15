@@ -131,7 +131,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             selectedIndexPath = nil
         }
     }
-
+    // MARK: - UICollectionView Layout
+    
+    
     // MARK: - GRMCollectionViewDataSourceDelegate
     var selectedItemIndexPath: NSIndexPath? {
         return self.selectedIndexPath?
@@ -155,6 +157,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         selectedIndexPath = collectionView?.indexPathForItemAtPoint(point)
     }
     func favoritePressed(beerData: BeerData) {
+        if selectedIndexPath == nil { return; }
         let indexPath = selectedIndexPath!
         let cell = collectionView?.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
         let userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
@@ -169,6 +172,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
                 })
             } else {
                 NSLog("wtf no token")
+                return
             }
         }
         
