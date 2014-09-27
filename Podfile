@@ -12,6 +12,7 @@ pod 'BNRDynamicTypeManager'
 pod 'CocoaLumberjack'
 
 pod 'NewRelicAgent'
+pod 'ARAnalytics'
 
 end
 
