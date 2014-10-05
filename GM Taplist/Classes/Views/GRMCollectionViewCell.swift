@@ -20,6 +20,7 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     // MARK: - Properties
     // MARK: IBOutlets
     @IBOutlet weak var cellContentsView: UIView!
+    @IBOutlet weak var cellContentsViewWidth: NSLayoutConstraint!
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var topLineLabel: UILabel!
     @IBOutlet weak var middleLineLabel: UILabel!

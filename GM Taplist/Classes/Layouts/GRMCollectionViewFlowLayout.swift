@@ -9,7 +9,6 @@
 import Foundation
 
 class GRMCollectionViewFlowLayout: UICollectionViewFlowLayout {
-    
     override required init() {
         super.init()
         sharedSetup()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol {
+class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol, UICollectionViewDelegateFlowLayout {
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -62,7 +62,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView?.backgroundColor = UIColor.whiteColor()
-        
+
         collectionView?.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
         
         onTapDataSource.delegate = self
@@ -84,10 +84,17 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         super.viewWillDisappear(animated)
     }
     override func viewDidDisappear(animated: Bool) {
-        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
         super.viewDidDisappear(animated)
     }
 
+    // MARK: -
+    
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
     // MARK: - Implementation
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
@@ -131,8 +138,27 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             selectedIndexPath = nil
         }
     }
-    // MARK: - UICollectionView Layout
     
+    // MARK: - UICollectionView Layout
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let _width = collectionView.bounds.size.width
+        var itemWidth :CGFloat;
+        
+        if _width < 568 {
+            itemWidth = _width
+        } else {
+            itemWidth = _width / 2.0
+        }
+        
+        NSLog("itemWidth: \(itemWidth)")
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as? GRMCollectionViewCell
+        cell?.cellContentsViewWidth.constant = itemWidth
+        cell?.subviews.map() { $0.layoutIfNeeded() }
+        cell?.layoutIfNeeded()
+        
+        return CGSize(width: itemWidth, height: 84)
+    }
     
     // MARK: - GRMCollectionViewDataSourceDelegate
     var selectedItemIndexPath: NSIndexPath? {
