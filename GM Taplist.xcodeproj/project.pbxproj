@@ -25,6 +25,7 @@
 		C38403B419A93237003F92A5 /* GRMFirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */; };
 		C38B3DA219AA8B5000E2C533 /* AlamoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B3DA119AA8B5000E2C533 /* AlamoAPI.swift */; };
 		C3979E0F19B130AA00486172 /* DeviceRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0E19B130AA00486172 /* DeviceRegister.swift */; };
+		C3A942291A27C1040094BE26 /* GRMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A942281A27C1040094BE26 /* GRMUserDefaults.swift */; };
 		C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */; };
 		C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987119A16AA700EB4270 /* AppDelegate.swift */; };
 		C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */; };
@@ -60,14 +61,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C3ABEBF019E87C2B004F682B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM TaplistTests.xcconfig"; path = "Pods/Pods-GM TaplistTests.xcconfig"; sourceTree = "<group>"; };
 		0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM Taplist.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM TaplistTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.xcconfig"; path = "Pods/Pods-GM Taplist.xcconfig"; sourceTree = "<group>"; };
 		54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMBeerDetailsTableViewController.swift; sourceTree = "<group>"; };
 		54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRMCollectionViewCell.xib; sourceTree = "<group>"; };
 		54EEE82319AAF13F005E4AAD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		7F50E110628B6D4BFF01B5E6 /* Pods-GM Taplist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.release.xcconfig"; path = "Pods/Target Support Files/Pods-GM Taplist/Pods-GM Taplist.release.xcconfig"; sourceTree = "<group>"; };
+		9211D133C18FA1A2306D6950 /* Pods-GM Taplist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GM Taplist/Pods-GM Taplist.debug.xcconfig"; sourceTree = "<group>"; };
 		C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
 		C313C19619AAC8B000E42784 /* AllBeersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllBeersDataSource.swift; sourceTree = "<group>"; };
 		C318973F19BD2C0900F406D1 /* GRMBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMBeer.h; sourceTree = "<group>"; };
@@ -82,6 +96,8 @@
 		C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMFirstLaunchViewController.swift; sourceTree = "<group>"; };
 		C38B3DA119AA8B5000E2C533 /* AlamoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoAPI.swift; sourceTree = "<group>"; };
 		C3979E0E19B130AA00486172 /* DeviceRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceRegister.swift; sourceTree = "<group>"; };
+		C3A942271A27BE4E0094BE26 /* GM Taplist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GM Taplist.entitlements"; sourceTree = "<group>"; };
+		C3A942281A27C1040094BE26 /* GRMUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMUserDefaults.swift; sourceTree = "<group>"; };
 		C3A9980F19BBACEE00BCB171 /* GM Taplist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GM Taplist-Bridging-Header.h"; sourceTree = "<group>"; };
 		C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMLoadingViewController.swift; sourceTree = "<group>"; };
 		C3DB986C19A16AA700EB4270 /* GM Taplist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Taplist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +141,8 @@
 		C3F2E94319BCCB7D0083D4BB /* GRMCoreDataModelAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMCoreDataModelAccessors.h; sourceTree = "<group>"; };
 		C3F2E94619BCFA440083D4BB /* NSObject+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helpers.h"; sourceTree = "<group>"; };
 		C3F2E94719BCFA440083D4BB /* NSObject+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helpers.m"; sourceTree = "<group>"; };
+		DD0E49C213C5BBB47C947C28 /* Pods-GM TaplistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM TaplistTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GM TaplistTests/Pods-GM TaplistTests.release.xcconfig"; sourceTree = "<group>"; };
+		E41AF7E5CD38FA776E0505B2 /* Pods-GM TaplistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM TaplistTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GM TaplistTests/Pods-GM TaplistTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +168,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B40E84F0B0CF6E78E1C56CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9211D133C18FA1A2306D6950 /* Pods-GM Taplist.debug.xcconfig */,
+				7F50E110628B6D4BFF01B5E6 /* Pods-GM Taplist.release.xcconfig */,
+				E41AF7E5CD38FA776E0505B2 /* Pods-GM TaplistTests.debug.xcconfig */,
+				DD0E49C213C5BBB47C947C28 /* Pods-GM TaplistTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A69452808001459BB0B203AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,9 +213,8 @@
 				C3DB986E19A16AA700EB4270 /* GM Taplist */,
 				C3DB988419A16AA700EB4270 /* GM TaplistTests */,
 				C3DB986D19A16AA700EB4270 /* Products */,
-				2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */,
 				A69452808001459BB0B203AD /* Frameworks */,
-				0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */,
+				4B40E84F0B0CF6E78E1C56CF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +230,7 @@
 		C3DB986E19A16AA700EB4270 /* GM Taplist */ = {
 			isa = PBXGroup;
 			children = (
+				C3A942271A27BE4E0094BE26 /* GM Taplist.entitlements */,
 				C344892219AA88D600DFA647 /* Submodules */,
 				C3DB989819A16B7F00EB4270 /* Classes */,
 				C3DB989519A16B5000EB4270 /* Core Data */,
@@ -333,6 +362,7 @@
 				C3DB98A819A1768500EB4270 /* API.swift */,
 				C38B3DA119AA8B5000E2C533 /* AlamoAPI.swift */,
 				C3979E0E19B130AA00486172 /* DeviceRegister.swift */,
+				C3A942281A27C1040094BE26 /* GRMUserDefaults.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -408,6 +438,7 @@
 				C3DB986919A16AA700EB4270 /* Frameworks */,
 				C3DB986A19A16AA700EB4270 /* Resources */,
 				A02E7EAA7A594CAB9F651CC3 /* Copy Pods Resources */,
+				C3ABEBF019E87C2B004F682B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -450,6 +481,11 @@
 					C3DB986B19A16AA700EB4270 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 7AM27DZVQU;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C3DB988019A16AA700EB4270 = {
 						CreatedOnToolsVersion = 6.0;
@@ -509,7 +545,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-GM Taplist-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GM Taplist/Pods-GM Taplist-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B0058189ACE54186B0DF096E /* Check Pods Manifest.lock */ = {
@@ -554,7 +590,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-GM TaplistTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GM TaplistTests/Pods-GM TaplistTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -583,6 +619,7 @@
 				54EEE82419AAF13F005E4AAD /* Async.swift in Sources */,
 				C318974119BD2C0900F406D1 /* GRMBeer.m in Sources */,
 				C3F2E92619BCC5250083D4BB /* GRMReview.m in Sources */,
+				C3A942291A27C1040094BE26 /* GRMUserDefaults.swift in Sources */,
 				C338E14B19AA9783008A1D18 /* GRMCollectionViewDataSource.swift in Sources */,
 				C3F2E93619BCCA670083D4BB /* GRMStyle+Accessors.m in Sources */,
 				C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */,
@@ -710,7 +747,7 @@
 		};
 		C3DB988C19A16AA700EB4270 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */;
+			baseConfigurationReference = 9211D133C18FA1A2306D6950 /* Pods-GM Taplist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -722,7 +759,9 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "GM Taplist/GM Taplist.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
@@ -730,7 +769,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9AD0EE6E-FD37-4D10-B97A-8353CA274F57";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Supporting Files/GM Taplist-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -740,7 +779,7 @@
 		};
 		C3DB988D19A16AA700EB4270 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F878A6956A14BA0B0872465 /* Pods-GM Taplist.xcconfig */;
+			baseConfigurationReference = 7F50E110628B6D4BFF01B5E6 /* Pods-GM Taplist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -751,7 +790,9 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "GM Taplist/GM Taplist.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
@@ -759,7 +800,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9AD0EE6E-FD37-4D10-B97A-8353CA274F57";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "GM Taplist/Supporting Files/GM Taplist-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -768,7 +809,7 @@
 		};
 		C3DB988F19A16AA700EB4270 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */;
+			baseConfigurationReference = E41AF7E5CD38FA776E0505B2 /* Pods-GM TaplistTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -788,7 +829,7 @@
 		};
 		C3DB989019A16AA700EB4270 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0274F12F5AE64C8882E5928F /* Pods-GM TaplistTests.xcconfig */;
+			baseConfigurationReference = DD0E49C213C5BBB47C947C28 /* Pods-GM TaplistTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

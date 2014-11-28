@@ -61,15 +61,15 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView?.backgroundColor = UIColor.whiteColor()
+        self.collectionView.backgroundColor = UIColor.whiteColor()
 
-        collectionView?.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
+        collectionView.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
         
         onTapDataSource.delegate = self
         favoritesDataSource.delegate = self
         allBeersDataSource.delegate  = self
         
-        self.collectionView?.dataSource = onTapDataSource
+        self.collectionView.dataSource = onTapDataSource
         currentDataSource = onTapDataSource
         onTapDataSource.loadBeersForStore(1)
     }
@@ -93,7 +93,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
 
-        collectionView?.collectionViewLayout.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     // MARK: - Implementation
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -133,8 +133,8 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         if selectedIndexPath != nil {
-            let cell = collectionView?.cellForItemAtIndexPath(selectedIndexPath!) as GRMCollectionViewCell
-            collectionView?.deselectItemAtIndexPath(selectedIndexPath, animated: true)
+            let cell = collectionView.cellForItemAtIndexPath(selectedIndexPath!) as GRMCollectionViewCell
+            collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
             selectedIndexPath = nil
         }
     }
@@ -169,7 +169,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     func dataLoaded() {
         // Hide HUD
-        collectionView?.reloadData()
+        collectionView.reloadData()
     }
     func dataFailedToLoad(error: NSError) {
         // Show Error HUD
@@ -180,12 +180,12 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         selectedIndexPath = nil
     }
     func cellPannedAtPoint(point: CGPoint) {
-        selectedIndexPath = collectionView?.indexPathForItemAtPoint(point)
+        selectedIndexPath = collectionView.indexPathForItemAtPoint(point)
     }
     func favoritePressed(beerData: BeerData) {
         if selectedIndexPath == nil { return; }
         let indexPath = selectedIndexPath!
-        let cell = collectionView?.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
         let userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
 
         if userID == 0 {
@@ -204,13 +204,13 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         
         if beerData.beer.favorite.boolValue == false {
             NSLog("Favoriting beer")
-            API.sharedInstance.favoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
+            API.sharedInstance.favoriteBeer(beerData.beer.beer_id as Int, completionBlock: { (success) -> () in
                 cell.setFavorite(true, animated: true)
             }, failureBlock: { (error) -> () in
             })
         } else {
             NSLog("UnFavoriting beer")
-            API.sharedInstance.unFavoriteBeer(beerData.beer.beer_id, completionBlock: { (success) -> () in
+            API.sharedInstance.unFavoriteBeer(beerData.beer.beer_id as Int, completionBlock: { (success) -> () in
                 cell.setFavorite(false, animated: true)
             }, failureBlock: { (error) -> () in
             })

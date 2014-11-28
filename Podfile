@@ -1,4 +1,8 @@
 platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+inhibit_all_warnings!
+
 target "GM Taplist" do
 
 pod 'AFNetworking'
@@ -9,10 +13,10 @@ pod 'VENVersionTracker'
 
 pod 'SDWebImage'
 pod 'BNRDynamicTypeManager'
-pod 'CocoaLumberjack'
+pod 'CocoaLumberjack', '~> 2.0.0-beta4'
 
 pod 'NewRelicAgent'
-pod 'ARAnalytics'
+# pod 'ARAnalytics'
 
 end
 

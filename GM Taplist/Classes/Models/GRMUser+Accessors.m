@@ -19,6 +19,8 @@
         user.user_id = @([data[@"id"] integerValue]);
     }
     
+    user.last_updated = [NSDate date];
+    
     return user;
 }
 

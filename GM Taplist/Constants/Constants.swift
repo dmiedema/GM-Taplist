@@ -16,6 +16,7 @@ protocol GMTaplistCollectionViewDataSource: UICollectionViewDataSource {
 struct GrowlMovement {
     struct GMTaplist {
         struct UserDefaults {
+            static let DefaultAppGroupSuiteName = "group.com.growlmovement.gmtaplist.defaultgroup"
             static let LoggedInUserID           = "com.GrowlMovement.GMTaplist.LoggedInUserID"
             static let PreferredStores          = "com.GrowlMovement.GMTaplist.PreferredStores"
             static let PushTokenKey             = "com.GrowlMovement.GMTaplist.PushTokenKey"
@@ -71,7 +72,7 @@ struct GrowlMovement {
         struct APIKeys {
             static let ResetBadgeNotification = "reset-notification-count"
             static let PreferredStores        = "preferred-stores"
-            static let APIKey                 = "4ad31c634bd46b50bb7a1c97b970952f"
+            static let APIKey                 = "7e07093c366f0a13267c6dbd9409e44e"
             static let APIKeyHeader           = "X-GrowlMovement-API-Key"
         }
         struct Colors {

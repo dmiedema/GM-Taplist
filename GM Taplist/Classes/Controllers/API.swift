@@ -46,7 +46,7 @@ class API: AFHTTPSessionManager {
         super.init(baseURL: url)
         
         self.responseSerializer = AFJSONResponseSerializer()
-        self.requestSerializer = AFJSONRequestSerializer()
+        self.requestSerializer = AFJSONRequestSerializer(writingOptions: .PrettyPrinted)
         self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
         self.requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")
     }
@@ -55,7 +55,7 @@ class API: AFHTTPSessionManager {
         super.init(baseURL: url, sessionConfiguration: configuration)
         
         self.responseSerializer = AFJSONResponseSerializer()
-        self.requestSerializer = AFJSONRequestSerializer()
+        self.requestSerializer = AFJSONRequestSerializer(writingOptions: .PrettyPrinted)
         self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
         self.requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")
     }
@@ -110,7 +110,7 @@ class API: AFHTTPSessionManager {
             let rawData = response as NSDictionary
             let user = GRMUser.createOrUpdate(response["data"] as NSDictionary, inManagedObjectContext: self.managedObjectContext) as GRMUser
             NSLog("user: \(user)")
-            NSUserDefaults.standardUserDefaults().setInteger(user.user_id, forKey: GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
+            NSUserDefaults.standardUserDefaults().setInteger(user.user_id as Int, forKey: GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
             
             NSNotificationCenter.defaultCenter().postNotificationName(GrowlMovement.GMTaplist.Notifications.UserCreated, object: nil)
             
@@ -210,7 +210,7 @@ class API: AFHTTPSessionManager {
     func beers(sinceDate: NSDate?, completionBlock:([GRMBeer]) -> (), failureBlock:(NSError) -> ()) {
         var url = "beers/updated"
         if let date = sinceDate {
-            let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+            let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
                     .components(.DayCalendarUnit | .MonthCalendarUnit | .YearCalendarUnit, fromDate: date)
             url = NSString(format: "beers/updated/%@/%@/%@", components.year, components.month, components.day)
         }
@@ -233,7 +233,7 @@ class API: AFHTTPSessionManager {
     func breweries(sinceDate: NSDate?, completionBlock:([GRMBrewery]) -> (), failureBlock:(NSError) -> ()) {
         var url = "breweries/updated"
         if let date = sinceDate {
-            let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+            let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
                 .components(.DayCalendarUnit | .MonthCalendarUnit | .YearCalendarUnit, fromDate: date)
             url = NSString(format: "breweries/updated/%@/%@/%@", components.year, components.month, components.day)
         }

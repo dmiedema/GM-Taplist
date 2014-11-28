@@ -29,6 +29,8 @@
         device.push_token = [[NSUserDefaults standardUserDefaults] stringForKey:@"com.GrowlMovement.GMTaplist.PushTokenKey"];
     }
     
+    device.last_updated = [NSDate date];
+    
     return device;
 }
 

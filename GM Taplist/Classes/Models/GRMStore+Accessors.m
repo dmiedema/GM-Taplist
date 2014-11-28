@@ -19,18 +19,20 @@
         store.store_id = @([data[@"id"] integerValue]);
     }
     
-    store.address = grm_ObjectOrNull(data[@"StoreAddress"]) ?: @"";
-    store.postal_code = grm_ObjectOrNull(data[@"StoreZip"]) ?: @"";
-    store.number_of_taps = grm_ObjectOrNull(data[@"StoreTaps"]) ?: @0;
-    store.phone = grm_ObjectOrNull(data[@"StorePhone"]) ?: @"";
-    store.nearby = grm_ObjectOrNull(data[@"StoreNearby"]) ?: @"";
-    store.latitude = grm_ObjectOrNull(data[@"StoreLat"]);
-    store.longitude = grm_ObjectOrNull(data[@"StoreLong"]);
-    store.ip_address = grm_ObjectOrNull(data[@"StoreIP"]) ?: @"";
-    store.active = grm_ObjectOrNull(data[@"StoreActive"]) ?: @1;
-    store.city = grm_ObjectOrNull(data[@"StoreCity"]) ?: @"";
-    store.state = grm_ObjectOrNull(data[@"StoreState"]) ?: @"";
-    store.hours = grm_ObjectOrNull(data[@"StoreHours"]) ?: @"";
+    store.address        = grm_ObjectOrNull(data[@"StoreAddress"]) ?: store.address ?: @"";
+    store.postal_code    = grm_ObjectOrNull(data[@"StoreZip"]) ?: store.postal_code ?: @"";
+    store.number_of_taps = grm_ObjectOrNull(data[@"StoreTaps"]) ?: store.number_of_taps ?: @0;
+    store.phone          = grm_ObjectOrNull(data[@"StorePhone"]) ?: store.phone ?: @"";
+    store.nearby         = grm_ObjectOrNull(data[@"StoreNearby"]) ?: store.nearby ?: @"";
+    store.latitude       = grm_ObjectOrNull(data[@"StoreLat"]) ?: store.latitude;
+    store.longitude      = grm_ObjectOrNull(data[@"StoreLong"]) ?: store.longitude;
+    store.ip_address     = grm_ObjectOrNull(data[@"StoreIP"]) ?: store.ip_address ?: @"";
+    store.active         = grm_ObjectOrNull(data[@"StoreActive"]) ?: store.active ?: @YES;
+    store.city           = grm_ObjectOrNull(data[@"StoreCity"]) ?: store.city ?: @"";
+    store.state          = grm_ObjectOrNull(data[@"StoreState"]) ?: store.state ?: @"";
+    store.hours          = grm_ObjectOrNull(data[@"StoreHours"]) ?: store.hours ?: @"";
+    
+    store.last_updated = [NSDate date];
     
     return store;
 }

@@ -19,10 +19,12 @@
         brewery.brewery_id = @([data[@"id"] integerValue]);
     }
     
-    brewery.logo_url = grm_ObjectOrNull(data[@"logo_url"]);
-    brewery.name = grm_ObjectOrNull(data[@"BreweryName"]) ?: @"";
-    brewery.city = grm_ObjectOrNull(data[@"BreweryCity"]) ?: @"";
-    brewery.state = grm_ObjectOrNull(data[@"BreweryState"]) ?: @"";
+    brewery.logo_url = grm_ObjectOrNull(data[@"logo_url"]) ?: brewery.logo_url;
+    brewery.name     = grm_ObjectOrNull(data[@"BreweryName"]) ?: brewery.name ?: @"";
+    brewery.city     = grm_ObjectOrNull(data[@"BreweryCity"]) ?: brewery.city ?: @"";
+    brewery.state    = grm_ObjectOrNull(data[@"BreweryState"]) ?: brewery.state ?: @"";
+    
+    brewery.last_updated = [NSDate date];
     
     return brewery;
 }

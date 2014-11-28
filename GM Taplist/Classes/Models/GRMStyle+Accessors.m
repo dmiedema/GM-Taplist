@@ -18,7 +18,9 @@
         style.style_id = @([data[@"id"] integerValue]);
     }
     
-    style.style = grm_ObjectOrNull(data[@"Style"]) ?: @"";
+    style.style = grm_ObjectOrNull(data[@"Style"]) ?: style.style ?: @"";
+    
+    style.last_updated = [NSDate date];
     
     return style;
 }
