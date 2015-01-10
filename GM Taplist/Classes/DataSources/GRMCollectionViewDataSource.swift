@@ -74,10 +74,7 @@ class GRMCollectionViewDataSource: NSObject {
     let cellConfigurationBlock: (cell: GRMCollectionViewCell, data: BeerData) -> ()
     var delegate: GRMCollectionViewDataSourceDelegate?
 
-    internal lazy var managedObjectContext: NSManagedObjectContext? = {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        return appDelegate.managedObjectContext!
-    }()
+    let context: NSManagedObjectContext = ANDYDataManager.backgroundContext()
 
     required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
         self.cellIdentifier = cellIdentifier

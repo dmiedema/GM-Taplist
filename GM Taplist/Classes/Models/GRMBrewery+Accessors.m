@@ -11,8 +11,8 @@
 
 @implementation GRMBrewery (Accessors)
 
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context {
-    GRMBrewery *brewery = [self loadObjectID:[data[@"id"] integerValue] inManagedObjectContext:context];
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context {
+    GRMBrewery *brewery = [self loadObjectID:[data[@"id"] integerValue] inContext:context];
     
     if (!brewery) {
         brewery = [NSEntityDescription insertNewObjectForEntityForName:@"Brewery" inManagedObjectContext:context];
@@ -29,7 +29,7 @@
     return brewery;
 }
 
-+ (instancetype)loadObjectID:(NSInteger)obj_ID inManagedObjectContext:(NSManagedObjectContext *)context {
++ (instancetype)loadObjectID:(NSInteger)obj_ID inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Brewery"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"brewery_id = %@", @(obj_ID)];
     

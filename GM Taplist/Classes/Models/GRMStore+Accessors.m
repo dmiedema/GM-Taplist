@@ -11,8 +11,8 @@
 
 @implementation GRMStore (Accessors)
 
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context {
-    GRMStore *store = [self loadObjectID:[data[@"id"] integerValue] inManagedObjectContext:context];
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context {
+    GRMStore *store = [self loadObjectID:[data[@"id"] integerValue] inContext:context];
     
     if (!store) {
         store = [NSEntityDescription insertNewObjectForEntityForName:@"Store" inManagedObjectContext:context];
@@ -37,7 +37,7 @@
     return store;
 }
 
-+ (instancetype)loadObjectID:(NSInteger)obj_ID inManagedObjectContext:(NSManagedObjectContext *)context {
++ (instancetype)loadObjectID:(NSInteger)obj_ID inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Store"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"store_id = %@", @(obj_ID)];
     
@@ -54,7 +54,7 @@
     return  [results lastObject];
 }
 
-+ (NSInteger)storeIDForName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context {
++ (NSInteger)storeIDForName:(NSString *)name inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Store"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"name[cd] = %@", name];
     

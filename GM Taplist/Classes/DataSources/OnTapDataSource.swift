@@ -38,7 +38,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceP
     }
 
     func loadBeersForStoreName(storeName: String) {
-        let storeID = GRMStore.storeIDForName(storeName, inManagedObjectContext: managedObjectContext!)
+        let storeID = GRMStore.storeIDForName(storeName, inContext: context)
         
         if storeID > 0 {
             self.loadBeersForStore(storeID)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CbK-ZD-8hE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CbK-ZD-8hE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,22 +32,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="hVU-Jb-acB">
-                                <rect key="frame" x="250" y="250" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="w59-oh-o0n"/>
-                                    <constraint firstAttribute="height" constant="100" id="xI3-CK-hjb"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-01-X49" userLabel="Top Label">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjm-qG-kM9" userLabel="Bottom Label">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <color key="backgroundColor" red="0.73488822990000002" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="hVU-Jb-acB" secondAttribute="centerY" id="NZ6-ND-s1X"/>
-                            <constraint firstAttribute="centerX" secondItem="hVU-Jb-acB" secondAttribute="centerX" id="gKh-Tj-GYJ"/>
+                            <constraint firstAttribute="centerX" secondItem="Phc-01-X49" secondAttribute="centerX" id="9b0-R6-cMJ"/>
+                            <constraint firstAttribute="centerX" secondItem="Tjm-qG-kM9" secondAttribute="centerX" id="NR5-gM-ho9"/>
+                            <constraint firstItem="sOM-Yr-2xZ" firstAttribute="top" secondItem="Tjm-qG-kM9" secondAttribute="bottom" constant="32" id="eNL-HT-shJ"/>
+                            <constraint firstItem="Phc-01-X49" firstAttribute="top" secondItem="Rdp-ja-EQA" secondAttribute="bottom" constant="16" id="vvK-YP-MAI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Phc-01-X49"/>
+                                <exclude reference="Tjm-qG-kM9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="9b0-R6-cMJ"/>
+                                <exclude reference="vvK-YP-MAI"/>
+                                <exclude reference="eNL-HT-shJ"/>
+                                <exclude reference="NR5-gM-ho9"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="Phc-01-X49"/>
+                                <include reference="Tjm-qG-kM9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="9b0-R6-cMJ"/>
+                                <include reference="vvK-YP-MAI"/>
+                                <include reference="eNL-HT-shJ"/>
+                                <include reference="NR5-gM-ho9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="f3m-bA-RWb"/>
                     <connections>
-                        <outlet property="imageView" destination="hVU-Jb-acB" id="ywr-Xu-PiV"/>
+                        <outlet property="bottomLabel" destination="Tjm-qG-kM9" id="nud-jb-koL"/>
+                        <outlet property="topLabel" destination="Phc-01-X49" id="05W-OM-ThD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xad-cA-GZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,8 +152,5 @@
             <point key="canvasLocation" x="10" y="398"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Spinner" width="100" height="100"/>
-    </resources>
     <color key="tintColor" red="0.92156862750000001" green="0.85882352939999995" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

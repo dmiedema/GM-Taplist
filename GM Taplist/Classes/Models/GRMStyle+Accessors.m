@@ -10,8 +10,8 @@
 #import "NSObject+Helpers.h"
 
 @implementation GRMStyle (Accessors)
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context {
-    GRMStyle *style = [self loadObjectID:[data[@"id"] integerValue] inManagedObjectContext:context];
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context {
+    GRMStyle *style = [self loadObjectID:[data[@"id"] integerValue] inContext:context];
 
     if (!style) {
         style = [NSEntityDescription insertNewObjectForEntityForName:@"Style" inManagedObjectContext:context];
@@ -25,7 +25,7 @@
     return style;
 }
 
-+ (instancetype)loadObjectID:(NSInteger)obj_ID inManagedObjectContext:(NSManagedObjectContext *)context {
++ (instancetype)loadObjectID:(NSInteger)obj_ID inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Style"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"style_id = %@", @(obj_ID)];
     

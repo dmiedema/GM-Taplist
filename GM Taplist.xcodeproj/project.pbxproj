@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		04AD67DFA2A546049E06EB31 /* libPods-GM TaplistTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */; };
+		54C5128E1A61D5F8000DCA2A /* GRMLibraryImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C5128D1A61D5F8000DCA2A /* GRMLibraryImport.m */; };
+		54C512991A61D735000DCA2A /* GRMKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C512981A61D735000DCA2A /* GRMKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54C5129F1A61D735000DCA2A /* GRMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C512941A61D735000DCA2A /* GRMKit.framework */; };
+		54C512A81A61D735000DCA2A /* GRMKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C512A71A61D735000DCA2A /* GRMKitTests.swift */; };
+		54C512AB1A61D735000DCA2A /* GRMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C512941A61D735000DCA2A /* GRMKit.framework */; };
+		54C512AC1A61D735000DCA2A /* GRMKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54C512941A61D735000DCA2A /* GRMKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		54D4A36119B7562F0036002B /* GRMBeerDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */; };
 		54EEE82219A9A19A005E4AAD /* GRMCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */; };
 		54EEE82419AAF13F005E4AAD /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEE82319AAF13F005E4AAD /* Async.swift */; };
@@ -52,6 +58,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		54C512A01A61D735000DCA2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DB986419A16AA600EB4270 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54C512931A61D735000DCA2A;
+			remoteInfo = GRMKit;
+		};
+		54C512A21A61D735000DCA2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DB986419A16AA600EB4270 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3DB986B19A16AA700EB4270;
+			remoteInfo = "GM Taplist";
+		};
+		54C512A91A61D735000DCA2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DB986419A16AA600EB4270 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54C512931A61D735000DCA2A;
+			remoteInfo = GRMKit;
+		};
 		C3DB988219A16AA700EB4270 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3DB986419A16AA600EB4270 /* Project object */;
@@ -68,6 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				54C512AC1A61D735000DCA2A /* GRMKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +105,14 @@
 /* Begin PBXFileReference section */
 		0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM Taplist.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10366AC46BA04B28BB6370E0 /* libPods-GM TaplistTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GM TaplistTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C5128C1A61D5F8000DCA2A /* GRMLibraryImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMLibraryImport.h; sourceTree = "<group>"; };
+		54C5128D1A61D5F8000DCA2A /* GRMLibraryImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMLibraryImport.m; sourceTree = "<group>"; };
+		54C512941A61D735000DCA2A /* GRMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRMKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C512971A61D735000DCA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54C512981A61D735000DCA2A /* GRMKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRMKit.h; sourceTree = "<group>"; };
+		54C5129E1A61D735000DCA2A /* GRMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C512A61A61D735000DCA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54C512A71A61D735000DCA2A /* GRMKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRMKitTests.swift; sourceTree = "<group>"; };
 		54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMBeerDetailsTableViewController.swift; sourceTree = "<group>"; };
 		54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRMCollectionViewCell.xib; sourceTree = "<group>"; };
 		54EEE82319AAF13F005E4AAD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
@@ -146,10 +182,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		54C512901A61D735000DCA2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C5129B1A61D735000DCA2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54C5129F1A61D735000DCA2A /* GRMKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3DB986919A16AA700EB4270 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C512AB1A61D735000DCA2A /* GRMKit.framework in Frameworks */,
 				C34488F319A9379300DFA647 /* Accelerate.framework in Frameworks */,
 				C34488F119A9378D00DFA647 /* CoreData.framework in Frameworks */,
 				C34488EF19A9378100DFA647 /* CoreGraphics.framework in Frameworks */,
@@ -177,6 +229,40 @@
 				DD0E49C213C5BBB47C947C28 /* Pods-GM TaplistTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		54C512951A61D735000DCA2A /* GRMKit */ = {
+			isa = PBXGroup;
+			children = (
+				54C512981A61D735000DCA2A /* GRMKit.h */,
+				54C512961A61D735000DCA2A /* Supporting Files */,
+			);
+			path = GRMKit;
+			sourceTree = "<group>";
+		};
+		54C512961A61D735000DCA2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54C512971A61D735000DCA2A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54C512A41A61D735000DCA2A /* GRMKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				54C512A71A61D735000DCA2A /* GRMKitTests.swift */,
+				54C512A51A61D735000DCA2A /* Supporting Files */,
+			);
+			path = GRMKitTests;
+			sourceTree = "<group>";
+		};
+		54C512A51A61D735000DCA2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54C512A61A61D735000DCA2A /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A69452808001459BB0B203AD /* Frameworks */ = {
@@ -212,6 +298,8 @@
 			children = (
 				C3DB986E19A16AA700EB4270 /* GM Taplist */,
 				C3DB988419A16AA700EB4270 /* GM TaplistTests */,
+				54C512951A61D735000DCA2A /* GRMKit */,
+				54C512A41A61D735000DCA2A /* GRMKitTests */,
 				C3DB986D19A16AA700EB4270 /* Products */,
 				A69452808001459BB0B203AD /* Frameworks */,
 				4B40E84F0B0CF6E78E1C56CF /* Pods */,
@@ -223,6 +311,8 @@
 			children = (
 				C3DB986C19A16AA700EB4270 /* GM Taplist.app */,
 				C3DB988119A16AA700EB4270 /* GM TaplistTests.xctest */,
+				54C512941A61D735000DCA2A /* GRMKit.framework */,
+				54C5129E1A61D735000DCA2A /* GRMKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +337,8 @@
 			children = (
 				C3A9980F19BBACEE00BCB171 /* GM Taplist-Bridging-Header.h */,
 				C3DB987019A16AA700EB4270 /* Info.plist */,
+				54C5128C1A61D5F8000DCA2A /* GRMLibraryImport.h */,
+				54C5128D1A61D5F8000DCA2A /* GRMLibraryImport.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -428,7 +520,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		54C512911A61D735000DCA2A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54C512991A61D735000DCA2A /* GRMKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		54C512931A61D735000DCA2A /* GRMKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54C512AD1A61D735000DCA2A /* Build configuration list for PBXNativeTarget "GRMKit" */;
+			buildPhases = (
+				54C5128F1A61D735000DCA2A /* Sources */,
+				54C512901A61D735000DCA2A /* Frameworks */,
+				54C512911A61D735000DCA2A /* Headers */,
+				54C512921A61D735000DCA2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GRMKit;
+			productName = GRMKit;
+			productReference = 54C512941A61D735000DCA2A /* GRMKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		54C5129D1A61D735000DCA2A /* GRMKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54C512B01A61D735000DCA2A /* Build configuration list for PBXNativeTarget "GRMKitTests" */;
+			buildPhases = (
+				54C5129A1A61D735000DCA2A /* Sources */,
+				54C5129B1A61D735000DCA2A /* Frameworks */,
+				54C5129C1A61D735000DCA2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54C512A11A61D735000DCA2A /* PBXTargetDependency */,
+				54C512A31A61D735000DCA2A /* PBXTargetDependency */,
+			);
+			name = GRMKitTests;
+			productName = GRMKitTests;
+			productReference = 54C5129E1A61D735000DCA2A /* GRMKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C3DB986B19A16AA700EB4270 /* GM Taplist */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3DB988B19A16AA700EB4270 /* Build configuration list for PBXNativeTarget "GM Taplist" */;
@@ -443,6 +583,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				54C512AA1A61D735000DCA2A /* PBXTargetDependency */,
 			);
 			name = "GM Taplist";
 			productName = "GM Taplist";
@@ -478,6 +619,14 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Growl Movement";
 				TargetAttributes = {
+					54C512931A61D735000DCA2A = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 7AM27DZVQU;
+					};
+					54C5129D1A61D735000DCA2A = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = C3DB986B19A16AA700EB4270;
+					};
 					C3DB986B19A16AA700EB4270 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 7AM27DZVQU;
@@ -508,11 +657,27 @@
 			targets = (
 				C3DB986B19A16AA700EB4270 /* GM Taplist */,
 				C3DB988019A16AA700EB4270 /* GM TaplistTests */,
+				54C512931A61D735000DCA2A /* GRMKit */,
+				54C5129D1A61D735000DCA2A /* GRMKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		54C512921A61D735000DCA2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C5129C1A61D735000DCA2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3DB986A19A16AA700EB4270 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -596,6 +761,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		54C5128F1A61D735000DCA2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C5129A1A61D735000DCA2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54C512A81A61D735000DCA2A /* GRMKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3DB986819A16AA700EB4270 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,6 +806,7 @@
 				C38B3DA219AA8B5000E2C533 /* AlamoAPI.swift in Sources */,
 				C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */,
 				C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */,
+				54C5128E1A61D5F8000DCA2A /* GRMLibraryImport.m in Sources */,
 				C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */,
 				C3DD07CC19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift in Sources */,
 				C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */,
@@ -647,6 +828,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		54C512A11A61D735000DCA2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54C512931A61D735000DCA2A /* GRMKit */;
+			targetProxy = 54C512A01A61D735000DCA2A /* PBXContainerItemProxy */;
+		};
+		54C512A31A61D735000DCA2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3DB986B19A16AA700EB4270 /* GM Taplist */;
+			targetProxy = 54C512A21A61D735000DCA2A /* PBXContainerItemProxy */;
+		};
+		54C512AA1A61D735000DCA2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54C512931A61D735000DCA2A /* GRMKit */;
+			targetProxy = 54C512A91A61D735000DCA2A /* PBXContainerItemProxy */;
+		};
 		C3DB988319A16AA700EB4270 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3DB986B19A16AA700EB4270 /* GM Taplist */;
@@ -666,6 +862,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		54C512AE1A61D735000DCA2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GRMKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		54C512AF1A61D735000DCA2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GRMKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		54C512B11A61D735000DCA2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GRMKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GM Taplist.app/GM Taplist";
+			};
+			name = Debug;
+		};
+		54C512B21A61D735000DCA2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GRMKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GM Taplist.app/GM Taplist";
+			};
+			name = Release;
+		};
 		C3DB988919A16AA700EB4270 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -846,6 +1122,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		54C512AD1A61D735000DCA2A /* Build configuration list for PBXNativeTarget "GRMKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54C512AE1A61D735000DCA2A /* Debug */,
+				54C512AF1A61D735000DCA2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		54C512B01A61D735000DCA2A /* Build configuration list for PBXNativeTarget "GRMKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54C512B11A61D735000DCA2A /* Debug */,
+				54C512B21A61D735000DCA2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C3DB986719A16AA600EB4270 /* Build configuration list for PBXProject "GM Taplist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

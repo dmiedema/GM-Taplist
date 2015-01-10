@@ -12,10 +12,10 @@
 /*!
  
  */
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context;
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context;
 
 /*!
  
  */
-+ (instancetype)loadObjectByToken:(NSString *)token inManagedObjectContext:(NSManagedObjectContext *)context;
++ (instancetype)loadObjectByToken:(NSString *)token inContext:(NSManagedObjectContext *)context;
 @end

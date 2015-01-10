@@ -12,14 +12,14 @@
 /*!
  
  */
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context;
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context;
 
 /*!
  
  */
-+ (instancetype)loadObjectID:(NSInteger)obj_ID inManagedObjectContext:(NSManagedObjectContext *)context;
++ (instancetype)loadObjectID:(NSInteger)obj_ID inContext:(NSManagedObjectContext *)context;
 
 /*!
  */
-+ (NSInteger)storeIDForName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
++ (NSInteger)storeIDForName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 @end

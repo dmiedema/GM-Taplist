@@ -12,8 +12,8 @@
 #import "NSObject+Helpers.h"
 
 @implementation GRMBeer (Accessors)
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context {
-    GRMBeer *beer = [self loadObjectID:[data[@"id"] integerValue] inManagedObjectContext:context];
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context {
+    GRMBeer *beer = [self loadObjectID:[data[@"id"] integerValue] inContext:context];
     
     if (!beer) {
         beer = [NSEntityDescription insertNewObjectForEntityForName:@"Beer"inManagedObjectContext:context];
@@ -30,18 +30,18 @@
     beer.beer_description = grm_ObjectOrNull(data[@"BrewDescription"]) ?: beer.beer_description ?:@"";
     
     if (grm_ObjectOrNull(data[@"brewery"])) {
-        beer.brewery = [GRMBrewery createOrUpdate:data[@"brewery"] inManagedObjectContext:context];
+        beer.brewery = [GRMBrewery createOrUpdate:data[@"brewery"] inContext:context];
     }
     
     if (grm_ObjectOrNull(data[@"style"])) {
-        beer.style = [GRMStyle createOrUpdate:data[@"style"] inManagedObjectContext:context];
+        beer.style = [GRMStyle createOrUpdate:data[@"style"] inContext:context];
     }
     
     beer.last_updated = [NSDate date];
     return beer;
 }
 
-+ (instancetype)loadObjectID:(NSInteger)obj_ID inManagedObjectContext:(NSManagedObjectContext *)context {
++ (instancetype)loadObjectID:(NSInteger)obj_ID inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Beer"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"beer_id = %@", @(obj_ID)];
     

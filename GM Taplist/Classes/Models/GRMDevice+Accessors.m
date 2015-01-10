@@ -16,8 +16,8 @@
 @end
 
 @implementation GRMDevice (Accessors)
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context {
-    GRMDevice *device = [self loadObjectByToken:data[@"apns_push_token"] inManagedObjectContext:context];
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context {
+    GRMDevice *device = [self loadObjectByToken:data[@"apns_push_token"] inContext:context];
     
     if (!device) {
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -34,7 +34,7 @@
     return device;
 }
 
-+ (instancetype)loadObjectByToken:(NSString *)token inManagedObjectContext:(NSManagedObjectContext *)context {
++ (instancetype)loadObjectByToken:(NSString *)token inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Device"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"push_token = %@", token];
     

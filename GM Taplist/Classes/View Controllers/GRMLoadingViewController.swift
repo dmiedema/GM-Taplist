@@ -11,14 +11,29 @@ import UIKit
 
 class GRMLoadingViewController: UIViewController {
     
-    private lazy var managedObjectContext: NSManagedObjectContext = {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        return appDelegate.managedObjectContext!
-    }()
-
-    @IBOutlet weak var imageView: UIImageView!
+    // MARK: Properties
     let updateGroup: dispatch_group_t = dispatch_group_create()
+    private let topText = [
+        "top label"
+    ]
+    private let bottomText = [
+        "bottom label"
+    ]
     
+    private var topLbel: UILabel = {
+        var label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 22))
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return label
+    }()
+    
+    private var bottomLbel: UILabel = {
+        var label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 22))
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return label
+    }()
+    
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,34 +45,33 @@ class GRMLoadingViewController: UIViewController {
             self.pushToFirstScreen()
         }
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         view.backgroundColor = UIColor.whiteColor()
         navigationController?.navigationBarHidden = true
+        
+        self.view.addSubview(self.topLbel)
+        self.view.addSubview(self.bottomLbel)
+        
+        self.view.addConstraints(labelConstraints())
     }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animateKeyframesWithDuration(1.0, delay: 0.0, options: .Repeat, animations: { () -> Void in
-            UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.25, animations: { () -> Void in
-                let rotate = CGFloat(M_PI * 90 / 180.0)
-                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
-            })
-            UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.25, animations: { () -> Void in
-                let rotate = CGFloat(M_PI * 180.0 / 180.0)
-                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
-            })
-            UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.25, animations: { () -> Void in
-                let rotate = CGFloat(M_PI * 270.0 / 180.0)
-                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
-            })
-            UIView.addKeyframeWithRelativeStartTime(0.75, relativeDuration: 0.25, animations: { () -> Void in
-                let rotate = CGFloat(M_PI * 360.0 / 180.0)
-                self.imageView.transform = CGAffineTransformMakeRotation(rotate)
-            })
-        }, completion: { (complete) -> Void in })
+        let randomIndex = Int(arc4random()) % topText.count
+        
+        NSLog("index \(randomIndex)")
+    
+        self.topLbel.text = topText[randomIndex] as String
+        self.bottomLbel.text = bottomText[randomIndex] as String
+        
+        KVNProgress.show()
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        KVNProgress.dismiss()
+        
     }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
@@ -91,8 +105,6 @@ class GRMLoadingViewController: UIViewController {
     
     func updateStyles() {
         let date = NSUserDefaults.standardUserDefaults().objectForKey(GrowlMovement.GMTaplist.UserDefaults.LastRetreivedStyleDate) as NSDate
-        
-
     }
     
     func updateStores() {
@@ -112,5 +124,15 @@ class GRMLoadingViewController: UIViewController {
         navigationController?.pushViewController(collectionView, animated: true)
 
         navigationController?.setViewControllers([collectionView], animated: false)
+    }
+    
+    private func labelConstraints() -> [NSLayoutConstraint] {
+        let topCenterXConstraint = NSLayoutConstraint(item: self.topLbel, attribute: .CenterX, relatedBy: .Equal, toItem: self.topLbel.superview, attribute: .CenterX, multiplier: 1, constant: 0)
+        let bottomCenterXConstraint = NSLayoutConstraint(item: self.bottomLbel, attribute: .CenterX, relatedBy: .Equal, toItem: self.bottomLbel.superview, attribute: .CenterX, multiplier: 1, constant: 0)
+        
+        let topSpace = NSLayoutConstraint(item: self.topLbel, attribute: .Top, relatedBy: .Equal, toItem: self.topLbel.superview, attribute: .TopMargin, multiplier: 1, constant: 64)
+        let bottomSpace = NSLayoutConstraint(item: self.bottomLbel, attribute: .Bottom, relatedBy: .Equal, toItem: self.bottomLbel.superview, attribute: .BottomMargin, multiplier: 1, constant: -64)
+        
+        return [topCenterXConstraint, bottomCenterXConstraint, topSpace, bottomSpace]
     }
 }

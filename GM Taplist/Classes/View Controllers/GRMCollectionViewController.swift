@@ -51,25 +51,19 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: - Properties
     private var currentDataSource: GRMCollectionViewDataSourceProtocol!
     private var selectedIndexPath: NSIndexPath?
-    lazy var managedObjectContext: NSManagedObjectContext = {
-        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let context = delegate.managedObjectContext
-
-        return context!
-    }()
-    
+    private var managedObjectContext: NSManagedObjectContext = ANDYDataManager.backgroundContext()
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView?.backgroundColor = UIColor.whiteColor()
 
-        collectionView.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
+        collectionView?.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
         
         onTapDataSource.delegate = self
         favoritesDataSource.delegate = self
         allBeersDataSource.delegate  = self
         
-        self.collectionView.dataSource = onTapDataSource
+        collectionView?.dataSource = onTapDataSource
         currentDataSource = onTapDataSource
         onTapDataSource.loadBeersForStore(1)
     }
@@ -93,7 +87,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
 
-        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     // MARK: - Implementation
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -133,8 +127,8 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         if selectedIndexPath != nil {
-            let cell = collectionView.cellForItemAtIndexPath(selectedIndexPath!) as GRMCollectionViewCell
-            collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
+            let cell = collectionView?.cellForItemAtIndexPath(selectedIndexPath!) as GRMCollectionViewCell
+            collectionView?.deselectItemAtIndexPath(selectedIndexPath, animated: true)
             selectedIndexPath = nil
         }
     }
@@ -169,7 +163,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     func dataLoaded() {
         // Hide HUD
-        collectionView.reloadData()
+        collectionView?.reloadData()
     }
     func dataFailedToLoad(error: NSError) {
         // Show Error HUD
@@ -180,12 +174,12 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         selectedIndexPath = nil
     }
     func cellPannedAtPoint(point: CGPoint) {
-        selectedIndexPath = collectionView.indexPathForItemAtPoint(point)
+        selectedIndexPath = collectionView?.indexPathForItemAtPoint(point)
     }
     func favoritePressed(beerData: BeerData) {
         if selectedIndexPath == nil { return; }
         let indexPath = selectedIndexPath!
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
+        let cell = collectionView?.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
         let userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
 
         if userID == 0 {

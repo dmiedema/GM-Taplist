@@ -11,8 +11,8 @@
 
 @implementation GRMUser (Accessors)
 
-+ (instancetype)createOrUpdate:(NSDictionary *)data inManagedObjectContext:(NSManagedObjectContext *)context {
-    GRMUser *user = [self loadObjectID:[data[@"id"] integerValue] inManagedObjectContext:context];
++ (instancetype)createOrUpdate:(NSDictionary *)data inContext:(NSManagedObjectContext *)context {
+    GRMUser *user = [self loadObjectID:[data[@"id"] integerValue] inContext:context];
     
     if (!user) {
         user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
@@ -24,7 +24,7 @@
     return user;
 }
 
-+ (instancetype)loadObjectID:(NSInteger)obj_ID inManagedObjectContext:(NSManagedObjectContext *)context {
++ (instancetype)loadObjectID:(NSInteger)obj_ID inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"user_id = %@", @(obj_ID)];
     
@@ -42,7 +42,7 @@
 }
 
 + (NSArray *)devicesForUserID:(NSInteger)userID inManagedObjectContext:(NSManagedObjectContext *)context {
-    GRMUser *user = [self loadObjectID:userID inManagedObjectContext:context];
+    GRMUser *user = [self loadObjectID:userID inContext:context];
     if (!userID) {
         return nil;
     }
