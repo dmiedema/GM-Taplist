@@ -11,7 +11,7 @@ import CoreData
 
 class API: AFHTTPSessionManager {
     // MARK: - Properties
-    private var context: NSManagedObjectContext = ANDYDataManager.backgroundContext()
+    private var context: NSManagedObjectContext = ANDYDataManager.sharedManager().mainContext
     
     // MARK: - Singleton
     class var sharedInstance: API {

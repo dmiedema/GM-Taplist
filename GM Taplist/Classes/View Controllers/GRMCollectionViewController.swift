@@ -51,7 +51,13 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: - Properties
     private var currentDataSource: GRMCollectionViewDataSourceProtocol!
     private var selectedIndexPath: NSIndexPath?
-    private var managedObjectContext: NSManagedObjectContext = ANDYDataManager.backgroundContext()
+
+    lazy private var refreshControl: UIRefreshControl = {
+        var control = UIRefreshControl()
+        control.addTarget(self, action: "refreshItems", forControlEvents: .ValueChanged)
+        return control
+    }()
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +72,8 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         collectionView?.dataSource = onTapDataSource
         currentDataSource = onTapDataSource
         onTapDataSource.loadBeersForStore(1)
+        
+        self.collectionView?.addSubview(self.refreshControl)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -116,12 +124,12 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let customCell = cell as GRMCollectionViewCell
+        let _cell = cell as GRMCollectionViewCell
         if ((collectionView.dataSource!.isEqual(onTapDataSource))) {
-            let beerData = customCell.beerData
+            let beerData = _cell.beerData
 //            customCell.setKegLevel(beerData.tapLevel!, animated: true)
             let level = Int(arc4random() % 100)
-            customCell.setKegLevel(level, animated: true)
+            _cell.setKegLevel(level, animated: true)
             NSLog("Keg level \(level)")
         }
     }
@@ -131,6 +139,12 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             let cell = collectionView?.cellForItemAtIndexPath(selectedIndexPath!) as GRMCollectionViewCell
             collectionView?.deselectItemAtIndexPath(selectedIndexPath, animated: true)
             selectedIndexPath = nil
+        }
+    }
+    
+    func refreshItems() {
+        if currentDataSource.isEqual(onTapDataSource) {
+            onTapDataSource.loadBeersForStore(1)
         }
     }
     
@@ -164,9 +178,11 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     func dataLoaded() {
         // Hide HUD
+        if refreshControl.refreshing { refreshControl.endRefreshing() }
         collectionView?.reloadData()
     }
     func dataFailedToLoad(error: NSError) {
+        if refreshControl.refreshing { refreshControl.endRefreshing() }
         // Show Error HUD
     }
     
@@ -215,7 +231,6 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     func detailsPressed(beerData: BeerData) {
         let detailsViewController = storyboard?.instantiateViewControllerWithIdentifier(GrowlMovement.GMTaplist.TableView.StoryboardIdentifier) as GRMBeerDetailsTableViewController
         detailsViewController.beerData = beerData
-        detailsViewController.managedObjectContext = managedObjectContext
         navigationController?.pushViewController(detailsViewController, animated: true)
     }
     

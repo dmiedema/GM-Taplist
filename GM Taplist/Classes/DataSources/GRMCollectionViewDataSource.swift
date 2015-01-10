@@ -64,7 +64,7 @@ protocol GRMCollectionViewDataSourceDelegate {
     func dataFailedToLoad(error: NSError) -> ()
 }
 
-protocol GRMCollectionViewDataSourceProtocol {
+protocol GRMCollectionViewDataSourceProtocol: NSObjectProtocol {
     func itemForIndexPath(indexPath: NSIndexPath) -> BeerData
 }
 
