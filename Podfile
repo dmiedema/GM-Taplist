@@ -5,17 +5,27 @@ inhibit_all_warnings!
 
 target "GM Taplist" do
 
+# Network
 pod 'AFNetworking'
-# pod 'Alamofire'
 pod 'GroundControl'
 
 pod 'VENVersionTracker'
 
+# Display
 pod 'SDWebImage'
 pod 'BNRDynamicTypeManager'
+
+# UI
+pod 'CRToast', :git => 'https://github.com/dmiedema/CRToast', :branch => 'master'
+pod 'KVNProgress'
+pod 'FontAwesomeIconFactory'
+
+# Debuggin/Analytics
 pod 'CocoaLumberjack', '~> 2.0.0-beta4'
 
-pod 'NewRelicAgent'
+# CoreData
+pod 'Kipu'
+
 # pod 'ARAnalytics'
 
 end

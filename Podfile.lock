@@ -20,27 +20,42 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ANDYDataManager (1.2.2)
   - BNRDynamicTypeManager (0.1.0):
     - BNRDynamicTypeManager/Controls (= 0.1.0)
     - BNRDynamicTypeManager/Core (= 0.1.0)
   - BNRDynamicTypeManager/Controls (0.1.0):
     - BNRDynamicTypeManager/Core
   - BNRDynamicTypeManager/Core (0.1.0)
-  - CocoaLumberjack (2.0.0-beta4):
-    - CocoaLumberjack/Default (= 2.0.0-beta4)
-    - CocoaLumberjack/Extensions (= 2.0.0-beta4)
-  - CocoaLumberjack/Core (2.0.0-beta4)
-  - CocoaLumberjack/Default (2.0.0-beta4):
+  - CocoaLumberjack (2.0.0-rc):
+    - CocoaLumberjack/Default (= 2.0.0-rc)
+    - CocoaLumberjack/Extensions (= 2.0.0-rc)
+  - CocoaLumberjack/Core (2.0.0-rc)
+  - CocoaLumberjack/Default (2.0.0-rc):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0-beta4):
+  - CocoaLumberjack/Extensions (2.0.0-rc):
     - CocoaLumberjack/Default
+  - CRToast (0.0.7)
+  - FontAwesomeIconFactory (1.4)
   - GroundControl (2.1.0):
     - AFNetworking (~> 2.2)
-  - NewRelicAgent (4.139)
-  - OCMock (3.1.1)
-  - OHHTTPStubs (3.1.7):
-    - OHHTTPStubs/Core (= 3.1.7)
-  - OHHTTPStubs/Core (3.1.7)
+  - Kipu (0.3):
+    - ANDYDataManager
+    - NSDictionary-ANDYSafeValue
+    - NSManagedObject-ANDYMapChanges
+    - NSManagedObject-HYPPropertyMapper
+  - KVNProgress (2.1.6)
+  - NSDictionary-ANDYSafeValue (0.3)
+  - NSManagedObject-ANDYMapChanges (0.5.1):
+    - NSManagedObject-ANDYObjectIDs
+  - NSManagedObject-ANDYObjectIDs (0.1)
+  - NSManagedObject-HYPPropertyMapper (2.6):
+    - NSString-HYPNetworking
+  - NSString-HYPNetworking (0.1)
+  - OCMock (3.1.2)
+  - OHHTTPStubs (3.1.10):
+    - OHHTTPStubs/Core (= 3.1.10)
+  - OHHTTPStubs/Core (3.1.10)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -51,22 +66,44 @@ DEPENDENCIES:
   - AFNetworking
   - BNRDynamicTypeManager
   - CocoaLumberjack (~> 2.0.0-beta4)
+  - CRToast (from `https://github.com/dmiedema/CRToast`, branch `master`)
+  - FontAwesomeIconFactory
   - GroundControl
-  - NewRelicAgent
+  - Kipu
+  - KVNProgress
   - OCMock
   - OHHTTPStubs
   - SDWebImage
   - Sleipnir
   - VENVersionTracker
 
+EXTERNAL SOURCES:
+  CRToast:
+    :branch: master
+    :git: https://github.com/dmiedema/CRToast
+
+CHECKOUT OPTIONS:
+  CRToast:
+    :commit: 5ee03d431b4afe2e163036de02813a14bea55cf3
+    :git: https://github.com/dmiedema/CRToast
+
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  ANDYDataManager: 90841504e0456c952629b41fe7d4d018e38337f8
   BNRDynamicTypeManager: 04448150ee840a12f6f9e0371de88cc362ae9948
-  CocoaLumberjack: 24153b24b17d853d7182b22b128971fb98e8cb18
+  CocoaLumberjack: 6186e27827fc574b50b16c10102fcc591437f06c
+  CRToast: da11d94a05b1351a87bb26cbf8f25e80ed2e7115
+  FontAwesomeIconFactory: 6ef139e879d779e8e4561980ca170ea0981f5f9e
   GroundControl: 2f9024230e41ff5e5a8e3ca060ed1b74883bdd1a
-  NewRelicAgent: fe89ea76bcbbe3d45c3adea698f9d786ea6e21ae
-  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
-  OHHTTPStubs: b571bd884ce1ebdbda850ea41674b9fbb9eba667
+  Kipu: 22321066c39a672f9c48e0d74a694dd002ac0f5a
+  KVNProgress: ac45e7ded3510560d1900de8747f49dcbbc92c55
+  NSDictionary-ANDYSafeValue: ddd983e316a52201a40c70f4ab9ead8a63c569b6
+  NSManagedObject-ANDYMapChanges: 224cd299f56bbcb8466f495a22666aac877a4301
+  NSManagedObject-ANDYObjectIDs: d27bb3014026506848a8d164f3019ecaa2a4baca
+  NSManagedObject-HYPPropertyMapper: 3061d3da11cf7fe6ed2c827fd3b127d2c03433eb
+  NSString-HYPNetworking: 941953383edbba2abd72014e4bfdd55fa4af8dff
+  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
+  OHHTTPStubs: 2038e929b6abb94881000524c1cb4aba0a1bb4a2
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   Sleipnir: 73ad23d536e5ed879d1bb372e4a10dc632509b59
   VENVersionTracker: d78c3407733a1a1ef4aaa11b6e2182996fbbac30
