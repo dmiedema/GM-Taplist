@@ -147,7 +147,7 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         }
         
         let floatLevel = CGFloat(level)
-        let newLevel: CGFloat = 320.0 * (floatLevel / 100.0)
+        let newLevel: CGFloat = self.cellContentsViewWidth.constant * (floatLevel / 100.0)
         
         UIView.animateWithDuration(duration, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: .AllowAnimatedContent, animations: { () -> Void in
                 self.kegLevelWidthConstraint?.constant = newLevel

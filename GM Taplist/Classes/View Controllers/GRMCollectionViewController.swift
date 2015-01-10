@@ -72,6 +72,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.collectionView?.collectionViewLayout.invalidateLayout()
     }
     override func viewWillDisappear(animated: Bool) {
 
@@ -135,7 +136,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     
     // MARK: - UICollectionView Layout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let _width = collectionView.bounds.size.width
+        let _width =  CGRectGetWidth(collectionView.bounds)
         var itemWidth :CGFloat;
         
         if _width < 568 {
