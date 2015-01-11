@@ -33,7 +33,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceP
             self.beers = onTapBeers
             self.delegate?.dataLoaded()
         }, failureBlock: { (error) -> Void in
-//            self.delegate?.dataFailedToLoad(error)
+//            self.delegate?.dataFailedToLoad(error as NSError)
         })
     }
 

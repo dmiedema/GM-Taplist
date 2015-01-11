@@ -125,6 +125,31 @@
             </objects>
             <point key="canvasLocation" x="-666" y="398"/>
         </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="zco-2i-caG">
+            <objects>
+                <tableViewController storyboardIdentifier="GRMSettingsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6xx-Dx-wdb" customClass="GRMSettingsTableViewController" customModule="GM_Taplist" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TAT-fC-kVA">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Fgf-e0-qCD">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fgf-e0-qCD" id="NKf-Za-GA3">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6xx-Dx-wdb" id="6aP-Gf-qOJ"/>
+                            <outlet property="delegate" destination="6xx-Dx-wdb" id="0T9-8O-E1V"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0a-bz-skH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-677.25" y="1108"/>
+        </scene>
         <!--Beer Details Table View Controller-->
         <scene sceneID="DnT-3h-GT9">
             <objects>
