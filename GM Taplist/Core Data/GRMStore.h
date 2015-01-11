@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSString * nearby;
 @property (nonatomic, retain) NSNumber * number_of_taps;
 @property (nonatomic, retain) NSString * phone;
+@property (nonatomic, retain) NSNumber * preferred_store;
 @property (nonatomic, retain) NSString * postal_code;
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSNumber * store_id;

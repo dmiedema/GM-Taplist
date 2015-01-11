@@ -53,7 +53,8 @@ class BeerData {
     }
     
     func allBeersBottomLineString() -> String {
-        return "IBU: \(beer.ibu)  ABV: \(beer.abv)  Style: \(beer.style.style)"
+        let style = NSLocalizedString("Style", tableName: "GRMCollectionViewDataSource", bundle: NSBundle.mainBundle(), value: "Style", comment: "Syle")
+        return "IBU: \(beer.ibu)  ABV: \(beer.abv)  \(style): \(beer.style.style)"
     }
 }
 

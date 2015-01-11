@@ -10,6 +10,7 @@ import Foundation
 
 class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - Init
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -49,10 +50,15 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         return dataSource
     }()
     // MARK: - Properties
+    // MARK: Private
     private var currentDataSource: GRMCollectionViewDataSourceProtocol!
     private var selectedIndexPath: NSIndexPath?
-
-    lazy private var refreshControl: UIRefreshControl = {
+    private lazy var leftBarButton: UIBarButtonItem = {
+        let title = NSLocalizedString("Settings", tableName: "GRMCollectionViewController", bundle: NSBundle.mainBundle(), value: "Settings", comment: "Settings")
+        var barButton = UIBarButtonItem(title: title, style: .Plain, target: self, action: "leftBarButtonPressed:")
+        return barButton
+    }()
+    private lazy var refreshControl: UIRefreshControl = {
         var control = UIRefreshControl()
         control.addTarget(self, action: "refreshItems", forControlEvents: .ValueChanged)
         return control
@@ -77,6 +83,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.leftBarButtonItem = leftBarButton
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -99,6 +106,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         collectionView?.collectionViewLayout.invalidateLayout()
     }
     // MARK: - Implementation
+    // MARK: Collection View Delegate
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as GRMCollectionViewCell
         collectionView.bringSubviewToFront(cell)
@@ -142,10 +150,15 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         }
     }
     
+    // MARK: Actions
     func refreshItems() {
         if currentDataSource.isEqual(onTapDataSource) {
             onTapDataSource.loadBeersForStore(1)
         }
+    }
+    func leftBarButtonPressed(sender: UIBarButtonItem) {
+        let settings = storyboard?.instantiateViewControllerWithIdentifier("GRMSettingsTableViewController") as  GRMSettingsTableViewController
+        navigationController?.pushViewController(settings, animated: true)
     }
     
     // MARK: - UICollectionView Layout

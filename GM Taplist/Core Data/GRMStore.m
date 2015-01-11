@@ -22,6 +22,7 @@
 @dynamic nearby;
 @dynamic number_of_taps;
 @dynamic phone;
+@dynamic preferred_store;
 @dynamic postal_code;
 @dynamic state;
 @dynamic store_id;

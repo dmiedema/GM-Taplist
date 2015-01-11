@@ -22,4 +22,8 @@
 /*!
  */
 + (NSInteger)storeIDForName:(NSString *)name inContext:(NSManagedObjectContext *)context;
+
+/*!
+ */
++ (NSArray *)preferredStoresInContext:(NSManagedObjectContext *)context;
 @end

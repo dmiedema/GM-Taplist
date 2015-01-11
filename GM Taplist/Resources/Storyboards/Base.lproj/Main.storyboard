@@ -60,8 +60,8 @@
                             <mask key="constraints">
                                 <exclude reference="9b0-R6-cMJ"/>
                                 <exclude reference="vvK-YP-MAI"/>
-                                <exclude reference="eNL-HT-shJ"/>
                                 <exclude reference="NR5-gM-ho9"/>
+                                <exclude reference="eNL-HT-shJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -72,8 +72,8 @@
                             <mask key="constraints">
                                 <include reference="9b0-R6-cMJ"/>
                                 <include reference="vvK-YP-MAI"/>
-                                <include reference="eNL-HT-shJ"/>
                                 <include reference="NR5-gM-ho9"/>
+                                <include reference="eNL-HT-shJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -129,14 +129,35 @@
         <scene sceneID="zco-2i-caG">
             <objects>
                 <tableViewController storyboardIdentifier="GRMSettingsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6xx-Dx-wdb" customClass="GRMSettingsTableViewController" customModule="GM_Taplist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TAT-fC-kVA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="TAT-fC-kVA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Fgf-e0-qCD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GMTaplist.TableView.CellReuseIdentifier" textLabel="C4o-qV-1lq" detailTextLabel="Lvx-5f-uNC" style="IBUITableViewCellStyleValue1" id="Fgf-e0-qCD">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fgf-e0-qCD" id="NKf-Za-GA3">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C4o-qV-1lq">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lvx-5f-uNC">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

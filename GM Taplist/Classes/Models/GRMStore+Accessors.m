@@ -71,6 +71,19 @@
     GRMStore *store = [results lastObject];
     return  [store.store_id integerValue];
 }
+
++ (NSArray *)preferredStoresInContext:(NSManagedObjectContext *)context {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Store"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferred_store = %@", @YES];
+    
+    NSError *error;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if (error || !results) {
+        return @[];
+    }
+    return results;
+}
 /*
  
  */
