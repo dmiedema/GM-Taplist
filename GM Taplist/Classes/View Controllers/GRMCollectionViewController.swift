@@ -53,9 +53,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: Private
     private var currentDataSource: GRMCollectionViewDataSourceProtocol!
     private var selectedIndexPath: NSIndexPath?
-    private lazy var leftBarButton: UIBarButtonItem = {
+    private lazy var rightBarButton: UIBarButtonItem = {
         let title = NSLocalizedString("Settings", tableName: "GRMCollectionViewController", bundle: NSBundle.mainBundle(), value: "Settings", comment: "Settings")
-        var barButton = UIBarButtonItem(title: title, style: .Plain, target: self, action: "leftBarButtonPressed:")
+        var barButton = UIBarButtonItem(title: title, style: .Plain, target: self, action: "rightBarButtonPressed:")
         return barButton
     }()
     private lazy var refreshControl: UIRefreshControl = {
@@ -83,7 +83,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.leftBarButtonItem = leftBarButton
+        navigationItem.rightBarButtonItem = rightBarButton
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -154,7 +154,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
             onTapDataSource.loadBeersForStore(1)
         }
     }
-    func leftBarButtonPressed(sender: UIBarButtonItem) {
+    func rightBarButtonPressed(sender: UIBarButtonItem) {
         let settings = storyboard?.instantiateViewControllerWithIdentifier("GRMSettingsTableViewController") as  GRMSettingsTableViewController
         navigationController?.pushViewController(settings, animated: true)
     }
