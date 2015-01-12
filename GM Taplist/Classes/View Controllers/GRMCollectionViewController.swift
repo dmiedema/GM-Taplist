@@ -68,7 +68,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor.whiteColor()
-
+        
         collectionView?.registerNib(UINib(nibName: "GRMCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GrowlMovement.GMTaplist.CollectionView.CellReuseIdentifier)
         
         onTapDataSource.delegate = self
@@ -79,7 +79,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         currentDataSource = onTapDataSource
         onTapDataSource.loadBeersForStore(1)
         
-        self.collectionView?.addSubview(self.refreshControl)
+        collectionView?.addSubview(self.refreshControl)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -87,10 +87,9 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.collectionView?.collectionViewLayout.invalidateLayout()
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     override func viewWillDisappear(animated: Bool) {
-
         super.viewWillDisappear(animated)
     }
     override func viewDidDisappear(animated: Bool) {
@@ -138,7 +137,6 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
 //            customCell.setKegLevel(beerData.tapLevel!, animated: true)
             let level = Int(arc4random() % 100)
             _cell.setKegLevel(level, animated: true)
-            NSLog("Keg level \(level)")
         }
     }
     
@@ -164,22 +162,16 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: - UICollectionView Layout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let _width =  CGRectGetWidth(collectionView.bounds)
-        var itemWidth :CGFloat;
         
-        if _width < 568 {
-            itemWidth = _width
-        } else {
-            itemWidth = _width / 2.0
-        }
-        
-        NSLog("itemWidth: \(itemWidth)")
+        var itemWidth :CGFloat = (_width < 568) ? _width : _width / 2.0;
         
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as? GRMCollectionViewCell
         cell?.cellContentsViewWidth.constant = itemWidth
         cell?.subviews.map() { $0.layoutIfNeeded() }
         cell?.layoutIfNeeded()
-        
-        return CGSize(width: itemWidth, height: 84)
+
+        let itemHeight = currentDataSource.itemForIndexPath(indexPath).cellHeight(itemWidth - 54, onTap: (currentDataSource.isEqual(onTapDataSource)))
+        return CGSize(width: itemWidth, height: max(itemHeight, 84))
     }
     
     // MARK: - GRMCollectionViewDataSourceDelegate

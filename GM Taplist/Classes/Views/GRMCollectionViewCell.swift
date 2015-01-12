@@ -61,6 +61,7 @@ class GRMCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         self.delegate?.detailsPressed(beerData)
     }
     
+    // MARK: Panning
     func cellPanned(panGesture: UIPanGestureRecognizer) {
         let translation = panGesture.translationInView(self)
         let velocity = panGesture.velocityInView(self)
