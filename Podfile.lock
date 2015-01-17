@@ -49,7 +49,7 @@ PODS:
   - NSManagedObject-ANDYMapChanges (0.5.1):
     - NSManagedObject-ANDYObjectIDs
   - NSManagedObject-ANDYObjectIDs (0.1)
-  - NSManagedObject-HYPPropertyMapper (2.6):
+  - NSManagedObject-HYPPropertyMapper (2.7):
     - NSString-HYPNetworking
   - NSString-HYPNetworking (0.1)
   - OCMock (3.1.2)
@@ -84,7 +84,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CRToast:
-    :commit: 5ee03d431b4afe2e163036de02813a14bea55cf3
+    :commit: 6ba99a3a4a28417989924531a514bf62fa7fc24e
     :git: https://github.com/dmiedema/CRToast
 
 SPEC CHECKSUMS:
@@ -100,7 +100,7 @@ SPEC CHECKSUMS:
   NSDictionary-ANDYSafeValue: ddd983e316a52201a40c70f4ab9ead8a63c569b6
   NSManagedObject-ANDYMapChanges: 224cd299f56bbcb8466f495a22666aac877a4301
   NSManagedObject-ANDYObjectIDs: d27bb3014026506848a8d164f3019ecaa2a4baca
-  NSManagedObject-HYPPropertyMapper: 3061d3da11cf7fe6ed2c827fd3b127d2c03433eb
+  NSManagedObject-HYPPropertyMapper: 101e5058699a4c01b2894daad741dec7e3f88fa1
   NSString-HYPNetworking: 941953383edbba2abd72014e4bfdd55fa4af8dff
   OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
   OHHTTPStubs: 2038e929b6abb94881000524c1cb4aba0a1bb4a2
