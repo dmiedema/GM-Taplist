@@ -208,14 +208,10 @@
                     <view key="view" contentMode="scaleToFill" id="sck-bh-iUz">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6k-3L-Lgs">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mWC-9o-jcQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g76-Ge-spf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.36470588240000001" green="0.88235294119999996" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="U1j-FQ-yTF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,50 +252,49 @@
                                 </variation>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="I6k-3L-Lgs" firstAttribute="top" secondItem="sck-bh-iUz" secondAttribute="top" id="4XJ-n9-EeA"/>
-                            <constraint firstAttribute="centerY" secondItem="U1j-FQ-yTF" secondAttribute="centerY" id="EJx-cF-t2S"/>
-                            <constraint firstItem="I6k-3L-Lgs" firstAttribute="leading" secondItem="sck-bh-iUz" secondAttribute="leading" id="P7O-1s-qOs"/>
-                            <constraint firstAttribute="centerX" secondItem="U1j-FQ-yTF" secondAttribute="centerX" id="PBC-il-MLY"/>
-                            <constraint firstAttribute="trailing" secondItem="I6k-3L-Lgs" secondAttribute="trailing" id="edf-iS-Nbu"/>
-                            <constraint firstItem="Kum-UH-Guc" firstAttribute="top" secondItem="I6k-3L-Lgs" secondAttribute="bottom" id="vMx-fe-ef9"/>
+                            <constraint firstAttribute="centerX" secondItem="U1j-FQ-yTF" secondAttribute="centerX" id="8vt-uU-msx"/>
+                            <constraint firstItem="g76-Ge-spf" firstAttribute="top" secondItem="kiI-LP-EQy" secondAttribute="bottom" id="Mpe-L1-Acv"/>
+                            <constraint firstItem="g76-Ge-spf" firstAttribute="leading" secondItem="sck-bh-iUz" secondAttribute="leading" id="jys-Jz-m07"/>
+                            <constraint firstItem="Kum-UH-Guc" firstAttribute="top" secondItem="g76-Ge-spf" secondAttribute="bottom" id="nwb-Hj-V5y"/>
+                            <constraint firstAttribute="trailing" secondItem="g76-Ge-spf" secondAttribute="trailing" id="rfV-d6-yIt"/>
+                            <constraint firstAttribute="centerY" secondItem="U1j-FQ-yTF" secondAttribute="centerY" id="vWI-Ig-50O"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="I6k-3L-Lgs"/>
+                                <exclude reference="g76-Ge-spf"/>
                                 <exclude reference="U1j-FQ-yTF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4XJ-n9-EeA"/>
-                                <exclude reference="P7O-1s-qOs"/>
-                                <exclude reference="edf-iS-Nbu"/>
-                                <exclude reference="EJx-cF-t2S"/>
-                                <exclude reference="PBC-il-MLY"/>
-                                <exclude reference="vMx-fe-ef9"/>
+                                <exclude reference="Mpe-L1-Acv"/>
+                                <exclude reference="jys-Jz-m07"/>
+                                <exclude reference="rfV-d6-yIt"/>
+                                <exclude reference="8vt-uU-msx"/>
+                                <exclude reference="vWI-Ig-50O"/>
+                                <exclude reference="nwb-Hj-V5y"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="subviews">
-                                <include reference="I6k-3L-Lgs"/>
+                                <include reference="g76-Ge-spf"/>
                                 <include reference="U1j-FQ-yTF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4XJ-n9-EeA"/>
-                                <include reference="P7O-1s-qOs"/>
-                                <include reference="edf-iS-Nbu"/>
-                                <include reference="EJx-cF-t2S"/>
-                                <include reference="PBC-il-MLY"/>
-                                <include reference="vMx-fe-ef9"/>
+                                <include reference="Mpe-L1-Acv"/>
+                                <include reference="jys-Jz-m07"/>
+                                <include reference="rfV-d6-yIt"/>
+                                <include reference="8vt-uU-msx"/>
+                                <include reference="vWI-Ig-50O"/>
+                                <include reference="nwb-Hj-V5y"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="backgroundView" destination="I6k-3L-Lgs" id="XXK-x0-FcN"/>
-                        <outlet property="centerXTableViewConstraint" destination="PBC-il-MLY" id="vba-bd-WWJ"/>
-                        <outlet property="centerYTableViewConstraint" destination="EJx-cF-t2S" id="krj-a0-zPO"/>
+                        <outlet property="backgroundView" destination="g76-Ge-spf" id="ey8-By-ih9"/>
+                        <outlet property="centerXTableViewConstraint" destination="8vt-uU-msx" id="Vjf-gh-7uk"/>
+                        <outlet property="centerYTableViewConstraint" destination="vWI-Ig-50O" id="D9y-jQ-Keq"/>
                         <outlet property="tableView" destination="U1j-FQ-yTF" id="uzD-aA-NA0"/>
                         <outlet property="tableViewHeightConstraint" destination="4an-7p-Xg6" id="2Ki-zZ-wqv"/>
                     </connections>

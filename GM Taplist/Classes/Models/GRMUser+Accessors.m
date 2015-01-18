@@ -41,7 +41,7 @@
     return  [results lastObject];
 }
 
-+ (NSArray *)devicesForUserID:(NSInteger)userID inManagedObjectContext:(NSManagedObjectContext *)context {
++ (NSArray *)devicesForUserID:(NSInteger)userID inContext:(NSManagedObjectContext *)context {
     GRMUser *user = [self loadObjectID:userID inContext:context];
     if (!userID) {
         return nil;

@@ -38,8 +38,8 @@ class GRMLoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateBeers()
-//        updateBreweries()
-//        updateStores()
+        updateBreweries()
+        updateStores()
         
         dispatch_group_notify(updateGroup, dispatch_get_main_queue()) { () -> Void in
             self.pushToFirstScreen()

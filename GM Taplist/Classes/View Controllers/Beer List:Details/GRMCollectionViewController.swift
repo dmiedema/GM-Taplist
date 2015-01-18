@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol, UICollectionViewDelegateFlowLayout {
+class GRMCollectionViewController: UICollectionViewController, GRMCollectionViewDataSourceDelegate, GRMCollectionViewCellProtocol, GRMStoreSelection, UICollectionViewDelegateFlowLayout {
 
     // MARK: - Init
     required init(coder aDecoder: NSCoder) {
@@ -53,6 +53,11 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: Private
     private var currentDataSource: GRMCollectionViewDataSourceProtocol!
     private var selectedIndexPath: NSIndexPath?
+    private lazy var leftBarButton: UIBarButtonItem = {
+        let title = NSLocalizedString("Store", tableName: "GRMCollectionViewController", bundle: NSBundle.mainBundle(), value: "Store", comment: "Store")
+        var barButton = UIBarButtonItem(title: title, style: .Plain, target: self, action: "leftBarButtonPressed:")
+        return barButton
+    }()
     private lazy var rightBarButton: UIBarButtonItem = {
         let title = NSLocalizedString("Settings", tableName: "GRMCollectionViewController", bundle: NSBundle.mainBundle(), value: "Settings", comment: "Settings")
         var barButton = UIBarButtonItem(title: title, style: .Plain, target: self, action: "rightBarButtonPressed:")
@@ -83,6 +88,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.leftBarButtonItem = leftBarButton
         navigationItem.rightBarButtonItem = rightBarButton
     }
     override func viewDidAppear(animated: Bool) {
@@ -153,6 +159,14 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         if currentDataSource.isEqual(onTapDataSource) {
             onTapDataSource.loadBeersForStore(1)
         }
+    }
+    func leftBarButtonPressed(sender: UIBarButtonItem) {
+        NSLog("Left Button Pressed")
+        let store = storyboard?.instantiateViewControllerWithIdentifier("GRMStoreSelectionViewController") as GRMStoreSelectionViewController
+        store.storeSelectionDelegate = self
+        navigationController?.pushViewController(store, animated: true)
+//        self.addChildViewController(store)
+//        view.addSubview(store.view)
     }
     func rightBarButtonPressed(sender: UIBarButtonItem) {
         let settings = storyboard?.instantiateViewControllerWithIdentifier("GRMSettingsTableViewController") as  GRMSettingsTableViewController
@@ -242,5 +256,10 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     // MARK: - GRMCollectionViewFlowLayoutProtocol
     func indexPathForSelectedCellForCollectionView(collectionView: UICollectionView, layout: UICollectionViewLayout) -> NSIndexPath? {
         return selectedIndexPath
+    }
+    
+    // MARK: - GRMStoreSelection
+    func selectedStoreWithID(storeID: Int) {
+        NSLog("Selected Store ID: \(storeID)")
     }
 }

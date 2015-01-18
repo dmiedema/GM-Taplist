@@ -22,6 +22,8 @@
 		54FEF4FC1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4FA1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift */; };
 		54FEF4FD1A6B510E00134613 /* GRMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4FB1A6B510E00134613 /* GRMCollectionViewController.swift */; };
 		54FEF4FF1A6B519900134613 /* GRMStoreSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4FE1A6B519900134613 /* GRMStoreSelectionViewController.swift */; };
+		54FEF5011A6B760400134613 /* GRMEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FEF5001A6B760400134613 /* GRMEmptyView.xib */; };
+		54FEF5031A6B777B00134613 /* GRMEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF5021A6B777B00134613 /* GRMEmptyView.swift */; };
 		8133CDC92DBD4702BAB6A5BF /* libPods-GM Taplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */; };
 		C313C19519AAC8A400E42784 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */; };
 		C313C19719AAC8B000E42784 /* AllBeersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19619AAC8B000E42784 /* AllBeersDataSource.swift */; };
@@ -122,6 +124,8 @@
 		54FEF4FA1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMBeerDetailsTableViewController.swift; path = "Beer List:Details/GRMBeerDetailsTableViewController.swift"; sourceTree = "<group>"; };
 		54FEF4FB1A6B510E00134613 /* GRMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMCollectionViewController.swift; path = "Beer List:Details/GRMCollectionViewController.swift"; sourceTree = "<group>"; };
 		54FEF4FE1A6B519900134613 /* GRMStoreSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMStoreSelectionViewController.swift; path = Settings/GRMStoreSelectionViewController.swift; sourceTree = "<group>"; };
+		54FEF5001A6B760400134613 /* GRMEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRMEmptyView.xib; sourceTree = "<group>"; };
+		54FEF5021A6B777B00134613 /* GRMEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMEmptyView.swift; sourceTree = "<group>"; };
 		7F50E110628B6D4BFF01B5E6 /* Pods-GM Taplist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.release.xcconfig"; path = "Pods/Target Support Files/Pods-GM Taplist/Pods-GM Taplist.release.xcconfig"; sourceTree = "<group>"; };
 		9211D133C18FA1A2306D6950 /* Pods-GM Taplist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GM Taplist/Pods-GM Taplist.debug.xcconfig"; sourceTree = "<group>"; };
 		C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
@@ -451,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */,
+				54FEF5001A6B760400134613 /* GRMEmptyView.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */,
+				54FEF5021A6B777B00134613 /* GRMEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -710,6 +716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DB987A19A16AA700EB4270 /* Main.storyboard in Resources */,
+				54FEF5011A6B760400134613 /* GRMEmptyView.xib in Resources */,
 				C3DB987C19A16AA700EB4270 /* Images.xcassets in Resources */,
 				54EEE82219A9A19A005E4AAD /* GRMCollectionViewCell.xib in Resources */,
 			);
@@ -835,6 +842,7 @@
 				C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */,
 				C38B3DA219AA8B5000E2C533 /* AlamoAPI.swift in Sources */,
 				54FEF4FC1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift in Sources */,
+				54FEF5031A6B777B00134613 /* GRMEmptyView.swift in Sources */,
 				C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */,
 				54C5128E1A61D5F8000DCA2A /* GRMLibraryImport.m in Sources */,
 				C3DD07CC19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift in Sources */,

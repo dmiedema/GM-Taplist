@@ -19,7 +19,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     var storeSelectionDelegate: GRMStoreSelection?
     
     // MARK: Outlets
-    @IBOutlet weak var backgroundView: UIVisualEffectView!
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var tableView: UITableView!
     // MARK: Constraints
     @IBOutlet weak var centerXTableViewConstraint: NSLayoutConstraint!
