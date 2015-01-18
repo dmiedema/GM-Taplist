@@ -68,6 +68,7 @@ class GRMSettingsTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sectionTitles.count
     }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         if section == GRMSettingsSectionAbout {
@@ -83,10 +84,23 @@ class GRMSettingsTableViewController: UITableViewController {
         return count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(GrowlMovement.GMTaplist.TableView.CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
         
+        let content = contentForIndexPath(indexPath)
+        cell.textLabel?.text = content.0
+        cell.detailTextLabel?.text = content.1
+        
+        return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: Private Methods
+    private func contentForIndexPath(indexPath: NSIndexPath) -> (String, String) {
         var text = ""
         var rightText = ""
         switch indexPath.section {
@@ -104,20 +118,7 @@ class GRMSettingsTableViewController: UITableViewController {
         default: break;
         }
         
-        cell.textLabel?.text = text
-        cell.detailTextLabel?.text = rightText
-        return cell
+        return (text, rightText)
     }
     
-    // MARK: UITableViewDelegate
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-    }
-    
-    // MARK: Private Methods
-    private func contentForSection(section: Int, index: Int) -> String {
-        var content = ""
-        
-        return content
-    }
 }
