@@ -34,6 +34,9 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     private lazy var stores: [GRMStore] = {
         return GRMStore.allStoresInContext(self.context) as [GRMStore]
     }()
+    private lazy var preferredStores: [GRMStore] = {
+        return GRMStore.preferredStoresInContext(self.context) as [GRMStore]
+    }()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -64,11 +67,20 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     }
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedStore = stores[indexPath.row]
         if setPreferredStores {
-            
+            var cell = tableView.cellForRowAtIndexPath(indexPath)
+            if preferredStores.filter({$0 == selectedStore}).count == 0 {
+                selectedStore.preferred_store = true
+                cell?.accessoryType = .Checkmark
+            } else {
+                selectedStore.preferred_store = false
+                cell?.accessoryType = .None
+            }
         } else {
-            storeSelectionDelegate?.selectedStoreWithID(Int(stores[indexPath.row].store_id))
+            storeSelectionDelegate?.selectedStoreWithID(Int(selectedStore.store_id))
         }
+        ANDYDataManager.sharedManager().persistContext()
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

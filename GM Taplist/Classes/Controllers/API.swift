@@ -11,7 +11,7 @@ import CoreData
 
 class API: AFHTTPSessionManager {
     // MARK: - Properties
-    private var context: NSManagedObjectContext = ANDYDataManager.sharedManager().mainContext
+    private var context: NSManagedObjectContext = ANDYDataManager.backgroundContext()
     
     // MARK: - Singleton
     class var sharedInstance: API {
@@ -98,7 +98,7 @@ class API: AFHTTPSessionManager {
             NSUserDefaults.standardUserDefaults().setInteger(user.user_id as Int, forKey: GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
             
             NSNotificationCenter.defaultCenter().postNotificationName(GrowlMovement.GMTaplist.Notifications.UserCreated, object: nil)
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(user)
         }, failure: { (dataTask, error) -> Void in
             NSLog("Failure registering user")
@@ -127,7 +127,7 @@ class API: AFHTTPSessionManager {
                         tapLevel: beerDict["keg_level"] as? Int))
             }
             
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(onTapBeers)
         }, failure: { (dataTasK, error) -> Void in
             NSLog("Failed to get beers\n\(error)")
@@ -144,7 +144,7 @@ class API: AFHTTPSessionManager {
                 stores.append(GRMStore.createOrUpdate(store as NSDictionary, inContext: self.context))
             }
             
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(stores)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -159,7 +159,7 @@ class API: AFHTTPSessionManager {
             let storeData = rawData["data"] as NSDictionary
             let store = GRMStore.createOrUpdate(storeData, inContext: self.context)
             
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -174,7 +174,7 @@ class API: AFHTTPSessionManager {
             let storeData = rawData["data"] as NSArray
             let store = GRMStore.createOrUpdate(storeData.firstObject as NSDictionary, inContext: self.context)
         
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -190,7 +190,7 @@ class API: AFHTTPSessionManager {
             let beerData = rawData["data"] as NSDictionary
             let beer = GRMBeer.createOrUpdate(beerData, inContext: self.context)
             
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(beer)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -213,7 +213,7 @@ class API: AFHTTPSessionManager {
                 beers.append(GRMBeer.createOrUpdate(beer as NSDictionary, inContext: self.context))
             }
             
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(beers)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -237,7 +237,7 @@ class API: AFHTTPSessionManager {
                 breweries.append(GRMBrewery.createOrUpdate(brewery as NSDictionary, inContext: self.context))
             }
             
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(breweries)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -253,7 +253,7 @@ class API: AFHTTPSessionManager {
 
             let brewery = GRMBrewery.createOrUpdate(breweryData, inContext: self.context)
 
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(brewery)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -272,7 +272,7 @@ class API: AFHTTPSessionManager {
                 breweries.append(GRMBrewery.createOrUpdate(brewery as NSDictionary, inContext: self.context))
             }
 
-            self.context.save(nil)
+            ANDYDataManager.sharedManager().persistContext()
             completionBlock(breweries)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
