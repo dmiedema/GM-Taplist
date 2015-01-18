@@ -26,4 +26,8 @@
 /*!
  */
 + (NSArray *)preferredStoresInContext:(NSManagedObjectContext *)context;
+
+/*!
+ */
++ (NSArray *)allStoresInContext:(NSManagedObjectContext *)context;
 @end

@@ -84,6 +84,17 @@
     }
     return results;
 }
+
++ (NSArray *)allStoresInContext:(NSManagedObjectContext *)context {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Store"];
+    NSError *error;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if (error || !results) {
+        return @[];
+    }
+    return results;
+}
 /*
  
  */
