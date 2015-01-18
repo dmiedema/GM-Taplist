@@ -14,9 +14,13 @@
 		54C512A81A61D735000DCA2A /* GRMKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C512A71A61D735000DCA2A /* GRMKitTests.swift */; };
 		54C512AB1A61D735000DCA2A /* GRMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C512941A61D735000DCA2A /* GRMKit.framework */; };
 		54C512AC1A61D735000DCA2A /* GRMKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54C512941A61D735000DCA2A /* GRMKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		54D4A36119B7562F0036002B /* GRMBeerDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */; };
 		54EEE82219A9A19A005E4AAD /* GRMCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */; };
 		54EEE82419AAF13F005E4AAD /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEE82319AAF13F005E4AAD /* Async.swift */; };
+		54FEF4F51A6B50FB00134613 /* GRMSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4F41A6B50FB00134613 /* GRMSettingsTableViewController.swift */; };
+		54FEF4F81A6B510500134613 /* GRMFirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4F61A6B510500134613 /* GRMFirstLaunchViewController.swift */; };
+		54FEF4F91A6B510500134613 /* GRMLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4F71A6B510500134613 /* GRMLoadingViewController.swift */; };
+		54FEF4FC1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4FA1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift */; };
+		54FEF4FD1A6B510E00134613 /* GRMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEF4FB1A6B510E00134613 /* GRMCollectionViewController.swift */; };
 		8133CDC92DBD4702BAB6A5BF /* libPods-GM Taplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9CEA85DE5F4F1EB02C5C42 /* libPods-GM Taplist.a */; };
 		C313C19519AAC8A400E42784 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */; };
 		C313C19719AAC8B000E42784 /* AllBeersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C313C19619AAC8B000E42784 /* AllBeersDataSource.swift */; };
@@ -25,14 +29,10 @@
 		C34488EF19A9378100DFA647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488EE19A9378100DFA647 /* CoreGraphics.framework */; };
 		C34488F119A9378D00DFA647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488F019A9378D00DFA647 /* CoreData.framework */; };
 		C34488F319A9379300DFA647 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34488F219A9379300DFA647 /* Accelerate.framework */; };
-		C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AB19A930CF003F92A5 /* GRMCollectionViewController.swift */; };
-		C38403AE19A93102003F92A5 /* GRMSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */; };
 		C38403B019A93173003F92A5 /* GRMCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */; };
-		C38403B419A93237003F92A5 /* GRMFirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */; };
 		C38B3DA219AA8B5000E2C533 /* AlamoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B3DA119AA8B5000E2C533 /* AlamoAPI.swift */; };
 		C3979E0F19B130AA00486172 /* DeviceRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3979E0E19B130AA00486172 /* DeviceRegister.swift */; };
 		C3A942291A27C1040094BE26 /* GRMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A942281A27C1040094BE26 /* GRMUserDefaults.swift */; };
-		C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */; };
 		C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987119A16AA700EB4270 /* AppDelegate.swift */; };
 		C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3DB987319A16AA700EB4270 /* GM_Taplist.xcdatamodeld */; };
 		C3DB987A19A16AA700EB4270 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DB987819A16AA700EB4270 /* Main.storyboard */; };
@@ -113,9 +113,13 @@
 		54C5129E1A61D735000DCA2A /* GRMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C512A61A61D735000DCA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54C512A71A61D735000DCA2A /* GRMKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRMKitTests.swift; sourceTree = "<group>"; };
-		54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMBeerDetailsTableViewController.swift; sourceTree = "<group>"; };
 		54EEE82119A9A19A005E4AAD /* GRMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRMCollectionViewCell.xib; sourceTree = "<group>"; };
 		54EEE82319AAF13F005E4AAD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		54FEF4F41A6B50FB00134613 /* GRMSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMSettingsTableViewController.swift; path = Settings/GRMSettingsTableViewController.swift; sourceTree = "<group>"; };
+		54FEF4F61A6B510500134613 /* GRMFirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMFirstLaunchViewController.swift; path = "Launch:Onboarding/GRMFirstLaunchViewController.swift"; sourceTree = "<group>"; };
+		54FEF4F71A6B510500134613 /* GRMLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMLoadingViewController.swift; path = "Launch:Onboarding/GRMLoadingViewController.swift"; sourceTree = "<group>"; };
+		54FEF4FA1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMBeerDetailsTableViewController.swift; path = "Beer List:Details/GRMBeerDetailsTableViewController.swift"; sourceTree = "<group>"; };
+		54FEF4FB1A6B510E00134613 /* GRMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRMCollectionViewController.swift; path = "Beer List:Details/GRMCollectionViewController.swift"; sourceTree = "<group>"; };
 		7F50E110628B6D4BFF01B5E6 /* Pods-GM Taplist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.release.xcconfig"; path = "Pods/Target Support Files/Pods-GM Taplist/Pods-GM Taplist.release.xcconfig"; sourceTree = "<group>"; };
 		9211D133C18FA1A2306D6950 /* Pods-GM Taplist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Taplist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GM Taplist/Pods-GM Taplist.debug.xcconfig"; sourceTree = "<group>"; };
 		C313C19419AAC8A400E42784 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
@@ -126,16 +130,12 @@
 		C34488EE19A9378100DFA647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C34488F019A9378D00DFA647 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C34488F219A9379300DFA647 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		C38403AB19A930CF003F92A5 /* GRMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMCollectionViewController.swift; sourceTree = "<group>"; };
-		C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMSettingsTableViewController.swift; sourceTree = "<group>"; };
 		C38403AF19A93173003F92A5 /* GRMCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMCollectionViewCell.swift; sourceTree = "<group>"; };
-		C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMFirstLaunchViewController.swift; sourceTree = "<group>"; };
 		C38B3DA119AA8B5000E2C533 /* AlamoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoAPI.swift; sourceTree = "<group>"; };
 		C3979E0E19B130AA00486172 /* DeviceRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceRegister.swift; sourceTree = "<group>"; };
 		C3A942271A27BE4E0094BE26 /* GM Taplist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GM Taplist.entitlements"; sourceTree = "<group>"; };
 		C3A942281A27C1040094BE26 /* GRMUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMUserDefaults.swift; sourceTree = "<group>"; };
 		C3A9980F19BBACEE00BCB171 /* GM Taplist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GM Taplist-Bridging-Header.h"; sourceTree = "<group>"; };
-		C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRMLoadingViewController.swift; sourceTree = "<group>"; };
 		C3DB986C19A16AA700EB4270 /* GM Taplist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Taplist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DB987019A16AA700EB4270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3DB987119A16AA700EB4270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +263,32 @@
 				54C512A61A61D735000DCA2A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54FEF4F11A6B507F00134613 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				54FEF4F41A6B50FB00134613 /* GRMSettingsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		54FEF4F21A6B508A00134613 /* Launch/Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				54FEF4F61A6B510500134613 /* GRMFirstLaunchViewController.swift */,
+				54FEF4F71A6B510500134613 /* GRMLoadingViewController.swift */,
+			);
+			name = Launch/Onboarding;
+			sourceTree = "<group>";
+		};
+		54FEF4F31A6B50A300134613 /* Beer List/Details */ = {
+			isa = PBXGroup;
+			children = (
+				54FEF4FA1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift */,
+				54FEF4FB1A6B510E00134613 /* GRMCollectionViewController.swift */,
+			);
+			name = "Beer List/Details";
 			sourceTree = "<group>";
 		};
 		A69452808001459BB0B203AD /* Frameworks */ = {
@@ -493,11 +519,9 @@
 		C3DB989C19A16BA600EB4270 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C38403AB19A930CF003F92A5 /* GRMCollectionViewController.swift */,
-				C38403AD19A93102003F92A5 /* GRMSettingsTableViewController.swift */,
-				C38403B319A93237003F92A5 /* GRMFirstLaunchViewController.swift */,
-				54D4A36019B7562F0036002B /* GRMBeerDetailsTableViewController.swift */,
-				C3A9981019BBB5D400BCB171 /* GRMLoadingViewController.swift */,
+				54FEF4F21A6B508A00134613 /* Launch/Onboarding */,
+				54FEF4F11A6B507F00134613 /* Settings */,
+				54FEF4F31A6B50A300134613 /* Beer List/Details */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -781,15 +805,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F2E92019BCC5250083D4BB /* GRMBrewery.m in Sources */,
-				C38403AE19A93102003F92A5 /* GRMSettingsTableViewController.swift in Sources */,
+				54FEF4F51A6B50FB00134613 /* GRMSettingsTableViewController.swift in Sources */,
 				C3F2E92F19BCC9FB0083D4BB /* GRMBeer+Accessors.m in Sources */,
 				C3DB987219A16AA700EB4270 /* AppDelegate.swift in Sources */,
 				C3F2E94819BCFA440083D4BB /* NSObject+Helpers.m in Sources */,
+				54FEF4F91A6B510500134613 /* GRMLoadingViewController.swift in Sources */,
 				C3DB987519A16AA700EB4270 /* GM_Taplist.xcdatamodeld in Sources */,
 				C3F2E92319BCC5250083D4BB /* GRMUser.m in Sources */,
+				54FEF4F81A6B510500134613 /* GRMFirstLaunchViewController.swift in Sources */,
 				C3F2E93919BCCA7B0083D4BB /* GRMBrewery+Accessors.m in Sources */,
 				C3F2E93C19BCCA960083D4BB /* GRMUser+Accessors.m in Sources */,
-				C38403B419A93237003F92A5 /* GRMFirstLaunchViewController.swift in Sources */,
 				C3F2E92C19BCC5260083D4BB /* GRMDevice.m in Sources */,
 				C3F2E93F19BCCAA60083D4BB /* GRMStore+Accessors.m in Sources */,
 				C3979E0F19B130AA00486172 /* DeviceRegister.swift in Sources */,
@@ -800,20 +825,19 @@
 				C318974119BD2C0900F406D1 /* GRMBeer.m in Sources */,
 				C3F2E92619BCC5250083D4BB /* GRMReview.m in Sources */,
 				C3A942291A27C1040094BE26 /* GRMUserDefaults.swift in Sources */,
+				54FEF4FD1A6B510E00134613 /* GRMCollectionViewController.swift in Sources */,
 				C338E14B19AA9783008A1D18 /* GRMCollectionViewDataSource.swift in Sources */,
 				C3F2E93619BCCA670083D4BB /* GRMStyle+Accessors.m in Sources */,
 				C3DB98AB19A1777C00EB4270 /* Constants.swift in Sources */,
 				C38B3DA219AA8B5000E2C533 /* AlamoAPI.swift in Sources */,
-				C38403AC19A930CF003F92A5 /* GRMCollectionViewController.swift in Sources */,
+				54FEF4FC1A6B510E00134613 /* GRMBeerDetailsTableViewController.swift in Sources */,
 				C3F2E91A19BCC5250083D4BB /* GRMStore.m in Sources */,
 				54C5128E1A61D5F8000DCA2A /* GRMLibraryImport.m in Sources */,
-				C3A9981119BBB5D400BCB171 /* GRMLoadingViewController.swift in Sources */,
 				C3DD07CC19C6507A00F906CE /* GRMCollectionViewFlowLayout.swift in Sources */,
 				C3F2E91D19BCC5250083D4BB /* GRMBaseObject.m in Sources */,
 				C3DB98B119A17FC000EB4270 /* OnTapDataSource.swift in Sources */,
 				C3F2E93319BCCA200083D4BB /* GRMDevice+Accessors.m in Sources */,
 				C313C19719AAC8B000E42784 /* AllBeersDataSource.swift in Sources */,
-				54D4A36119B7562F0036002B /* GRMBeerDetailsTableViewController.swift in Sources */,
 				C3F2E92919BCC5250083D4BB /* GRMStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1129,6 +1153,7 @@
 				54C512AF1A61D735000DCA2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54C512B01A61D735000DCA2A /* Build configuration list for PBXNativeTarget "GRMKitTests" */ = {
 			isa = XCConfigurationList;
@@ -1137,6 +1162,7 @@
 				54C512B21A61D735000DCA2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3DB986719A16AA600EB4270 /* Build configuration list for PBXProject "GM Taplist" */ = {
 			isa = XCConfigurationList;
