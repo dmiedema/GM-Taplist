@@ -211,7 +211,13 @@ class API: AFHTTPSessionManager {
             for beer in beerData {
                 beers.append(GRMBeer.createOrUpdate(beer as NSDictionary, inContext: self.context))
             }
-            
+            /*
+            let _context = ANDYDataManager.backgroundContext()
+            _context.performBlockAndWait({ () -> Void in
+            beers.append(GRMBeer.createOrUpdate(beer as NSDictionary, inContext: _context))
+            })
+            */
+
             ANDYDataManager.sharedManager().persistContext()
             completionBlock(beers)
         }, failure: { (dataTask, error) -> Void in
