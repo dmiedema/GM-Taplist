@@ -98,7 +98,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
         let translation = CGAffineTransformMakeTranslation(-CGRectGetWidth(self.view.frame), -(CGRectGetHeight(self.view.frame)))
         let rotation = CGAffineTransformMakeRotation(CGFloat(M_PI_4))
         
-        tableView.transform = CGAffineTransformConcat(translation, rotation)
+        tableView.transform = CGAffineTransformConcat(rotation, translation)
         
         UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: { () -> Void in
             self.tableView.transform = CGAffineTransformIdentity
@@ -109,8 +109,11 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     func dismissAnimated(animated: Bool) {
         let duration = animated ? 0.5 : 0.0
         
-        UIView.animateWithDuration(duration, delay: 0.0, options: .BeginFromCurrentState, animations: { () -> Void in
-            self.tableView.transform = CGAffineTransformMakeTranslation(CGRectGetHeight(self.view.frame), 0)
+        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: { () -> Void in
+            let translation = CGAffineTransformMakeTranslation(-CGRectGetWidth(self.view.frame), -(CGRectGetHeight(self.view.frame)))
+            let rotation = CGAffineTransformMakeRotation(CGFloat(M_PI_4))
+            self.tableView.transform = CGAffineTransformConcat(rotation, translation)
+            
             self.view.alpha = 0.0
         }) { (complete) -> Void in
             self.view.removeFromSuperview()
