@@ -164,10 +164,17 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
         NSLog("Left Button Pressed")
         let store = storyboard?.instantiateViewControllerWithIdentifier("GRMStoreSelectionViewController") as GRMStoreSelectionViewController
         store.storeSelectionDelegate = self
-        navigationController?.pushViewController(store, animated: true)
-//        self.addChildViewController(store)
-//        view.addSubview(store.view)
+        
+        store.view.alpha = 0.0
+        
+        let rootController = UIApplication.sharedApplication().keyWindow?.rootViewController!
+        
+        rootController?.addChildViewController(store)
+        rootController?.view?.addSubview(store.view)
+        
+        store.showAnimated(true)
     }
+    
     func rightBarButtonPressed(sender: UIBarButtonItem) {
         let settings = storyboard?.instantiateViewControllerWithIdentifier("GRMSettingsTableViewController") as  GRMSettingsTableViewController
         navigationController?.pushViewController(settings, animated: true)

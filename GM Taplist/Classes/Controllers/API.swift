@@ -11,7 +11,7 @@ import CoreData
 
 class API: AFHTTPSessionManager {
     // MARK: - Properties
-    private var context: NSManagedObjectContext = ANDYDataManager.backgroundContext()
+    private var context: NSManagedObjectContext = ANDYDataManager.sharedManager().mainContext
     
     // MARK: - Singleton
     class var sharedInstance: API {
@@ -143,8 +143,7 @@ class API: AFHTTPSessionManager {
             for store in storesData {
                 stores.append(GRMStore.createOrUpdate(store as NSDictionary, inContext: self.context))
             }
-            
-            ANDYDataManager.sharedManager().persistContext()
+    
             completionBlock(stores)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)

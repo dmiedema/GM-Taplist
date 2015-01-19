@@ -19,12 +19,12 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     var storeSelectionDelegate: GRMStoreSelection?
     
     // MARK: Outlets
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var tableView: UITableView!
+    var backgroundView: UIView!
+    var tableView: UITableView!
     // MARK: Constraints
-    @IBOutlet weak var centerXTableViewConstraint: NSLayoutConstraint!
-    @IBOutlet weak var centerYTableViewConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    var centerXTableViewConstraint: NSLayoutConstraint!
+    var centerYTableViewConstraint: NSLayoutConstraint!
+    var tableViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: Private
     private let CellReuseIdentifier = "CellIdentifier"
@@ -41,19 +41,17 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
+        
+        setupBackgroundView()
+        setupTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.clipsToBounds = true
-        tableView.layer.cornerRadius = 8.0
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        tableViewHeightConstraint.constant = stores.count >= 6 ? CGFloat(44 * 6) : CGFloat(stores.count * 44)
     }
     
     // MARK: - UITableViewDataSource
@@ -63,6 +61,9 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel?.text = stores[indexPath.row].city
+        
         return cell
     }
     // MARK: - UITableViewDelegate
@@ -86,4 +87,89 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     
     // MARK: - Implementation
     
+    func removePopOver() {
+        NSLog("RemovePopOver")
+        dismissAnimated(true)
+    }
+    
+    func showAnimated(animated: Bool) {
+        let duration = animated ? 0.5 : 0.0
+        
+        let translation = CGAffineTransformMakeTranslation(-CGRectGetWidth(self.view.frame), -(CGRectGetHeight(self.view.frame)))
+        let rotation = CGAffineTransformMakeRotation(CGFloat(M_PI_4))
+        
+        tableView.transform = CGAffineTransformConcat(translation, rotation)
+        
+        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: { () -> Void in
+            self.tableView.transform = CGAffineTransformIdentity
+            self.view.alpha = 1.0
+        }) { (complete) -> Void in }
+    }
+    
+    func dismissAnimated(animated: Bool) {
+        let duration = animated ? 0.5 : 0.0
+        
+        UIView.animateWithDuration(duration, delay: 0.0, options: .BeginFromCurrentState, animations: { () -> Void in
+            self.tableView.transform = CGAffineTransformMakeTranslation(CGRectGetHeight(self.view.frame), 0)
+            self.view.alpha = 0.0
+        }) { (complete) -> Void in
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
+        }
+    }
+    
+    // MARK: Private
+    private func tableViewHeight() -> CGFloat {
+        return stores.count >= 6 ? CGFloat(44 * 6) : CGFloat(stores.count * 44)
+    }
+    
+    private func setupBackgroundView() {
+        backgroundView = UIView(frame: self.view.bounds)
+        backgroundView.backgroundColor = UIColor(white: 0.2, alpha: 0.7)
+        backgroundView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "removePopOver"))
+        
+        self.view.addSubview(backgroundView)
+        applyBackgroundViewConstraints()
+    }
+    
+    private func setupTableView() {
+        let width = min(CGRectGetWidth(self.view.frame), 300)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: width, height: tableViewHeight()), style: .Plain)
+        tableView.center = self.view.center
+        tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: CellReuseIdentifier)
+        
+        tableView.clipsToBounds = true
+        tableView.layer.cornerRadius = 8.0
+        
+        self.view.addSubview(tableView)
+        applyTableViewConstraints()
+    }
+    
+    private func applyBackgroundViewConstraints() {
+        let top = NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .Equal, toItem: backgroundView.superview, attribute: .Top, multiplier: 1, constant: 0)
+        let left = NSLayoutConstraint(item: backgroundView, attribute: .Left, relatedBy: .Equal, toItem: backgroundView.superview, attribute: .Left, multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .Equal, toItem: backgroundView.superview, attribute: .Bottom, multiplier: 1, constant: 0)
+        let right = NSLayoutConstraint(item: backgroundView, attribute: .Right, relatedBy: .Equal, toItem: backgroundView.superview, attribute: .Right, multiplier: 1, constant: 0)
+        
+        backgroundView.superview?.addConstraints([top, left, bottom, right])
+        backgroundView.superview?.layoutIfNeeded()
+    }
+    
+    private func applyTableViewConstraints() {
+        let widthConstant = min(CGRectGetWidth(self.view.frame), 300)
+        let heightConstant: CGFloat = tableViewHeight()
+        
+        centerXTableViewConstraint = NSLayoutConstraint(item: tableView, attribute: .CenterX, relatedBy: .Equal, toItem: tableView.superview, attribute: .CenterX, multiplier: 1, constant: 0)
+        centerYTableViewConstraint = NSLayoutConstraint(item: tableView, attribute: .CenterY, relatedBy: .Equal, toItem: tableView.superview, attribute: .CenterY, multiplier: 1, constant: 0)
+        tableViewHeightConstraint = NSLayoutConstraint(item: tableView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: heightConstant)
+        let width = NSLayoutConstraint(item: tableView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: widthConstant)
+        
+        tableView.superview?.addConstraints([centerXTableViewConstraint, centerYTableViewConstraint, tableViewHeightConstraint, width])
+        tableView.superview?.layoutIfNeeded()
+    }
 }
