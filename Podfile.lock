@@ -44,7 +44,7 @@ PODS:
     - NSDictionary-ANDYSafeValue
     - NSManagedObject-ANDYMapChanges
     - NSManagedObject-HYPPropertyMapper
-  - KVNProgress (2.1.6)
+  - KVNProgress (2.1.7)
   - NSDictionary-ANDYSafeValue (0.3)
   - NSManagedObject-ANDYMapChanges (0.5.1):
     - NSManagedObject-ANDYObjectIDs
@@ -96,7 +96,7 @@ SPEC CHECKSUMS:
   FontAwesomeIconFactory: 6ef139e879d779e8e4561980ca170ea0981f5f9e
   GroundControl: 2f9024230e41ff5e5a8e3ca060ed1b74883bdd1a
   Kipu: 22321066c39a672f9c48e0d74a694dd002ac0f5a
-  KVNProgress: ac45e7ded3510560d1900de8747f49dcbbc92c55
+  KVNProgress: 4667d21831831f92e5877e123f98f75a205939b0
   NSDictionary-ANDYSafeValue: ddd983e316a52201a40c70f4ab9ead8a63c569b6
   NSManagedObject-ANDYMapChanges: 224cd299f56bbcb8466f495a22666aac877a4301
   NSManagedObject-ANDYObjectIDs: d27bb3014026506848a8d164f3019ecaa2a4baca
