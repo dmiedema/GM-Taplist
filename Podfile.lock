@@ -1,61 +1,61 @@
 PODS:
-  - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection (= 2.5.0)
-    - AFNetworking/NSURLSession (= 2.5.0)
-    - AFNetworking/Reachability (= 2.5.0)
-    - AFNetworking/Security (= 2.5.0)
-    - AFNetworking/Serialization (= 2.5.0)
-    - AFNetworking/UIKit (= 2.5.0)
-  - AFNetworking/NSURLConnection (2.5.0):
+  - AFNetworking (2.5.1):
+    - AFNetworking/NSURLConnection (= 2.5.1)
+    - AFNetworking/NSURLSession (= 2.5.1)
+    - AFNetworking/Reachability (= 2.5.1)
+    - AFNetworking/Security (= 2.5.1)
+    - AFNetworking/Serialization (= 2.5.1)
+    - AFNetworking/UIKit (= 2.5.1)
+  - AFNetworking/NSURLConnection (2.5.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.0):
+  - AFNetworking/NSURLSession (2.5.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.0)
-  - AFNetworking/Security (2.5.0)
-  - AFNetworking/Serialization (2.5.0)
-  - AFNetworking/UIKit (2.5.0):
+  - AFNetworking/Reachability (2.5.1)
+  - AFNetworking/Security (2.5.1)
+  - AFNetworking/Serialization (2.5.1)
+  - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - ANDYDataManager (1.2.2)
   - BNRDynamicTypeManager (0.1.0):
     - BNRDynamicTypeManager/Controls (= 0.1.0)
     - BNRDynamicTypeManager/Core (= 0.1.0)
   - BNRDynamicTypeManager/Controls (0.1.0):
     - BNRDynamicTypeManager/Core
   - BNRDynamicTypeManager/Core (0.1.0)
-  - CocoaLumberjack (2.0.0-rc):
-    - CocoaLumberjack/Default (= 2.0.0-rc)
-    - CocoaLumberjack/Extensions (= 2.0.0-rc)
-  - CocoaLumberjack/Core (2.0.0-rc)
-  - CocoaLumberjack/Default (2.0.0-rc):
+  - CocoaLumberjack (2.0.0):
+    - CocoaLumberjack/Default (= 2.0.0)
+    - CocoaLumberjack/Extensions (= 2.0.0)
+  - CocoaLumberjack/Core (2.0.0)
+  - CocoaLumberjack/Default (2.0.0):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0-rc):
+  - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
   - CRToast (0.0.7)
+  - DATAStack (2.6)
   - FontAwesomeIconFactory (1.4)
   - GroundControl (2.1.0):
     - AFNetworking (~> 2.2)
-  - Kipu (0.3):
-    - ANDYDataManager
+  - Kipu (0.4.2):
+    - DATAStack
     - NSDictionary-ANDYSafeValue
     - NSManagedObject-ANDYMapChanges
     - NSManagedObject-HYPPropertyMapper
-  - KVNProgress (2.1.7)
+  - KVNProgress (2.1.10)
   - NSDictionary-ANDYSafeValue (0.3)
-  - NSManagedObject-ANDYMapChanges (0.5.1):
+  - NSManagedObject-ANDYMapChanges (0.6):
     - NSManagedObject-ANDYObjectIDs
-  - NSManagedObject-ANDYObjectIDs (0.1)
-  - NSManagedObject-HYPPropertyMapper (2.7):
-    - NSString-HYPNetworking
-  - NSString-HYPNetworking (0.1)
+  - NSManagedObject-ANDYObjectIDs (0.2)
+  - NSManagedObject-HYPPropertyMapper (2.10):
+    - NSString-HYPNetworking (~> 0.1)
+  - NSString-HYPNetworking (0.2)
   - OCMock (3.1.2)
-  - OHHTTPStubs (3.1.10):
-    - OHHTTPStubs/Core (= 3.1.10)
-  - OHHTTPStubs/Core (3.1.10)
+  - OHHTTPStubs (3.1.11):
+    - OHHTTPStubs/Core (= 3.1.11)
+  - OHHTTPStubs/Core (3.1.11)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -65,7 +65,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BNRDynamicTypeManager
-  - CocoaLumberjack (~> 2.0.0-beta4)
+  - CocoaLumberjack
   - CRToast (from `https://github.com/dmiedema/CRToast`, branch `master`)
   - FontAwesomeIconFactory
   - GroundControl
@@ -84,28 +84,28 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CRToast:
-    :commit: 6ba99a3a4a28417989924531a514bf62fa7fc24e
+    :commit: 74dd964e12ecf3da70a9d5c38a196aa34dee54dd
     :git: https://github.com/dmiedema/CRToast
 
 SPEC CHECKSUMS:
-  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  ANDYDataManager: 90841504e0456c952629b41fe7d4d018e38337f8
+  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   BNRDynamicTypeManager: 04448150ee840a12f6f9e0371de88cc362ae9948
-  CocoaLumberjack: 6186e27827fc574b50b16c10102fcc591437f06c
-  CRToast: da11d94a05b1351a87bb26cbf8f25e80ed2e7115
+  CocoaLumberjack: fd2b1031c6c4e0f08b5ea928ef677fa0a5de517d
+  CRToast: 99a28f4387def43b439ad88f957ce31357ff7373
+  DATAStack: 72663bf12db9427b535d5eaa761ebf18ab60c38f
   FontAwesomeIconFactory: 6ef139e879d779e8e4561980ca170ea0981f5f9e
   GroundControl: 2f9024230e41ff5e5a8e3ca060ed1b74883bdd1a
-  Kipu: 22321066c39a672f9c48e0d74a694dd002ac0f5a
-  KVNProgress: 4667d21831831f92e5877e123f98f75a205939b0
+  Kipu: 371ed5412982a3cdd98cad9be2ee0c466cba3502
+  KVNProgress: af4d5bfaf9015c5014a3f8011bef0f4a512c12a3
   NSDictionary-ANDYSafeValue: ddd983e316a52201a40c70f4ab9ead8a63c569b6
-  NSManagedObject-ANDYMapChanges: 224cd299f56bbcb8466f495a22666aac877a4301
-  NSManagedObject-ANDYObjectIDs: d27bb3014026506848a8d164f3019ecaa2a4baca
-  NSManagedObject-HYPPropertyMapper: 101e5058699a4c01b2894daad741dec7e3f88fa1
-  NSString-HYPNetworking: 941953383edbba2abd72014e4bfdd55fa4af8dff
+  NSManagedObject-ANDYMapChanges: f5d20e903eafecb844adfa1a7e355a1f8cf083a8
+  NSManagedObject-ANDYObjectIDs: 7148a374e2d163392b0442dce51e7cc2bf94b356
+  NSManagedObject-HYPPropertyMapper: e2d462a8e924c394337c2ca6b7c377eb87c9865e
+  NSString-HYPNetworking: d0f69219a05bcdb0d6f523c4356223a4e024b635
   OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
-  OHHTTPStubs: 2038e929b6abb94881000524c1cb4aba0a1bb4a2
+  OHHTTPStubs: e6ecc3fd4fa11b2cfb5f4823421bddc95a82913d
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   Sleipnir: 73ad23d536e5ed879d1bb372e4a10dc632509b59
   VENVersionTracker: d78c3407733a1a1ef4aaa11b6e2182996fbbac30
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.0
