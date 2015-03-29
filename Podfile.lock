@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.5.1):
-    - AFNetworking/NSURLConnection (= 2.5.1)
-    - AFNetworking/NSURLSession (= 2.5.1)
-    - AFNetworking/Reachability (= 2.5.1)
-    - AFNetworking/Security (= 2.5.1)
-    - AFNetworking/Serialization (= 2.5.1)
-    - AFNetworking/UIKit (= 2.5.1)
-  - AFNetworking/NSURLConnection (2.5.1):
+  - AFNetworking (2.5.2):
+    - AFNetworking/NSURLConnection (= 2.5.2)
+    - AFNetworking/NSURLSession (= 2.5.2)
+    - AFNetworking/Reachability (= 2.5.2)
+    - AFNetworking/Security (= 2.5.2)
+    - AFNetworking/Serialization (= 2.5.2)
+    - AFNetworking/UIKit (= 2.5.2)
+  - AFNetworking/NSURLConnection (2.5.2):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.1):
+  - AFNetworking/NSURLSession (2.5.2):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.1)
-  - AFNetworking/Security (2.5.1)
-  - AFNetworking/Serialization (2.5.1)
-  - AFNetworking/UIKit (2.5.1):
+  - AFNetworking/Reachability (2.5.2)
+  - AFNetworking/Security (2.5.2)
+  - AFNetworking/Serialization (2.5.2)
+  - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - BNRDynamicTypeManager (0.1.0):
@@ -34,31 +34,56 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
-  - CRToast (0.0.7)
-  - DATAStack (2.6)
+  - CRToast (HEAD based on 0.0.7)
+  - DATAStack (3.0.2):
+    - NSObject-HYPTesting (~> 1.2)
   - FontAwesomeIconFactory (1.4)
   - GroundControl (2.1.0):
     - AFNetworking (~> 2.2)
-  - Kipu (0.4.2):
-    - DATAStack
-    - NSDictionary-ANDYSafeValue
-    - NSManagedObject-ANDYMapChanges
-    - NSManagedObject-HYPPropertyMapper
-  - KVNProgress (2.1.10)
-  - NSDictionary-ANDYSafeValue (0.3)
-  - NSManagedObject-ANDYMapChanges (0.6):
-    - NSManagedObject-ANDYObjectIDs
-  - NSManagedObject-ANDYObjectIDs (0.2)
-  - NSManagedObject-HYPPropertyMapper (2.10):
-    - NSString-HYPNetworking (~> 0.1)
-  - NSString-HYPNetworking (0.2)
+  - KVNProgress (2.2.1)
+  - libextobjc (0.4.1):
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
+  - libextobjc/EXTADT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
+  - NSObject-HYPTesting (1.2)
   - OCMock (3.1.2)
   - OHHTTPStubs (3.1.11):
     - OHHTTPStubs/Core (= 3.1.11)
   - OHHTTPStubs/Core (3.1.11)
-  - SDWebImage (3.7.1):
-    - SDWebImage/Core (= 3.7.1)
-  - SDWebImage/Core (3.7.1)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
   - Sleipnir (0.4.0)
   - VENVersionTracker (0.1.1)
 
@@ -66,46 +91,33 @@ DEPENDENCIES:
   - AFNetworking
   - BNRDynamicTypeManager
   - CocoaLumberjack
-  - CRToast (from `https://github.com/dmiedema/CRToast`, branch `master`)
+  - CRToast (HEAD)
+  - DATAStack
   - FontAwesomeIconFactory
   - GroundControl
-  - Kipu
   - KVNProgress
+  - libextobjc
   - OCMock
   - OHHTTPStubs
   - SDWebImage
   - Sleipnir
   - VENVersionTracker
 
-EXTERNAL SOURCES:
-  CRToast:
-    :branch: master
-    :git: https://github.com/dmiedema/CRToast
-
-CHECKOUT OPTIONS:
-  CRToast:
-    :commit: 74dd964e12ecf3da70a9d5c38a196aa34dee54dd
-    :git: https://github.com/dmiedema/CRToast
-
 SPEC CHECKSUMS:
-  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  BNRDynamicTypeManager: 04448150ee840a12f6f9e0371de88cc362ae9948
-  CocoaLumberjack: fd2b1031c6c4e0f08b5ea928ef677fa0a5de517d
+  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  BNRDynamicTypeManager: 44ee2970cd0120cbedd3dec84da41d0381525219
+  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
   CRToast: 99a28f4387def43b439ad88f957ce31357ff7373
-  DATAStack: 72663bf12db9427b535d5eaa761ebf18ab60c38f
-  FontAwesomeIconFactory: 6ef139e879d779e8e4561980ca170ea0981f5f9e
-  GroundControl: 2f9024230e41ff5e5a8e3ca060ed1b74883bdd1a
-  Kipu: 371ed5412982a3cdd98cad9be2ee0c466cba3502
-  KVNProgress: af4d5bfaf9015c5014a3f8011bef0f4a512c12a3
-  NSDictionary-ANDYSafeValue: ddd983e316a52201a40c70f4ab9ead8a63c569b6
-  NSManagedObject-ANDYMapChanges: f5d20e903eafecb844adfa1a7e355a1f8cf083a8
-  NSManagedObject-ANDYObjectIDs: 7148a374e2d163392b0442dce51e7cc2bf94b356
-  NSManagedObject-HYPPropertyMapper: e2d462a8e924c394337c2ca6b7c377eb87c9865e
-  NSString-HYPNetworking: d0f69219a05bcdb0d6f523c4356223a4e024b635
-  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
-  OHHTTPStubs: e6ecc3fd4fa11b2cfb5f4823421bddc95a82913d
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  Sleipnir: 73ad23d536e5ed879d1bb372e4a10dc632509b59
-  VENVersionTracker: d78c3407733a1a1ef4aaa11b6e2182996fbbac30
+  DATAStack: daa0fe4ca1c2f41fc8f44c7ddca13a6b9d49b5b2
+  FontAwesomeIconFactory: 4b6d0a8d90b2604a2518e34d15bbc100af99f11c
+  GroundControl: fbc762e0097feece7fb6d8cdc8f2747a504a6833
+  KVNProgress: 7001d2d16a2755cee5599e8e485befe056f2197b
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  NSObject-HYPTesting: fadde70c75061b731b313c390e20777aed0a914d
+  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
+  OHHTTPStubs: 5624a5d20d97d46d47e15a68ca8808b59ccf0512
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  Sleipnir: 35c40dc45c18d26e78f157a5553bf485e49ab6d9
+  VENVersionTracker: 5f1244d7038d5475b718bf179ff9124ac161d584
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.1

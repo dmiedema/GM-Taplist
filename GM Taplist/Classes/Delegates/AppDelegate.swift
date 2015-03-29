@@ -13,10 +13,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
+    var dataStack: DATAStack {
+        return GrowlMovement.CoreData().Context
+    }
 
     // MARK: - Application Life Cycle
-    func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-        ANDYDataManager.setModelName("GM_Taplist")
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         // if we've asked about notifications before...
@@ -28,27 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication!) {
-    }
-
-    func applicationDidEnterBackground(application: UIApplication!) {
-    }
-
-    func applicationWillEnterForeground(application: UIApplication!) {
-    }
-
-    func applicationDidBecomeActive(application: UIApplication!) {
-    }
-
-    func applicationWillTerminate(application: UIApplication!) {
-        ANDYDataManager.sharedManager().persistContext()
+    func applicationWillTerminate(application: UIApplication) {
+        self.dataStack.persistWithCompletion { () -> Void in
+            
+        }
     }
 
     // MARK: - Notifications
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         NSLog("Settings: \(notificationSettings)")
     }
-    func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         NSLog("registered for remote notifiations")
         let token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>")).stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)
         
@@ -61,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-
     }
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -69,4 +60,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSLog("Failed to register for remote notifications")
     }
 }
-

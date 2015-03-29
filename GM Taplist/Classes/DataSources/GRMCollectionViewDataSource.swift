@@ -35,10 +35,10 @@ class BeerData {
             attributedString = NSMutableAttributedString(string: brewery.name)
         } else {
             
-            attributedString = NSMutableAttributedString(string: NSString(format: "%@ - ", brewery.name))
+            attributedString = NSMutableAttributedString(string: NSString(format: "%@ - ", brewery.name) as! String)
             
             var fontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
-            fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(.TraitItalic)
+            fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(.TraitItalic)!
             
             let attributedCityState = NSAttributedString(string: "\(brewery.city) \(brewery.state)", attributes: [NSFontAttributeName: UIFont(descriptor: fontDescriptor, size: 0.0)])
             
@@ -92,7 +92,7 @@ class BeerData {
     private func heightForAttributedString(text: NSAttributedString, preferredFontStyle: String, width: CGFloat) -> CGFloat {
         let font = UIFont.preferredFontForTextStyle(preferredFontStyle)
         
-        var attributedText = text.mutableCopy() as NSMutableAttributedString
+        var attributedText = text.mutableCopy() as! NSMutableAttributedString
         attributedText.addAttributes([NSFontAttributeName: font], range: NSMakeRange(0, text.length))
         
         var label = UILabel()
@@ -123,7 +123,7 @@ class GRMCollectionViewDataSource: NSObject {
     let cellConfigurationBlock: (cell: GRMCollectionViewCell, data: BeerData) -> ()
     var delegate: GRMCollectionViewDataSourceDelegate?
 
-    let context: NSManagedObjectContext = ANDYDataManager.backgroundContext()
+    let context: NSManagedObjectContext = GrowlMovement.CoreData().Context.mainContext
 
     required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
         self.cellIdentifier = cellIdentifier

@@ -14,6 +14,11 @@ protocol GMTaplistCollectionViewDataSource: UICollectionViewDataSource {
 }
 
 struct GrowlMovement {
+    struct CoreData {
+        var Context: DATAStack {
+            return DATAStack(modelName: "GM_Taplist", bundle: NSBundle.mainBundle(), storeType: .SQLiteStoreType)
+        }
+    }
     struct GMTaplist {
         struct UserDefaults {
             static let DefaultAppGroupSuiteName = "group.com.growlmovement.gmtaplist.defaultgroup"

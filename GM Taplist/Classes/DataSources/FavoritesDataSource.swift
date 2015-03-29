@@ -28,8 +28,8 @@ class FavoritesDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSou
 
     // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-        cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: favorites[indexPath.row])
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        cellConfigurationBlock(cell: cell as! GRMCollectionViewCell, data: favorites[indexPath.row])
 
         return cell
     }
@@ -38,8 +38,8 @@ class FavoritesDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSou
         return favorites.count
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView! {
-        return nil
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
     }
     
 }

@@ -49,7 +49,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceP
 
     // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as GRMCollectionViewCell
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! GRMCollectionViewCell
         cellConfigurationBlock(cell: cell, data: beers[indexPath.row])
 
         return cell
@@ -59,7 +59,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceP
         return beers.count
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView! {
-        return nil
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
     }
 }

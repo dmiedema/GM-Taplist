@@ -11,8 +11,9 @@ import CoreData
 
 class API: AFHTTPSessionManager {
     // MARK: - Properties
-    private var context: NSManagedObjectContext = ANDYDataManager.sharedManager().mainContext
-    
+    private var context: DATAStack {
+       return GrowlMovement.CoreData().Context
+    }
     // MARK: - Singleton
     class var sharedInstance: API {
     struct Singleton {
@@ -27,13 +28,8 @@ class API: AFHTTPSessionManager {
     }
     
     // MARK: - Initialize
-    override init(baseURL url: NSURL!) {
-        super.init(baseURL: url)
-        
-        self.responseSerializer = AFJSONResponseSerializer()
-        self.requestSerializer = AFJSONRequestSerializer(writingOptions: .PrettyPrinted)
-        self.requestSerializer.setValue(GrowlMovement.GMTaplist.APIKeys.APIKey, forHTTPHeaderField: GrowlMovement.GMTaplist.APIKeys.APIKeyHeader)
-        self.requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")
+    convenience init(baseURL url: NSURL!) {
+        self.init(baseURL: url, sessionConfiguration: nil)
     }
     
     override init(baseURL url: NSURL!, sessionConfiguration configuration: NSURLSessionConfiguration!) {
@@ -92,13 +88,13 @@ class API: AFHTTPSessionManager {
         let url = "users"
         self.POST(url, parameters: ["user_token": token], success: { (dataTask, response) -> Void in
             NSLog("Response: \(response)")
-            let rawData = response as NSDictionary
-            let user = GRMUser.createOrUpdate(response["data"] as NSDictionary, inContext: self.context) as GRMUser
+            let rawData = response as! NSDictionary
+            let user = GRMUser.createOrUpdate(response["data"] as! NSDictionary as [NSObject : AnyObject], inContext: self.context.mainContext) as GRMUser
             NSLog("user: \(user)")
             NSUserDefaults.standardUserDefaults().setInteger(user.user_id as Int, forKey: GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
             
             NSNotificationCenter.defaultCenter().postNotificationName(GrowlMovement.GMTaplist.Notifications.UserCreated, object: nil)
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(user)
         }, failure: { (dataTask, error) -> Void in
             NSLog("Failure registering user")
@@ -113,11 +109,11 @@ class API: AFHTTPSessionManager {
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
             NSLog("Got beers")
-            let rawData = response as NSDictionary
-            let beers = rawData["data"] as NSArray
+            let rawData = response as! NSDictionary
+            let beers = rawData["data"] as! NSArray
             var onTapBeers = [BeerData]()
             for beerDict in beers {
-                let beer = GRMBeer.loadObjectID(beerDict["id"] as Int, inContext: self.context)
+                let beer = GRMBeer.loadObjectID(beerDict["id"] as! Int, inContext: self.context.mainContext)
                 if beer == nil {
                     continue
                 }
@@ -127,7 +123,7 @@ class API: AFHTTPSessionManager {
                         tapLevel: beerDict["keg_level"] as? Int))
             }
             
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(onTapBeers)
         }, failure: { (dataTasK, error) -> Void in
             NSLog("Failed to get beers\n\(error)")
@@ -137,11 +133,11 @@ class API: AFHTTPSessionManager {
     
     func stores(completionBlock:([GRMStore]) -> (), failureBlock:(NSError) -> ()) {
         self.GET("stores", parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
-            let storesData = rawData["data"] as NSArray
+            let rawData = response as! NSDictionary
+            let storesData = rawData["data"] as! NSArray
             var stores = [GRMStore]()
             for store in storesData {
-                stores.append(GRMStore.createOrUpdate(store as NSDictionary, inContext: self.context))
+                stores.append(GRMStore.createOrUpdate(store as! [NSObject : AnyObject], inContext: self.context.mainContext))
             }
     
             completionBlock(stores)
@@ -154,11 +150,11 @@ class API: AFHTTPSessionManager {
         let url = "stores/\(storeID)"
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
-            let storeData = rawData["data"] as NSDictionary
-            let store = GRMStore.createOrUpdate(storeData, inContext: self.context)
+            let rawData = response as! NSDictionary
+            let storeData = rawData["data"] as! [NSObject: AnyObject]
+            let store = GRMStore.createOrUpdate(storeData, inContext: self.context.mainContext)
             
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -169,11 +165,11 @@ class API: AFHTTPSessionManager {
         let url = "stores/\(storeName)"
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
-            let storeData = rawData["data"] as NSArray
-            let store = GRMStore.createOrUpdate(storeData.firstObject as NSDictionary, inContext: self.context)
+            let rawData = response as! NSDictionary
+            let storeData = rawData["data"] as! NSArray
+            let store = GRMStore.createOrUpdate(storeData.firstObject as! [NSObject : AnyObject], inContext: self.context.mainContext)
         
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(store)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -185,11 +181,11 @@ class API: AFHTTPSessionManager {
         let url = "beers/\(beerID)"
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
-            let beerData = rawData["data"] as NSDictionary
-            let beer = GRMBeer.createOrUpdate(beerData, inContext: self.context)
+            let rawData = response as! NSDictionary
+            let beerData = rawData["data"] as! [NSObject: AnyObject]
+            let beer = GRMBeer.createOrUpdate(beerData, inContext: self.context.mainContext)
             
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(beer)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -200,16 +196,16 @@ class API: AFHTTPSessionManager {
         var url = "beers/updated"
         if let date = sinceDate {
             let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-                    .components(.DayCalendarUnit | .MonthCalendarUnit | .YearCalendarUnit, fromDate: date)
-            url = NSString(format: "beers/updated/%@/%@/%@", components.year, components.month, components.day)
+                    .components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
+            url = NSString(format: "beers/updated/%@/%@/%@", components.year, components.month, components.day) as String
         }
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
-            let beerData = rawData["data"] as NSArray
+            let rawData = response as! NSDictionary
+            let beerData = rawData["data"] as! NSArray
             var beers = [GRMBeer]()
             for beer in beerData {
-                beers.append(GRMBeer.createOrUpdate(beer as NSDictionary, inContext: self.context))
+                beers.append(GRMBeer.createOrUpdate(beer as! [NSObject: AnyObject], inContext: self.context.mainContext))
             }
             /*
             let _context = ANDYDataManager.backgroundContext()
@@ -218,7 +214,7 @@ class API: AFHTTPSessionManager {
             })
             */
 
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(beers)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -230,19 +226,19 @@ class API: AFHTTPSessionManager {
         var url = "breweries/updated"
         if let date = sinceDate {
             let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-                .components(.DayCalendarUnit | .MonthCalendarUnit | .YearCalendarUnit, fromDate: date)
-            url = NSString(format: "breweries/updated/%@/%@/%@", components.year, components.month, components.day)
+                .components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
+            url = NSString(format: "breweries/updated/%@/%@/%@", components.year, components.month, components.day) as String
         }
         
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
-            let breweryData = rawData["data"] as NSArray
+            let rawData = response as! NSDictionary
+            let breweryData = rawData["data"] as! NSArray
             var breweries = [GRMBrewery]()
             for brewery in breweryData {
-                breweries.append(GRMBrewery.createOrUpdate(brewery as NSDictionary, inContext: self.context))
+                breweries.append(GRMBrewery.createOrUpdate(brewery as! [NSObject: AnyObject], inContext: self.context.mainContext))
             }
             
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(breweries)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -253,12 +249,12 @@ class API: AFHTTPSessionManager {
         var url = "breweries/\(breweryID)"
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
-            let breweryData = rawData["data"] as NSDictionary
+            let rawData = response as! NSDictionary
+            let breweryData = rawData["data"] as! [NSObject: AnyObject]
 
-            let brewery = GRMBrewery.createOrUpdate(breweryData, inContext: self.context)
+            let brewery = GRMBrewery.createOrUpdate(breweryData, inContext: self.context.mainContext)
 
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(brewery)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)
@@ -269,15 +265,15 @@ class API: AFHTTPSessionManager {
         var url = "breweries/\(breweryName)"
 
         self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
-            let rawData = response as NSDictionary
+            let rawData = response as! NSDictionary
             var breweries = [GRMBrewery]()
-            let breweryData = rawData["data"] as NSArray
+            let breweryData = rawData["data"] as! NSArray
             
             for brewery in breweryData {
-                breweries.append(GRMBrewery.createOrUpdate(brewery as NSDictionary, inContext: self.context))
+                breweries.append(GRMBrewery.createOrUpdate(brewery as! [NSObject: AnyObject], inContext: self.context.mainContext))
             }
 
-            ANDYDataManager.sharedManager().persistContext()
+            self.context.persistWithCompletion(nil)
             completionBlock(breweries)
         }, failure: { (dataTask, error) -> Void in
             failureBlock(error)

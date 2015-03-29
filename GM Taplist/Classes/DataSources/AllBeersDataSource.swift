@@ -28,8 +28,8 @@ class AllBeersDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSour
 
     // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-        cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: beers[indexPath.row])
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        cellConfigurationBlock(cell: cell as! GRMCollectionViewCell, data: beers[indexPath.row])
 
         return cell
     }
@@ -38,8 +38,8 @@ class AllBeersDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSour
         return beers.count
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView! {
-        return nil
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
     }
 
 }

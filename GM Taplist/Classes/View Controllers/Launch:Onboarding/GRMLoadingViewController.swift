@@ -104,7 +104,7 @@ class GRMLoadingViewController: UIViewController {
     }
     
     func updateStyles() {
-        let date = NSUserDefaults.standardUserDefaults().objectForKey(GrowlMovement.GMTaplist.UserDefaults.LastRetreivedStyleDate) as NSDate
+        let date = NSUserDefaults.standardUserDefaults().objectForKey(GrowlMovement.GMTaplist.UserDefaults.LastRetreivedStyleDate) as! NSDate
     }
     
     func updateStores() {
@@ -119,7 +119,7 @@ class GRMLoadingViewController: UIViewController {
     
     func pushToFirstScreen() {
         NSLog("pushToFirstScreen()")
-        let collectionView = storyboard?.instantiateViewControllerWithIdentifier("GRMCollectionViewController") as GRMCollectionViewController
+        let collectionView = storyboard?.instantiateViewControllerWithIdentifier("GRMCollectionViewController") as! GRMCollectionViewController
 
         navigationController?.pushViewController(collectionView, animated: true)
 

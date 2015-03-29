@@ -28,14 +28,14 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     
     // MARK: Private
     private let CellReuseIdentifier = "CellIdentifier"
-    private lazy var context: NSManagedObjectContext = {
-        return ANDYDataManager.sharedManager().mainContext
+    private lazy var context: DATAStack = {
+        return GrowlMovement.CoreData().Context
     }()
     private lazy var stores: [GRMStore] = {
-        return GRMStore.allStoresInContext(self.context) as [GRMStore]
+        return GRMStore.allStoresInContext(self.context.mainContext) as! [GRMStore]
     }()
     private lazy var preferredStores: [GRMStore] = {
-        return GRMStore.preferredStoresInContext(self.context) as [GRMStore]
+        return GRMStore.preferredStoresInContext(self.context.mainContext) as! [GRMStore]
     }()
     
     // MARK: - View Life Cycle
@@ -60,7 +60,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
         
         cell.textLabel?.text = stores[indexPath.row].city
         
@@ -81,7 +81,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
         } else {
             storeSelectionDelegate?.selectedStoreWithID(Int(selectedStore.store_id))
         }
-        ANDYDataManager.sharedManager().persistContext()
+        self.context.persistWithCompletion(nil)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

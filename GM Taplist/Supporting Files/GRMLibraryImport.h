@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <ANDYDataManager/ANDYDataManager.h>
-#import <Kipu/Kipu.h>
+#import <DATAStack/DATAStack.h>
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
 #import <AFNetworking/AFNetworking.h>

@@ -17,7 +17,7 @@ class GRMSettingsTableViewController: UITableViewController {
     let GRMSettingsSectionOther         = 3
     
     private lazy var context: NSManagedObjectContext = {
-        ANDYDataManager.sharedManager().mainContext
+        DATAStack.init().mainContext
     }()
     
     private let aboutContent = [
@@ -85,7 +85,7 @@ class GRMSettingsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(GrowlMovement.GMTaplist.TableView.CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(GrowlMovement.GMTaplist.TableView.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
         
         let content = contentForIndexPath(indexPath)
         cell.textLabel?.text = content.0

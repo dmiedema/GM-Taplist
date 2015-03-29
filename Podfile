@@ -16,7 +16,7 @@ pod 'SDWebImage'
 pod 'BNRDynamicTypeManager'
 
 # UI
-pod 'CRToast', :git => 'https://github.com/dmiedema/CRToast', :branch => 'master'
+pod 'CRToast', :head
 pod 'KVNProgress'
 pod 'FontAwesomeIconFactory'
 
@@ -24,8 +24,10 @@ pod 'FontAwesomeIconFactory'
 pod 'CocoaLumberjack'
 
 # CoreData
-pod 'Kipu'
+pod 'DATAStack'
 
+# Sanity
+pod 'libextobjc'
 # pod 'ARAnalytics'
 
 end
