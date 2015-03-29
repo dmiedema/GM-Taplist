@@ -9,16 +9,16 @@
 import Foundation
 
 class GRMCollectionViewFlowLayout: UICollectionViewFlowLayout {
-    override required init() {
-        super.init()
-        sharedSetup()
-    }
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        sharedSetup()
-    }
-    
-    private func sharedSetup() {
-        
-    }
+  override required init() {
+    super.init()
+    sharedSetup()
+  }
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    sharedSetup()
+  }
+  
+  private func sharedSetup() {
+      
+  }
 }

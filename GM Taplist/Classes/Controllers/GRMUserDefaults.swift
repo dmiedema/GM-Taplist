@@ -9,23 +9,23 @@
 import Foundation
 
 struct GRMUserDefaultsKeys {
-    static let AskedForPushNotificationPermission = "com.GrowlMovement.GMTaplist.AskedForPushNotificationPermission"
+  static let AskedForPushNotificationPermission = "com.GrowlMovement.GMTaplist.AskedForPushNotificationPermission"
 }
 
 class GRMUserDefaults: NSUserDefaults {
-    class var sharedInstance: GRMUserDefaults {
-        struct Singleton {
-            static let instance = GRMUserDefaults(suiteName: "group.com.growlmovement.gmtaplist.defaultgroup")
-        }
-        return Singleton.instance!
+  class var sharedInstance: GRMUserDefaults {
+    struct Singleton {
+      static let instance = GRMUserDefaults(suiteName: "group.com.growlmovement.gmtaplist.defaultgroup")
     }
-    
-    func askedAboutPushNotificationPermission() -> Bool {
-        return GRMUserDefaults.sharedInstance.boolForKey(GRMUserDefaultsKeys.AskedForPushNotificationPermission)
-    }
-    
-    func setAskedAboutPushNotificationPermission(asked: Bool) -> Bool {
-        GRMUserDefaults.sharedInstance.setBool(asked, forKey: GRMUserDefaultsKeys.AskedForPushNotificationPermission)
-        return GRMUserDefaults.sharedInstance.synchronize()
-    }
+    return Singleton.instance!
+  }
+  
+  func askedAboutPushNotificationPermission() -> Bool {
+    return GRMUserDefaults.sharedInstance.boolForKey(GRMUserDefaultsKeys.AskedForPushNotificationPermission)
+  }
+  
+  func setAskedAboutPushNotificationPermission(asked: Bool) -> Bool {
+    GRMUserDefaults.sharedInstance.setBool(asked, forKey: GRMUserDefaultsKeys.AskedForPushNotificationPermission)
+    return GRMUserDefaults.sharedInstance.synchronize()
+  }
 }

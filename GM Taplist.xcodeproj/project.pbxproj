@@ -337,7 +337,9 @@
 				A69452808001459BB0B203AD /* Frameworks */,
 				4B40E84F0B0CF6E78E1C56CF /* Pods */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		C3DB986D19A16AA700EB4270 /* Products */ = {
 			isa = PBXGroup;
