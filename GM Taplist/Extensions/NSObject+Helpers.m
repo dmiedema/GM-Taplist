@@ -9,10 +9,10 @@
 #import "NSObject+Helpers.h"
 
 id grm_ObjectOrNull(id obj) {
-    if (obj == nil || [obj isEqual:[NSNull null]]) {
-        return nil;
-    }
-    return obj;
+  if (obj == nil || [obj isEqual:[NSNull null]]) {
+    return nil;
+  }
+  return obj;
 }
 
 @implementation NSObject (Helpers)

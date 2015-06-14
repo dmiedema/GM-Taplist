@@ -9,12 +9,12 @@
 import Foundation
 
 class DeviceRegister {
-    class func registerNewDevice() {
-        let types: UIUserNotificationType = .Badge | .Sound | .Alert
+  class func registerNewDevice() {
+    let types: UIUserNotificationType = .Badge | .Sound | .Alert
 
-        let pushSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+    let pushSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
 
-        UIApplication.sharedApplication().registerUserNotificationSettings(pushSettings)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
-    }
+    UIApplication.sharedApplication().registerUserNotificationSettings(pushSettings)
+    UIApplication.sharedApplication().registerForRemoteNotifications()
+  }
 }

@@ -10,36 +10,36 @@ import Foundation
 
 class AllBeersDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceProtocol, UICollectionViewDataSource {
     
-    private var beers = [BeerData]()
+  private var beers = [BeerData]()
 
-    // MARK: - Init
-    required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
-        super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
-    }
-    
-    // MARK: - Implementation
-    func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
-        return beers[indexPath.row]
-    }
+  // MARK: - Init
+  required init(cellIdentifier: String, configurationBlock: (GRMCollectionViewCell, BeerData) ->()) {
+    super.init(cellIdentifier: cellIdentifier, configurationBlock: configurationBlock)
+  }
+  
+  // MARK: - Implementation
+  func itemForIndexPath(indexPath: NSIndexPath) -> BeerData {
+    return beers[indexPath.row]
+  }
 
-    func loadBeersForStore(storeID: Int) {
-        delegate?.dataLoading()
-    }
+  func loadBeersForStore(storeID: Int) {
+    delegate?.dataLoading()
+  }
 
-    // MARK: - UICollectionViewDataSource
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-        cellConfigurationBlock(cell: cell as GRMCollectionViewCell, data: beers[indexPath.row])
+  // MARK: - UICollectionViewDataSource
+  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+    cellConfigurationBlock(cell: cell as! GRMCollectionViewCell, data: beers[indexPath.row])
 
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return beers.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView! {
-        return nil
-    }
+    return cell
+  }
+  
+  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return beers.count
+  }
+  
+  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    return UICollectionReusableView()
+  }
 
 }

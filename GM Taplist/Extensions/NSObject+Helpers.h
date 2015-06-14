@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/*!
+/**
  Check if an object exists. 
  
  @abstract since @c [NSNull @c null] evaluates to true as an object, this checks if an object is @c nil or @c NSNull. If it is either, it returns @c nil. If not it just returns the object.
@@ -19,7 +19,7 @@
 id grm_ObjectOrNull(id obj);
 
 @interface NSObject (Helpers)
-/*!
+/**
  */
 + (void)registerNewDevice;
 @end
