@@ -49,7 +49,7 @@ class OnTapDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSourceP
 
   // MARK: - UICollectionViewDataSource
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! GRMCollectionViewCell
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! GRMCollectionViewCell
     cellConfigurationBlock(cell: cell, data: beers[indexPath.row])
 
     return cell

@@ -23,7 +23,7 @@ class API: AFHTTPSessionManager {
   }
   
   // MARK: - Required
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
   
@@ -68,7 +68,7 @@ class API: AFHTTPSessionManager {
   
   func unFavoriteBeer(beerID: Int, completionBlock:((Bool) -> ()), failureBlock:((NSError) -> ())) {
     NSLog("This is when an unfavorite call would ahppen")
-    var userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
+    let userID = NSUserDefaults.standardUserDefaults().integerForKey(GrowlMovement.GMTaplist.UserDefaults.LoggedInUserID)
     if userID == 0 {
       failureBlock(NSError(domain: GrowlMovement.GMTaplist.Errors.Unfavorite, code: -2346, userInfo: nil))
     }
@@ -196,7 +196,7 @@ class API: AFHTTPSessionManager {
     var url = "beers/updated"
     if let date = sinceDate {
       let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-              .components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
+              .components([.Day, .Month, .Year], fromDate: date)
       url = NSString(format: "beers/updated/%@/%@/%@", components.year, components.month, components.day) as String
     }
 
@@ -219,7 +219,7 @@ class API: AFHTTPSessionManager {
     var url = "breweries/updated"
     if let date = sinceDate {
       let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-          .components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
+          .components([.Day, .Month, .Year], fromDate: date)
       url = NSString(format: "breweries/updated/%@/%@/%@", components.year, components.month, components.day) as String
     }
     
@@ -239,7 +239,7 @@ class API: AFHTTPSessionManager {
   }
   
   func breweryDetails(breweryID: Int, completionBlock:(GRMBrewery) -> (), failureBlock:(NSError) -> ()) {
-    var url = "breweries/\(breweryID)"
+    let url = "breweries/\(breweryID)"
 
     self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
       let rawData = response as! NSDictionary
@@ -255,7 +255,7 @@ class API: AFHTTPSessionManager {
   }
   
   func breweryDetailsName(breweryName: String, completionBlock:([GRMBrewery]) -> (), failureBlock:(NSError) -> ()) {
-    var url = "breweries/\(breweryName)"
+    let url = "breweries/\(breweryName)"
 
     self.GET(url, parameters: nil, success: { (dataTask, response) -> Void in
       let rawData = response as! NSDictionary

@@ -28,7 +28,7 @@ class FavoritesDataSource: GRMCollectionViewDataSource, GRMCollectionViewDataSou
 
     // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-      var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+      let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
       cellConfigurationBlock(cell: cell as! GRMCollectionViewCell, data: favorites[indexPath.row])
 
       return cell

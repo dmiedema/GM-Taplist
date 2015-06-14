@@ -22,13 +22,13 @@ class GRMLoadingViewController: UIViewController {
   
   private var topLbel: UILabel = {
     var label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 22))
-    label.setTranslatesAutoresizingMaskIntoConstraints(false)
+    label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
   private var bottomLbel: UILabel = {
     var label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 22))
-    label.setTranslatesAutoresizingMaskIntoConstraints(false)
+    label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   

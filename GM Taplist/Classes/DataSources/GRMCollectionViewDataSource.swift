@@ -34,10 +34,10 @@ class BeerData {
     if brewery.city.isEmpty || brewery.state.isEmpty {
       attributedString = NSMutableAttributedString(string: brewery.name)
     } else {
-      attributedString = NSMutableAttributedString(string: NSString(format: "%@ - ", brewery.name) as! String)
+      attributedString = NSMutableAttributedString(string: NSString(format: "%@ - ", brewery.name) as String)
       
       var fontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
-      fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(.TraitItalic)!
+      fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(.TraitItalic)
       
       let attributedCityState = NSAttributedString(string: "\(brewery.city) \(brewery.state)", attributes: [NSFontAttributeName: UIFont(descriptor: fontDescriptor, size: 0.0)])
       
@@ -78,7 +78,7 @@ class BeerData {
     let font = UIFont.preferredFontForTextStyle(preferredFontStyle)
     let attributedText = NSAttributedString(string: text, attributes: [NSFontAttributeName: font])
     
-    var label = UILabel()
+    let label = UILabel()
     label.numberOfLines = 0
     label.lineBreakMode = .ByWordWrapping
     label.attributedText = attributedText
@@ -91,10 +91,10 @@ class BeerData {
   private func heightForAttributedString(text: NSAttributedString, preferredFontStyle: String, width: CGFloat) -> CGFloat {
     let font = UIFont.preferredFontForTextStyle(preferredFontStyle)
     
-    var attributedText = text.mutableCopy() as! NSMutableAttributedString
+    let attributedText = text.mutableCopy() as! NSMutableAttributedString
     attributedText.addAttributes([NSFontAttributeName: font], range: NSMakeRange(0, text.length))
     
-    var label = UILabel()
+    let label = UILabel()
     label.numberOfLines = 0
     label.lineBreakMode = .ByWordWrapping
     label.attributedText = attributedText

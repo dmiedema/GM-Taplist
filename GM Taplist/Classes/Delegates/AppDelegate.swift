@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // if we've asked about notifications before...
     
     if GRMUserDefaults.sharedInstance.askedAboutPushNotificationPermission() {
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         application.registerForRemoteNotifications()
     }
     return true
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
     NSLog("registered for remote notifiations")
-    let token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>")).stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)
+    let token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>")).stringByReplacingOccurrencesOfString(" ", withString: "", options: [], range: nil)
     
     NSUserDefaults.standardUserDefaults().setObject(token, forKey: GrowlMovement.GMTaplist.UserDefaults.PushTokenKey)
     NSUserDefaults.standardUserDefaults().synchronize()

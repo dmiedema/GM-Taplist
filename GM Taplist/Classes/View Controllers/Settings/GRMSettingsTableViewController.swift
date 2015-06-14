@@ -85,7 +85,7 @@ class GRMSettingsTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell = tableView.dequeueReusableCellWithIdentifier(GrowlMovement.GMTaplist.TableView.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier(GrowlMovement.GMTaplist.TableView.CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
       
     let content = contentForIndexPath(indexPath)
     cell.textLabel?.text = content.0

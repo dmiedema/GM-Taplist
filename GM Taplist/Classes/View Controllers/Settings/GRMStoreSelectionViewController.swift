@@ -60,7 +60,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
       
     cell.textLabel?.text = stores[indexPath.row].city
       
@@ -70,7 +70,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let selectedStore = stores[indexPath.row]
     if setPreferredStores {
-      var cell = tableView.cellForRowAtIndexPath(indexPath)
+      let cell = tableView.cellForRowAtIndexPath(indexPath)
       if preferredStores.filter({$0 == selectedStore}).count == 0 {
         selectedStore.preferred_store = true
         cell?.accessoryType = .Checkmark
@@ -129,7 +129,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
   private func setupBackgroundView() {
     backgroundView = UIView(frame: self.view.bounds)
     backgroundView.backgroundColor = UIColor(white: 0.2, alpha: 0.7)
-    backgroundView.setTranslatesAutoresizingMaskIntoConstraints(false)
+    backgroundView.translatesAutoresizingMaskIntoConstraints = false
     backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "removePopOver"))
     
     self.view.addSubview(backgroundView)
@@ -140,7 +140,7 @@ class GRMStoreSelectionViewController: UIViewController, UITableViewDelegate, UI
     let width = min(CGRectGetWidth(self.view.frame), 300)
     tableView = UITableView(frame: CGRect(x: 0, y: 0, width: width, height: tableViewHeight()), style: .Plain)
     tableView.center = self.view.center
-    tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+    tableView.translatesAutoresizingMaskIntoConstraints = false
     
     tableView.dataSource = self
     tableView.delegate = self

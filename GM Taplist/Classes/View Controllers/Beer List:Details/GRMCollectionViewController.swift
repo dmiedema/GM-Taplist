@@ -116,7 +116,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
     collectionView.bringSubviewToFront(cell)
     
     if selectedIndexPath == indexPath {
-      collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
+      collectionView.deselectItemAtIndexPath(selectedIndexPath!, animated: true)
       selectedIndexPath = nil
     } else {
       selectedIndexPath = indexPath
@@ -148,7 +148,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
   override func scrollViewDidScroll(scrollView: UIScrollView) {
     if selectedIndexPath != nil {
       let cell = collectionView?.cellForItemAtIndexPath(selectedIndexPath!) as! GRMCollectionViewCell
-      collectionView?.deselectItemAtIndexPath(selectedIndexPath, animated: true)
+      collectionView?.deselectItemAtIndexPath(selectedIndexPath!, animated: true)
       selectedIndexPath = nil
     }
   }
@@ -183,7 +183,7 @@ class GRMCollectionViewController: UICollectionViewController, GRMCollectionView
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     let _width =  CGRectGetWidth(collectionView.bounds)
     
-    var itemWidth :CGFloat = (_width < 568) ? _width : _width / 2.0;
+    let itemWidth :CGFloat = (_width < 568) ? _width : _width / 2.0;
     
     let cell = collectionView.cellForItemAtIndexPath(indexPath) as? GRMCollectionViewCell
     cell?.cellContentsViewWidth.constant = itemWidth

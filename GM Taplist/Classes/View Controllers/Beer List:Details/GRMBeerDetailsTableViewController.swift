@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GRMBeerDetailsTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class GRMBeerDetailsTableViewController: UITableViewController {
 
   var beerData: BeerData!
   var managedObjectContext: NSManagedObjectContext!
@@ -45,6 +45,6 @@ class GRMBeerDetailsTableViewController: UITableViewController, UITableViewDeleg
     return 0
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    return tableView.dequeueReusableCellWithIdentifier(GrowlMovement.GMTaplist.TableView.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+    return tableView.dequeueReusableCellWithIdentifier(GrowlMovement.GMTaplist.TableView.CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
   }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class DeviceRegister {
   class func registerNewDevice() {
-    let types: UIUserNotificationType = .Badge | .Sound | .Alert
+    let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
 
     let pushSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
 

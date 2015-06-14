@@ -651,6 +651,7 @@
 		C3DB986419A16AA600EB4270 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Growl Movement";
 				TargetAttributes = {
